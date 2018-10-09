@@ -1,0 +1,149 @@
+/**app.wxss**/
+.container {
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+} 
+
+view,image,text,navigator{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+
+}
+
+view,text{
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+  font-size: 29rpx;
+  color: #333;
+}
+
+.logo{
+  height: 230px;
+}
+
+.row { display:flex; flex-direction:row; }
+.column { display:flex; flex-direction:column; }
+
+
+
+.section {
+  width: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  height: auto;
+  overflow: hidden;
+  color: #333;
+}
+
+.m-item-list{
+  width: 100%;
+}
+
+.m-item{
+  background: #fff;
+  margin-top: 3rpx;
+  width: 100%;
+}
+
+.m-item-header{
+  width: 100%;
+  color: #333;
+  height: 33px;
+}
+
+.m-item-header .timer{
+   float: right;
+   margin-right: 13px;
+   margin-top: 11px;
+   margin-bottom: 11px;
+   font-weight: bold;
+   color: #e85654;
+}
+
+.m-item-header .status-label{
+   float: right;
+   padding: 3px 11px;
+   margin-right: 13px;
+   margin-top: 11px;
+   margin-bottom: 11px;
+   font-weight: bold;
+   background-color: #e85654;
+   color: #fff;
+}
+
+.m-item-content{
+  width: 100%;
+  min-height: 113px;
+}
+
+.pre-img{
+  width: 32%;
+}
+
+.pre-img image{
+  width: 209rpx;
+  height: 209rpx;
+  margin-left: 6px;
+  margin-right: 13px;
+}
+
+.goods-content{
+   width: 65%;
+}
+
+.goods-content .name {
+  display: block;
+  color: #333;
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+
+.goods-content .desc {
+  display: block;
+  color: #888;
+  line-height: 39rpx;
+  font-size: 25rpx;
+  margin-top: 3px;
+}
+
+.goods-content .price {
+  display: block;
+  color: #b4282d;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  margin-top: 30px;
+}
+
+.content-extend{
+   color: #333;
+}
+
+.tips{
+  width: 79px;
+  margin-top: 60%;
+}
+
+.tip-title{
+  color: #666;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.tip-num{
+   color: #333;
+   margin-left: 9px;
+   line-height: 33px;
+}
+.m-item-footer{
+  height: 39px;
+}
+.join-btn{
+  margin: 0px 0px  0px 33%;
+  color: #666;
+  width: 79px;
+  padding: 3px 6px;
+  border: 1rpx solid #d9d9d9;
+  margin-top: 11px;
+  border-radius: 6rpx;
+}

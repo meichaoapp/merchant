@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    
+    "pages/ucenter/index/index",
+    "pages/ucenter/address/address",
+    "pages/ucenter/addressAdd/addressAdd",
+    "pages/ucenter/order/order",
+    "pages/ucenter/orderDetail/orderDetail",
+    "pages/ucenter/feedback/feedback",
+    "pages/ucenter/desire/desire",
+    "pages/ucenter/partner/partner",
+
+    "pages/auth/login/login",
+
+    "pages/pay/pay",
+    "pages/payResult/payResult",
+    "pages/search/search",
+   
+    "pages/shopping/checkout/checkout",
+    "pages/shopping/address/address",
+    "pages/shopping/addressAdd/addressAdd",
+    "pages/shopping/coupon/coupon",
+    "pages/goods/goods"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationStyle":"default",
+    "navigationBarBackgroundColor": "#72cfdd",
+    "navigationBarTitleText": "美超",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "selectedColor": "#b4282d",
+    "color": "#666",
+    "list": [
+      {
+        "pagePath": "pages/ucenter/desire/desire",
+        "iconPath": "static/images/ic_menu_choice_nor.png",
+        "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
+        "text": "想要"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/buy.png",
+        "selectedIconPath": "static/images/buy.png",
+        "text": "团购"
+      },
+     
+      {
+        "pagePath": "pages/ucenter/index/index",
+        "iconPath": "static/images/ic_menu_me_nor.png",
+        "selectedIconPath": "static/images/ic_menu_me_pressed.png",
+        "text": "我的"
+      }
+    ]
+  },
+ 
+  "debug": true
+}
