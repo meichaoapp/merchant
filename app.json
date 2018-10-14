@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    
+    "pages/goods/my_group",
+    "pages/goods/group_details",
+    "pages/goods/lendTheGoods",
+    "pages/firstLOgin/firstLogin",
     "pages/ucenter/index/index",
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
@@ -10,23 +13,19 @@
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/desire/desire",
     "pages/ucenter/partner/partner",
-
     "pages/auth/login/login",
-
     "pages/pay/pay",
     "pages/payResult/payResult",
     "pages/search/search",
-   
     "pages/shopping/checkout/checkout",
     "pages/shopping/address/address",
     "pages/shopping/addressAdd/addressAdd",
     "pages/shopping/coupon/coupon",
     "pages/goods/goods"
-
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationStyle":"default",
+    "navigationStyle": "default",
     "navigationBarBackgroundColor": "#72cfdd",
     "navigationBarTitleText": "美超",
     "navigationBarTextStyle": "white",
@@ -35,22 +34,27 @@
   "tabBar": {
     "backgroundColor": "#fafafa",
     "borderStyle": "white",
-    "selectedColor": "#b4282d",
+    "selectedColor": "#72cfdd",
     "color": "#666",
     "list": [
       {
         "pagePath": "pages/ucenter/desire/desire",
         "iconPath": "static/images/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
-        "text": "想要"
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/ic_my_group.png",
+        "selectedIconPath": "static/images/ic_my_group_active.png",
+        "text": "我的团"
       },
       {
         "pagePath": "pages/index/index",
         "iconPath": "static/images/buy.png",
         "selectedIconPath": "static/images/buy.png",
-        "text": "团购"
+        "text": "成为伙伴"
       },
-     
       {
         "pagePath": "pages/ucenter/index/index",
         "iconPath": "static/images/ic_menu_me_nor.png",
@@ -59,6 +63,5 @@
       }
     ]
   },
- 
   "debug": true
 }

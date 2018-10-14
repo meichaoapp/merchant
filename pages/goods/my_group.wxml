@@ -1,0 +1,28 @@
+<view class='flex flex_center flex_end flex_colum list_box'>
+  <view class='flex flex_center box_top'>
+     <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
+    <view class='flex flex_colum flex_start details-box flex_1'>
+      <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
+      <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>
+      <view class='flex flex_center flex_between line3'>
+        <text>当前参团人数：0</text>
+        <text class='status'>未开始</text>
+      </view>
+    </view>
+  </view>
+  <button class='btns'>修改</button>
+</view>
+
+<view class='flex flex_center flex_end flex_colum list_box'>
+  <view class='flex flex_center box_top'>
+     <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
+    <view class='flex flex_colum flex_start details-box flex_1'>
+      <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
+      <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>
+      <view class='flex flex_center flex_between line3'>
+        <text class='color-red'>当前参团人数：0</text> 
+      </view>
+    </view>
+  </view>
+  <view class='color-blue'>团购进行中</view>
+</view>

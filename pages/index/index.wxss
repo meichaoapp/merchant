@@ -1,26 +1,38 @@
+page {
+  background: rgb(245, 245, 245);
+}
 .location-header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 33px;
-  background: #fff;
-  color: #666;
-  font-size: 10pt;
+  height: 80rpx;
+  background: rgb(114,207,221);
+  color: #fff; 
+  font-size: 32rpx;
+  margin-top: -10rpx; 
+  z-index: 100;
 }
 .current-location{
-  margin-left: 11px;
+  margin-left: 32rpx;
   align-items: center;
 }
+.location-down {
+  width: 18rpx;
+  height: 10rpx;
+}
 .location-icon{
-  width:11px;
-  height:13px;
-  margin-top:9px;
-  margin-right:6px;
+  width:32rpx;
+  height:32rpx;
+ }
+ .icon_commander {
+  width: 44rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
  }
 .location-address{
-  height: 25px;
-  align-items: center;
-  line-height: 25px;
+  color: #fff;
+  font-size: 32rpx; 
+  margin: 0 14rpx;
 }
 .location-map-icon{
   width:13px;
@@ -29,11 +41,9 @@
   margin-right:3px;
  }
  .merchant-name{
-   color: #666;
-   height: 30px;
+   color: #fff;
    align-items: center;
-   line-height: 30px;
-   margin-right:6px;
+   margin-right:32rpx;
  }
 .banner {
   width: 750rpx;
@@ -77,4 +87,35 @@
   line-height: 1;
   color: #333;
 }
-
+/* 菜单新样式 */
+.munu-list {
+  background: #fff;
+  margin-top: 24rpx; 
+  padding: 50rpx 32rpx;
+}
+.munu-list .menu-item {
+  width: 50%;
+  height: 226rpx;
+  box-sizing: border-box; 
+}
+.munu-list .menu-item:nth-child(odd){
+  border-right: solid 1px rgb(191, 191, 191); 
+}
+.munu-list .menu-item:first-child,.munu-list .menu-item:nth-child(2) {
+  border-bottom: solid 1px rgb(191, 191, 191); 
+}
+.munu-list .menu-item:first-child image,.munu-list .menu-item:nth-child(2) image {
+  margin-top: -36rpx;
+}
+.munu-list .menu-item:nth-child(3) image,.munu-list .menu-item:nth-child(4) image {
+  margin-top: 36rpx;
+}
+.munu-list .menu-item image {
+  width: 130rpx;
+  height: 130rpx
+}
+.munu-list .menu-item text {
+  color: rgb(51,51,51);
+  font-size: 32rpx; 
+  margin-top:16rpx; 
+}

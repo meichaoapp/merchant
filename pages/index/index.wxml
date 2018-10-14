@@ -1,12 +1,14 @@
 
 <!--index.wxml-->
 <view class="container">
-  <view class='location-header '>
-     <view class='current-location'>
-         <image class='location-icon' src='/static/images/local-icon.png'></image>
+  <view class='location-header flex flex_center'>
+     <view class='current-location flex flex_center'>
+         <image class='location-icon' src='/static/images/location.png'></image>
          <text class='location-address'>{{cityname}}</text>
+         <image class='location-down' src='/static/images/down.png'></image>
      </view>
-     <view class='merchant-map'>
+     <view class='merchant-map flex flex_center'>
+         <image class='icon_commander' src='/static/images/icon_commander.png'></image>
          <text class='merchant-name'>{{merchantName}}</text>
      </view>
   </view>
@@ -16,13 +18,32 @@
     </swiper-item>
   </swiper>
 
-  <view class="m-menu">
+<!-- 菜单 -->
+<view class='munu-list flex flex_just flex_center flex_wrap'>
+   <view class='flex flex_center flex_colum flex_just menu-item'>
+     <image src='../../static/images/menu-icon-qrcode.png'></image>
+     <text>二维码领货</text>
+   </view>
+   <view class='flex flex_center flex_colum flex_just menu-item'>
+     <!-- <image src='../../static/images/menu-icon-qrcode.png'></image>
+     <text>二维码领货</text> -->
+   </view>
+   <view class='flex flex_center flex_colum flex_just menu-item'>
+     <!-- <image src='../../static/images/menu-icon-qrcode.png'></image>
+     <text>二维码领货</text> -->
+   </view>
+   <view class='flex flex_center flex_colum flex_just menu-item'>
+     <!-- <image src='../../static/images/menu-icon-qrcode.png'></image>
+     <text>二维码领货</text> -->
+   </view>
+</view>
+  <!-- <view class="m-menu">
     <view  class="item" data-url="{{item.url}}" data-way='{{item.way}}' wx:for="{{navs}}" wx:key="{{item.id}}" bindtap='navTo'>
       <image src="{{item.icon_url}}" background-size="cover"></image>
       <text>{{item.name}}</text>
     </view>
-  </view> 
-
+  </view>  -->
+ 
 
   
 </view>

@@ -1,0 +1,63 @@
+/* pages/goods/lengSHops.wxss */
+page {
+  background: rgb(245, 245, 245);
+}
+.people-lists {
+  background: #fff;
+  margin-top: 18rpx; 
+}
+.people-lists .main-title {
+  font-size: 32rpx;
+  color: #000;
+  padding: 40rpx;  
+}
+.lists-box {
+  width: 90%;
+  margin-left: 40rpx;
+}
+.list-item {
+  height: 110rpx;
+}
+.list-item:last-child {
+  border: none;
+}
+.shop-img {
+ width:70rpx;
+ height: 70rpx;
+ margin-right: 20rpx;
+ border-radius: 100%; 
+}
+.shop-title {
+  font-size: 32rpx;
+  color: #000;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 170rpx;
+}
+.shop-brief {
+  font-size: 20rpx;
+  color: rgb(102,102,102);
+  display: inline-block;
+  text-align: justify;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+.total-count {
+ font-size: 26rpx; 
+}
+input.invite-code {
+  border: solid 1px rgb(191,191,191);
+  padding: 30rpx;
+  width: 622rpx;
+  margin: 0 auto;
+}
+input::-webkit-input-placeholder {
+  color: rgb(153,153,153);
+}
+.right-details {
+  height: 110rpx;
+  border-bottom: solid #f0f0f0 1px; 
+}

@@ -1,0 +1,78 @@
+page {
+  background: rgb(245, 245, 245);
+  padding-top: 28rpx;
+}
+
+.list_box {
+  box-sizing: border-box;
+  padding: 18rpx;
+  border-radius: 18rpx;
+  box-shadow: 0 0 18rpx rgba(0, 0, 0, 0.08);
+  margin: 0 28rpx;
+  background: #fff;
+  margin-bottom: 18rpx;
+}
+
+.shop-img {
+  width: 180rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+}
+
+.shop-title {
+  font-size: 32rpx;
+}
+
+.line3 text {
+  font-size: 26rpx;
+  color: rgb(153, 153, 153);
+}
+
+.shop-brief {
+  font-size: 20rpx;
+  color: rgb(153, 153, 153);
+  padding: 16rpx 0 22rpx 0;
+}
+
+.shop-title {
+  font-size: 32rpx;
+  color: #000;
+}
+
+.details-box text {
+  text-align: justify;
+}
+
+.line3 {
+  width: 100%;
+}
+.box_top {
+  width: 100%;
+}
+.btns {
+  width:134rpx;
+  height:54rpx;
+  line-height: 54rpx;
+  color: #fff; 
+  border-radius: 40rpx; 
+  border: none;
+  background: rgb(114,207,221);
+  font-size: 28rpx; 
+  margin-top: 8rpx;
+  margin-right:-5rpx; 
+}
+.status {
+  margin-right: 14rpx;
+  font-size: 32rpx;
+}
+.color-red {
+ color: rgb(227,143,35)!important;
+}
+.color-blue {
+  color: rgb(114,207,221);  
+  font-size: 32rpx; 
+  margin-top: 8rpx;
+  display: inline-block;
+  width:100%;
+  text-align:right;
+}

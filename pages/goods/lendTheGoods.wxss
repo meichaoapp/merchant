@@ -1,0 +1,107 @@
+/* pages/goods/lengSHops.wxss */
+page {
+  background: rgb(245, 245, 245);
+}
+.icon_group_buying {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 20rpx; 
+  margin-top: 8rpx;
+}
+.group_details_box {
+  padding: 40rpx 32rpx;
+  line-height: 50rpx; 
+  background: #fff;
+}
+.group_details_box text {
+  font-size: 32rpx;
+}
+.icon_check_isok {
+  width: 202rpx;
+  height: 46rpx;
+}
+.icon_check_yes {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 16rpx;
+}
+.checkOk {
+  height: 164rpx;
+}
+.shop-lists {
+  background: #fff;
+  padding-bottom: 154rpx; 
+}
+.shop-lists .main-title {
+  font-size: 32rpx;
+  color: #000;
+  padding: 40rpx;  
+}
+.lists-box {
+  width: 90%;
+  margin-left: 40rpx;
+  box-shadow: 0 4rpx 18rpx rgba(0,0,0,0.08);
+}
+.list-item {
+  padding: 24rpx 0;
+  border-bottom: solid 1px #f0f0f0;
+  margin:0 20rpx; 
+}
+.list-item:last-child {
+  border: none;
+}
+.shop-img {
+ width: 112rpx;
+ height: 86rpx;
+ margin-right: 20rpx;
+}
+.shop-title {
+  font-size: 32rpx;
+  color: #000;
+  display: inline-block;
+  text-align: justify;
+  line-height: 40rpx;
+   text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.shop-brief {
+  font-size: 26rpx;
+  color: rgb(102,102,102);
+  display: inline-block;
+  text-align: justify;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+.total-count {
+ font-size: 26rpx; 
+}
+input.invite-code {
+  border: solid 1px rgb(191,191,191);
+  padding: 30rpx;
+  width: 622rpx;
+  margin: 0 auto;
+}
+input::-webkit-input-placeholder {
+  color: rgb(153,153,153);
+}
+.confirm-btn {
+  width:295rpx;
+  height:85rpx;
+  color: #fff; 
+  border-radius: 40rpx; 
+  border: none;
+  background: rgb(114,207,221);
+  font-size: 32rpx; 
+  margin: 0;
+}
+.confirm-btn:first-child {
+  margin-right: 22rpx;
+}
+.button-hover {
+  opacity: .8;
+} 
+.btn-box {
+  padding: 120rpx 0 152rpx 0; 
+}

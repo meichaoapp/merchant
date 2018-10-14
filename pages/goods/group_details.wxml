@@ -1,0 +1,32 @@
+<view class='people-lists'>
+   <view class='main-title'>参团人数：86</view>
+
+   <view class="lists-box">
+     <view class='list-item flex flex_between flex_center'>
+        <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
+        <view class='flex flex_center flex_1 flex_start right-details'>
+          <view class='shop-title'>微信好友1</view>
+          <view class='flex flex_colum flex_start flex_1'>
+            <text class='shop-brief'>整装箱整装箱整装箱整装箱</text>
+            <text class='shop-brief'>整装箱 20头</text>
+            <text class='shop-brief'>…</text>
+          </view>
+        </view>
+     </view>
+   </view>
+
+   <view class="lists-box">
+     <view class='list-item flex flex_between flex_center'>
+        <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
+        <view class='flex flex_center flex_1 flex_start right-details'>
+          <view class='shop-title'>微信好友1</view>
+          <view class='flex flex_colum flex_start flex_1'>
+            <text class='shop-brief'>整装箱整装箱整装箱整装箱</text>
+            <text class='shop-brief'>整装箱 20头</text>
+            <text class='shop-brief'>…</text>
+          </view>
+        </view>
+     </view>
+   </view>
+
+</view> 
