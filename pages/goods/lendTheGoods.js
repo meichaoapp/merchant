@@ -1,4 +1,8 @@
 // pages/goods/lengSHops.js
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+const wecache = require('../../utils/wecache.js');
+
 Page({
 
   /**
@@ -12,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getData();
   },
 
   /**
@@ -62,5 +66,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getData:function() {
+    let that = this;
+    var data = {
+      latitude: that.data.latitude,
+      longitude: that.data.longitude,
+    }
+    util.request(api.lendTheGoods, data).then(function (res) {
+      if (res.rs === 1) {
+        _this.setData({
+          merchants: res.data.merchants,
+        });
+      }
+    });
   }
 })

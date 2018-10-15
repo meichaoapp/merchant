@@ -15,5 +15,5 @@ module.exports = {
   
   Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）
   Pay: NewApiRootUrl + "common/pay", ///支付
-
+  lendTheGoods: NewApiRootUrl + "api/merchant/groupPurchase/list", ///支付
 };

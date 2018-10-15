@@ -33,6 +33,10 @@ page {
   color: #fff;
   font-size: 32rpx; 
   margin: 0 14rpx;
+  max-width: 81%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .location-map-icon{
   width:13px;

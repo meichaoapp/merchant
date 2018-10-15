@@ -2,9 +2,9 @@
 <!--index.wxml-->
 <view class="container">
   <view class='location-header flex flex_center'>
-     <view class='current-location flex flex_center'>
+     <view class='current-location flex flex_center' style='width: 68%;' bindtap='selectLocation'>
          <image class='location-icon' src='/static/images/location.png'></image>
-         <text class='location-address'>{{cityname}}</text>
+         <text class='location-address'>{{pointName}}</text>
          <image class='location-down' src='/static/images/down.png'></image>
      </view>
      <view class='merchant-map flex flex_center'>

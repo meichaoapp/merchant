@@ -2,6 +2,10 @@ const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../services/user.js');
 const maps = require('../../utils/maps.js');
+const wecache = require('../../utils/wecache.js');
+
+const pointKey = "userLocation";
+ 
 //获取应用实例
 const app = getApp()
 Page({
@@ -62,7 +66,25 @@ Page({
     });
 
   },
-
+  //选择位置
+  selectLocation: function () {
+    let _this = this;
+    maps.getLocation().then(res => {
+      _this.setData({
+        pointName: res.name,//具体的出发地点
+        longitude: res.longitude,
+        latitude: res.latitude,
+      })
+      //设置缓存信息
+      var userLocation = {
+        pointName: res.name,
+        longitude: res.longitude,
+        latitude: res.latitude,
+      };
+      wecache.put(pointKey, userLocation, -1);
+    });
+    _this.refresh(); // 加载行程信息
+  },
   //导航跳转
   navTo: function (e) {
     //跳转TabBar路径
@@ -82,22 +104,9 @@ Page({
     }
   },
   onLoad: function (options) {
-    this.queryBanner();
     var that = this;
-    wx.getLocation({
-      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success: function (res) {
-        var latitude = res.latitude//维度
-        var longitude = res.longitude//经度
-        console.log(res);
-        maps.getRegeo(latitude, longitude).then(res => {
-          that.setData({
-            cityname: res.poisData[0].cityname,
-          });
-             
-        });
-      }
-    })
+    this.queryBanner();
+    this.getCurrentLocation();
   },
   onReady: function () {
     // 页面渲染完成
@@ -110,5 +119,40 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
+  },
+  /**
+  * 获取当前地理位置信息
+  */
+  getCurrentLocation: function () {
+    var that = this;
+    var userLocation = wecache.get(pointKey, null);
+    if (userLocation == null) {
+      wx.getLocation({
+        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+        success: function (res) {
+          var latitude = res.latitude//维度
+          var longitude = res.longitude//经度
+          ///设置当前地理位置
+          that.setData({
+            latitude: latitude,
+            longitude: longitude,
+          });
+          maps.getRegeo(latitude, longitude).then(res => {
+            that.setData({
+              pointName: res.poisData[0].address,
+            });
+
+          });
+        }
+      })
+    } else {
+      that.setData({
+        pointName: userLocation.pointName,
+        longitude: userLocation.longitude,
+        latitude: userLocation.latitude,
+      })
+    }
+
+    //that.refresh(); // 加载行程信息
   },
 })

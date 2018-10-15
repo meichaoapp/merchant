@@ -55,6 +55,11 @@ function getData(url, p) {
   if(url == api.Pay){
     return JSON.stringify(RS);
   }
+
+  // 我的团
+  if (url == api.lendTheGoods) {
+    return JSON.stringify(RS);
+  }
   
 
 
