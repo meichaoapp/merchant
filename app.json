@@ -38,27 +38,27 @@
     "color": "#666",
     "list": [
       {
-        "pagePath": "pages/ucenter/desire/desire",
-        "iconPath": "static/images/ic_menu_choice_nor.png",
-        "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/icon-home.png",
+        "selectedIconPath": "static/images/icon-home-selected.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/goods/my_group",
         "iconPath": "static/images/ic_my_group.png",
         "selectedIconPath": "static/images/ic_my_group_active.png",
         "text": "我的团"
       },
       {
-        "pagePath": "pages/index/index",
-        "iconPath": "static/images/buy.png",
-        "selectedIconPath": "static/images/buy.png",
+        "pagePath": "pages/ucenter/partner/partner",
+        "iconPath": "static/images/icon-partner.png",
+        "selectedIconPath": "static/images/icon-partner-selected.png",
         "text": "成为伙伴"
       },
       {
         "pagePath": "pages/ucenter/index/index",
-        "iconPath": "static/images/ic_menu_me_nor.png",
-        "selectedIconPath": "static/images/ic_menu_me_pressed.png",
+        "iconPath": "static/images/icon-user.png",
+        "selectedIconPath": "static/images/icon-user-selected.png",
         "text": "我的"
       }
     ]

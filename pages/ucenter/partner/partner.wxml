@@ -1,6 +1,8 @@
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="container">
 
-   <view class='box'>
+   <!-- <view class='box'>
       <view class="box-bd">
         <view class="help-q">1、关于礼品卡兑换？</view>
         <view class="help-a">
@@ -13,27 +15,39 @@
           <text>礼品卡折换现金后存入账户余额，可以提现，但是不能换成礼品卡，请谨慎操作折现。所有解释权归“好礼平台”</text>
         </view>
       </view>
-   </view>
-
+   </view> -->
+   
    <view class='form'>
-     <view class='title'>我们会很快与您取得联系</view>
+      <view class='row flex flex_center'>
+        <image class='tip-icon' src='/static/images/icon-partner-t.png'></image>
+        <text class='tip-text'>我们会很快与您取得联系</text>
+      </view>
      <view class='box-base'>
-        <view class='label'><text>商超名称</text></view>
-        <view class='box-contacts'><input name="merchantName"></input></view>
+			 <view class='label flex flex_center'>
+			 	<text style='color:red;margin-right:4rpx;'>*</text>
+			 	<text class='label'>商超名称或个人姓名</text>
+			 </view>
+        <view class='box-contacts'><input name="name" placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
      <view class='box-base'>
-      <view class='box-location-text'><text>商超商超</text></view>
-      <view  class='box-location' bindtap='getStartLocation'>
-        <image class='location-icon' src='/static/images/local-icon.png'></image>
-        <text>{{startPoint ||'获取位置'}}</text>
+      <view class='label flex flex_center'>
+        <text style='color:red;margin-right:4rpx;'>*</text>
+        <text class='label'>商超位置</text>
       </view>
+      <view class='box-contacts'><input name="location" placeholder='请输入...' placeholder-class="phcolor"></input></view>
     </view>
       <view class='box-base'>
-        <view class='label'><text>联系电话</text></view>
-        <view class='box-contacts'><input name="merchantName"></input></view>
+				<view class='label flex flex_center'>
+					<text style='color:red;margin-right:4rpx;'>*</text>
+					<text class='label'>联系电话</text>
+				</view>
+        <view class='box-contacts'><input name="phone" placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
 
-      <button class="fb-btn">提交</button>
+       <button class="fb-btn" bindtap='submit'>提交</button>
+      <view class='policy'>
+        查看《美超社区团购合作政策》
+      </view>
    </view>
 
   

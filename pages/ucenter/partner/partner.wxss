@@ -1,7 +1,10 @@
-
-.container{
+page{
     background: #f4f4f4;
     min-height: 100%;
+}
+.container{
+    background: #f4f4f4;
+    min-height:100%;
 }
 .box {
   display: flex;
@@ -38,32 +41,43 @@
 .form{
   width: 100%;
   background: #fff;
-  padding-top: 20rpx;
+  margin-top:6px;
+  padding-top:23rpx;
+  padding-bottom: 39px;
 }
+
 .title{
   margin-left:10px;
   margin-top:10px;
-  font-weight: bold;
-  color: #666;
+  color: #333;
   line-height: 39px;
   font-size:11pt;
 }
 .box-base{
-  display: flex;
-  justify-content: flex-start;
   padding: 30rpx 65rpx 23rpx 50rpx;
-  border-bottom: 1px solid #DFDFDF;
   font-size: 30rpx;
-  color: #666666;
+  color: #72cfdd;
+  
 }
  .label{
   margin-top:2px;
-  color:#666666;
-  width:69px;
+  color: #72cfdd;
 }
 input{
   font-size: 26rpx;
-  color: #CCCCCC;
+  color: rgb(153,153,153);
+  border: 1px solid rgb(191,191,191);
+  height:72rpx;
+  border-radius: 6rpx;
+  padding-left:16rpx;
+}
+input::-webkit-input-placeholder {
+  color: rgb(153,153,153);
+}
+.phcolor{
+  padding-left: 3px;
+  font-size: 26rpx;
+  color: #666666;
 }
  .location-icon{
    width:11px;
@@ -77,7 +91,7 @@ input{
   height:36rpx;
 }
 .box-contacts{
-  margin-left: 39rpx;
+  margin-top: 3px;
 }
 .box-checked{
   margin-left: 35rpx;
@@ -100,9 +114,16 @@ input{
     line-height:85rpx;
     margin:39rpx 29.5rpx;
     text-align:center;
-    background:#FF8811;
+    background:#72cfdd;
     border-radius:10rpx;
     font-size:32rpx;
     color:#FFFFFF;
     letter-spacing:-0.01rpx;
+}
+
+.policy{
+  display: flex;
+  justify-content: center;
+  text-justify: center;
+  color: #f0c33d;
 }

@@ -1,6 +1,6 @@
 <view class='flex flex_center flex_end flex_colum list_box'>
   <view class='flex flex_center box_top'>
-     <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
+     <image class='shop-img' src='https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png'></image>
     <view class='flex flex_colum flex_start details-box flex_1'>
       <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
       <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>
@@ -15,7 +15,7 @@
 
 <view class='flex flex_center flex_end flex_colum list_box'>
   <view class='flex flex_center box_top'>
-     <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
+     <image class='shop-img' src='https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png'></image>
     <view class='flex flex_colum flex_start details-box flex_1'>
       <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
       <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>

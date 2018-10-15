@@ -26,7 +26,19 @@ view,text{
 .column { display:flex; flex-direction:column; }
 
 
-
+ .tip-icon{
+   width: 36rpx;
+   height: 36rpx;
+   margin-left: 3%;
+   margin-right: 1%;
+ }
+ .tip-text{
+   color: #333333;
+   font-weight: bold;
+   font-size: 31rpx;
+   margin-left: 8rpx; 
+ }
+ 
 .section {
   width: 100%;
   margin-top: 20rpx;
