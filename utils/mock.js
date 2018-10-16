@@ -186,16 +186,27 @@ function QueryOrderDetail(){
   var data = {
     "id": 1,  //订单id	  
     "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
-    "userName": "",	   //参团人
-    "joinTime": "2018/09/16 00:00:00", //参团时间，注意格式
+    "userName": "快乐的山羊",	   //参团人
+    "joinTime": "2018/09/16", //参团时间，注意格式
     "goodsList": [
       {
         "id": 1, // 商品id
-        "url": "",//展示图片
-        "name": "",//名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",//展示图片
+        "name": "细嫩多汁蜜蜂21.5C绿心奇异果",//名称
         "specifications": "整箱20个",//规格
-        "marketPrice": 10.05,//市场价
+        "marketPrice": 11.05,//市场价
         "price": 10.05,//单价
+        "unit": "盒",//单位
+        "buyNum": 100,//购买数量
+      },
+      {
+        "id": 2, // 商品id
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png",//展示图片
+        "name": "精品羊排 新鲜出厂当日即达",//名称
+        "specifications": "整箱20个",//规格
+        "marketPrice": 19.05,//市场价
+        "price": 10.05,//单价
+        "unit": "盒",//单位
         "buyNum": 100,//购买数量
       }
     ]//商品清单

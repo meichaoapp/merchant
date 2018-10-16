@@ -1,21 +1,28 @@
 // pages/goods/lengSHops.js
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
-const wecache = require('../../utils/wecache.js');
-
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: 1,  //订单id	  
+    name: "",	   //团购名称
+    userName: "",	   //参团人
+    joinTime: "", //参团时间，注意格式
+    goodsList: [], //订单商品列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.$wuxToast = app.Wux().$wuxToast
+    this.setData({
+      id: parseInt(options.id)
+    });
     this.getData();
   },
 
@@ -67,16 +74,37 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+  //确认领取
+  leadOrder: function () {
+    var _this = this;
+    util.request(api.QueryOrderDetail, { id: _this.data.id }, "POST").then(function (res) {
+      if (res.rs === 1) {
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      }else{
+        _this.$wuxToast.show({ type: 'forbidden', text: "领取失败，请重新操作！", });
+      }
+    });
+  },
+
+  //跳转首页(知道了)
+  toIndex: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+
   getData:function() {
     let that = this;
-    var data = {
-      latitude: that.data.latitude,
-      longitude: that.data.longitude,
-    }
-    util.request(api.lendTheGoods, data).then(function (res) {
+    util.request(api.QueryOrderDetail, { id: that.data.id },"POST").then(function (res) {
       if (res.rs === 1) {
-        _this.setData({
-          merchants: res.data.merchants,
+        that.setData({
+          name: res.data.name,	   //团购名称
+          userName: res.data.userName,	   //参团人
+          joinTime: res.data.joinTime, //参团时间，注意格式
+          goodsList: res.data.goodsList, //订单商品列表
         });
       }
     });

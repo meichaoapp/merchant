@@ -1,17 +1,19 @@
+<import src="../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 <view class='flex flex_between flex group_details_box'>
   <image class='icon_group_buying' src='../../static/images/icon_group_buying.png'></image>
   <view class='flex_1'>
     <view>
      <text>团购名称：</text>
-     <text>快乐的蛋 出厂价团 只为宣传出厂 </text>
+     <text> {{name}} </text>
   </view>
   <view>
      <text>参团人：</text>
-     <text>微信昵称</text>
+     <text>{{userName}}</text>
   </view>
   <view>
      <text>参团时间：</text>
-     <text>2018.09.15</text>
+     <text>{{joinTime}}</text>
   </view>
   </view>
 </view>
@@ -24,36 +26,22 @@
 <view class='shop-lists'>
    <view class='main-title'>购物清单</view>
    <view class="lists-box">
-     <view class='list-item flex flex_between flex_center'>
-        <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
+     <view class='list-item flex flex_between flex_center' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+        <image class='shop-img' src='{{item.url}}'></image>
         <view class='flex flex_colum flex_start flex_1'>
-          <text class='shop-title'>【细嫩多汁】绿心奇异果</text>
-          <text class='shop-brief'>整装箱 20头</text>
+          <text class='shop-title'>{{item.name}}</text>
+          <text class='shop-brief'>{{item.specifications}}</text>
         </view>
-        <view class='total-count'>1盒*2</view>
+        <view class='total-count'>1{{item.unit}}*{{item.buyNum}}</view>
      </view>
 
-      <view class='list-item flex flex_between flex_center'>
-        <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
-        <view class='flex flex_colum flex_start flex_1'>
-          <text class='shop-title'>【细嫩多汁】绿心奇异果</text>
-          <text class='shop-brief'>整装箱 20头</text>
-        </view>
-        <view class='total-count'>1盒*2</view>
-     </view>
+  
 
-      <view class='list-item flex flex_between flex_center'>
-        <image class='shop-img' src='../../static/images/icon-card-top.png'></image>
-        <view class='flex flex_colum flex_start flex_1'>
-          <text class='shop-title'>【细嫩多汁】绿心奇异果</text>
-          <text class='shop-brief'>整装箱 20头</text>
-        </view>
-        <view class='total-count'>1盒*2</view>
-     </view>
+     
    </view>
 </view>
 
 <view class='flex flex_center flex_just btn-box'> 
-  <button class='confirm-btn'>未领取</button>
-  <button class='confirm-btn'>确认领取</button>
+  <button class='confirm-btn' bindtap='toIndex'>取消</button>
+  <button class='confirm-btn' bindtap='leadOrder'>确认领取</button>
 </view>
