@@ -53,8 +53,7 @@ Page({
     var _this = this;
     wx.scanCode({
       success: (res) => {
-        var rs = "结果:" + res.result + "二维码类型:" + res.scanType + "字符集:" + res.charSet + "路径:" + res.path;
-        var orderId = 1;
+        var orderId = res.result;
         wx.redirectTo({
           url: '/pages/goods/lendTheGoods?id='+orderId,
         })

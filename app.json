@@ -4,7 +4,7 @@
     "pages/goods/my_group",
     "pages/goods/group_details",
     "pages/goods/lendTheGoods",
-    "pages/firstLOgin/firstLogin",
+    "pages/firstLogin/firstLogin",
     "pages/ucenter/index/index",
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
