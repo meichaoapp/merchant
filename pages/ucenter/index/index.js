@@ -37,6 +37,12 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+  //跳转到我的团
+  navToGroup:function(){
+     wx.switchTab({
+       url: '/pages/goods/my_group',
+     })
+  },
   //拨打客服电话
   callCFPhone: function (event) {
     //console.log("debug: 客服电话-----" + event.currentTarget.dataset.phone);
