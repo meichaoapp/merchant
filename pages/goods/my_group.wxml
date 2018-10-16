@@ -1,28 +1,36 @@
-<view class='flex flex_center flex_end flex_colum list_box'>
-  <view class='flex flex_center box_top'>
-     <image class='shop-img' src='https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png'></image>
-    <view class='flex flex_colum flex_start details-box flex_1'>
-      <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
-      <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>
-      <view class='flex flex_center flex_between line3'>
-        <text>当前参团人数：0</text>
-        <text class='status'>未开始</text>
-      </view>
-    </view>
-  </view>
-  <button class='btns'>修改</button>
+
+<!--index.wxml-->
+<import src="../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
+<view class="header" hidden="{{hideHeader}}">
+  <view>下拉刷新中……</view>
+  <view>{{refreshTime}}</view>
 </view>
 
-<view class='flex flex_center flex_end flex_colum list_box'>
+<scroll-view scroll-y="true">
+  
+<view wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}" class='flex flex_center flex_end flex_colum list_box'>
+<navigator url="/pages/goods/group_details?id={{item.id}}">
   <view class='flex flex_center box_top'>
-     <image class='shop-img' src='https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png'></image>
+     <image class='shop-img' src='{{item.url}}'></image>
     <view class='flex flex_colum flex_start details-box flex_1'>
-      <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
-      <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>
+      <text class='shop-title'>{{item.name}}</text>
+      <text class='shop-brief'>{{item.comments}}</text>
       <view class='flex flex_center flex_between line3'>
-        <text class='color-red'>当前参团人数：0</text> 
+        <text>当前参团人数：{{item.joinNum}}</text>
+        <text wx:if="{{item.status == 0 || item.status == 2}}" class='status'>{{item.statusStr}}</text>
       </view>
     </view>
   </view>
-  <view class='color-blue'>团购进行中</view>
+  <button wx:if="{{item.status == 0}}" class='btns'>修改</button>
+  <view wx:if="{{item.status == 1 || item.status == 3 }}"  class='color-blue'>{{item.statusStr}}</view>
+  <button wx:if="{{item.status == 2}}" class='btns'>备货</button>
+  </navigator>
+</view>
+
+</scroll-view>
+
+<view class="bottom" hidden="{{hideBottom}}">
+  <view>{{loadMoreData}}</view>
+  <view>{{refreshTime}}</view>
 </view>
