@@ -7,7 +7,7 @@
          <text class='location-address'>{{pointName}}</text>
          <image class='location-down' src='/static/images/down.png'></image>
      </view>
-     <view class='merchant-map flex flex_center'>
+     <view class='merchant-map flex flex_center' wx:if="{{ merchantName != '' && merchantName != null}}">
          <image class='icon_commander' src='/static/images/icon_commander.png'></image>
          <text class='merchant-name'>{{merchantName}}</text>
      </view>
@@ -20,7 +20,7 @@
 
 <!-- 菜单 -->
 <view class='munu-list flex flex_just flex_center flex_wrap'>
-   <view class='flex flex_center flex_colum flex_just menu-item'>
+   <view bindtap='scanQrCode' class='flex flex_center flex_colum flex_just menu-item'>
      <image src='../../static/images/menu-icon-qrcode.png'></image>
      <text>二维码领货</text>
    </view>

@@ -10,39 +10,8 @@ const pointKey = "userLocation";
 const app = getApp()
 Page({
   data: {
-    cityname:"",
-    merchantName:"生源超市",
+    merchantName:"",
     banners: [],
-    navs:[
-      {
-        id : 1,
-        name:'兑换',
-        url:'/pages/ucenter/coupon/coupon',
-        icon_url:'/static/images/img-share-cash.png',
-        way: 0,
-      },
-      {
-        id: 2,
-        name: '好礼',
-        url: '/pages/hotGoods/hotGoods',
-        icon_url: '/static/images/icon-user-yhq.png',
-        way: 0,
-      },
-      {
-        id: 3,
-        name: '送礼',
-        url: '/pages/cart/cart',
-        icon_url: '/static/images/icon-user-lingqu.png',
-        way: 1,
-      },
-      {
-        id: 4,
-        name: '提现',
-        url: '/pages/ucenter/withdraw/index',
-        icon_url: '/static/images/img-share-price.png',
-        way:0,
-      },
-    ],
   },
   onShareAppMessage: function () {
     return {
@@ -51,13 +20,62 @@ Page({
       path: '/pages/index/index'
     }
   },
+  
+  onLoad: function (options) {
+    var that = this;
+    let userInfo = wx.getStorageSync('userInfo');
+    let token = wx.getStorageSync('token');
+
+    this.setData({
+      userInfo: userInfo,
+      merchantName: userInfo.name,
+    });
+
+    this.queryBanner();
+    this.getCurrentLocation();
+
+  },
+  onReady: function () {
+    // 页面渲染完成
+  },
+  onShow: function () {
+    // 页面显示
+  },
+  onHide: function () {
+    // 页面隐藏
+  },
+  onUnload: function () {
+    // 页面关闭
+  },
+
+  //领货扫描二维码
+  scanQrCode: function(){ 
+    var _this = this;
+    wx.scanCode({
+      success: (res) => {
+        var rs = "结果:" + res.result + "二维码类型:" + res.scanType + "字符集:" + res.charSet + "路径:" + res.path;
+        var orderId = 1;
+        wx.redirectTo({
+          url: '/pages/goods/lendTheGoods?id='+orderId,
+        })
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '扫描订单失败,请重试！',
+          duration: 2000
+        })
+      },
+      complete: (res) => {
+      }
+    })
+  },
 
   /**
    * 查询首页录播图
    */
   queryBanner: function () {
     let that = this;
-    util.request(api.QueryBanner).then(function (res) {
+    util.request(api.QueryBanner, { token: "" }, "POST").then(function (res) {
       if (res.rs === 1) {
         that.setData({
           banners: res.data.banners
@@ -85,41 +103,7 @@ Page({
     });
     _this.refresh(); // 加载行程信息
   },
-  //导航跳转
-  navTo: function (e) {
-    //跳转TabBar路径
-    if (e.currentTarget.dataset.way == 1 ) {
-        wx.switchTab({
-          url: e.currentTarget.dataset.url
-        });  
-    } else {
-      wx.navigateTo({
-        url: e.currentTarget.dataset.url,
-        success: function (res) {
-        },
-        fail: function (e) {
-          console.log("error--", e);
-        }
-      })
-    }
-  },
-  onLoad: function (options) {
-    var that = this;
-    this.queryBanner();
-    this.getCurrentLocation();
-  },
-  onReady: function () {
-    // 页面渲染完成
-  },
-  onShow: function () {
-    // 页面显示
-  },
-  onHide: function () {
-    // 页面隐藏
-  },
-  onUnload: function () {
-    // 页面关闭
-  },
+
   /**
   * 获取当前地理位置信息
   */
