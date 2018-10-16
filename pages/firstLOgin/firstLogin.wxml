@@ -1,4 +1,4 @@
-<image class="cover-img" src="../../static/images/icon-card-top.png"></image>
+<image class="cover-img" src="../../static/images/logo.png"></image>
 <view class="main-title">请向销售索取授权码</view>
 <input class='invite-code' type='text' placeholder='请输入授权码'></input>
 <button class='confirm-btn'>提交</button>
