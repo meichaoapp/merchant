@@ -1,44 +1,37 @@
-// pages/goods/group_details.js
+const app = getApp();
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: 0,
+    getFriendslist: [],
+    start: 1, // 页码
+    totalPage: 0, // 共有页
+    joinNum:0,//参团人数
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    var that = this;
+    // 页面初始化 options为页面跳转所带来的参数
+    that.setData({
+      id: parseInt(options.id)
+      // id: 1181000
+    });
+    that.getFriendslist();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
 
   },
@@ -61,6 +54,21 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+  getFriendslist: function (e) {
+    // 获取我的团列表信息
+    let that = this;
+    util.request(api.Friends).then(function (res) {
+      if (res.rs === 1) {
+        var getFriendslist = res.data.list;
+        that.setData({
+          joinNum:res.data.joinNum,
+          getFriendslist: getFriendslist
+        })
+        console.log(getFriendslist);
+      }
+    });
 
   }
 })

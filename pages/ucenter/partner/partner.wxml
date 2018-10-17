@@ -1,8 +1,8 @@
-<import src="../../../components/toast/toast.wxml"/>
-<template is="toast" data="{{ ...$wux.toast }}"/>
+<import src="../../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$wux.toast }}" />
 <view class="container">
 
-   <!-- <view class='box'>
+  <!-- <view class='box'>
       <view class="box-bd">
         <view class="help-q">1、关于礼品卡兑换？</view>
         <view class="help-a">
@@ -16,39 +16,46 @@
         </view>
       </view>
    </view> -->
-   
-   <view class='form'>
-      <view class='row flex flex_center'>
-        <image class='tip-icon' src='/static/images/icon-partner-t.png'></image>
-        <text class='tip-text'>我们会很快与您取得联系</text>
+
+  <view class='form'>
+    <view class='row flex flex_center'>
+      <image class='tip-icon' src='/static/images/icon-partner-t.png'></image>
+      <text class='tip-text'>我们会很快与您取得联系</text>
+    </view>
+    <view class='box-base'>
+      <view class='label flex flex_center pos'>
+        <text class='HintInfor'>*</text>
+        <text class='label'>商超名称或个人姓名</text>
       </view>
-     <view class='box-base'>
-			 <view class='label flex flex_center'>
-			 	<text style='color:red;margin-right:4rpx;'>*</text>
-			 	<text class='label'>商超名称或个人姓名</text>
-			 </view>
-        <view class='box-contacts'><input name="name" placeholder='请输入...' placeholder-class="phcolor"></input></view>
-     </view>
-     <view class='box-base'>
+      <view class='box-contacts'>
+        <input name="name" placeholder='请输入...' placeholder-class="phcolor"></input>
+      </view>
+    </view>
+    <view class='box-base'>
       <view class='label flex flex_center'>
-        <text style='color:red;margin-right:4rpx;'>*</text>
+        <!-- <text style='color:red;margin-right:4rpx;'>*</text> -->
         <text class='label'>商超位置</text>
       </view>
-      <view class='box-contacts'><input name="location" placeholder='请输入...' placeholder-class="phcolor"></input></view>
-    </view>
-      <view class='box-base'>
-				<view class='label flex flex_center'>
-					<text style='color:red;margin-right:4rpx;'>*</text>
-					<text class='label'>联系电话</text>
-				</view>
-        <view class='box-contacts'><input name="phone" placeholder='请输入...' placeholder-class="phcolor"></input></view>
-     </view>
-
-       <button class="fb-btn" bindtap='submit'>提交</button>
-      <view class='policy'>
-        查看《美超社区团购合作政策》
+      <view class='box-contacts pos-shangchao' bindtap='selectLocation'>
+        <text class="iconfont icon-zuobiao"></text>
+        <input name="location" placeholder='请输入...' placeholder-class="phcolor" value='{{address}}'></input>
       </view>
-   </view>
+    </view>
+    <view class='box-base'>
+      <view class='label flex flex_center pos'>
+        <text class="HintInfor">*</text>
+        <text class='label'>联系电话</text>
+      </view>
+      <view class='box-contacts'>
+        <input name="phone" placeholder='请输入...' placeholder-class="phcolor"></input>
+      </view>
+    </view>
 
-  
+    <button class="fb-btn" bindtap='submit'>提交</button>
+    <view class='policy'>
+      查看《美超社区团购合作政策》
+    </view>
+  </view>
+
+
 </view>

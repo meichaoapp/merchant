@@ -76,3 +76,27 @@ page {
   width:100%;
   text-align:right;
 }
+.beihuo{
+   color: rgb(114,207,221)!important;  
+}
+.finished{
+  color: rgb(153, 153, 153)!important;
+  background: #fff!important;
+  border-radius: 0!important;
+  border: 0!important;
+  width:auto!important;
+}
+.finished::after,.ongoing::after {
+  border: 0!important;
+} 
+.ongoing{
+  color: rgb(114,207,221)!important;  
+  background: #fff!important;
+  border-radius: 0!important;
+  border: 0!important;
+  width:auto!important;
+}
+.btns-nav{
+background: #fff;
+width: 100%;
+}

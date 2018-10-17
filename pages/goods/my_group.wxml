@@ -1,36 +1,70 @@
-
-<!--index.wxml-->
-<import src="../../components/loading/loading.wxml" />
-<template is="loading" data="{{ ...$wux.loading }}" />
-<view class="header" hidden="{{hideHeader}}">
-  <view>下拉刷新中……</view>
-  <view>{{refreshTime}}</view>
-</view>
-
-<scroll-view scroll-y="true">
-  
-<view wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}" class='flex flex_center flex_end flex_colum list_box'>
-<navigator url="/pages/goods/group_details?id={{item.id}}">
+<view class='flex flex_center flex_end flex_colum list_box' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
   <view class='flex flex_center box_top'>
-     <image class='shop-img' src='{{item.url}}'></image>
+    <image class='shop-img' src='{{item.url}}'></image>
     <view class='flex flex_colum flex_start details-box flex_1'>
       <text class='shop-title'>{{item.name}}</text>
-      <text class='shop-brief'>{{item.comments}}</text>
+      <text class='shop-brief'>{{item.merchantName}}</text>
       <view class='flex flex_center flex_between line3'>
-        <text>当前参团人数：{{item.joinNum}}</text>
-        <text wx:if="{{item.status == 0 || item.status == 2}}" class='status'>{{item.statusStr}}</text>
+        <text class='color-red'>当前参团人数：{{item.joinNum}}</text>
+        <text class='status' wx:if="{{item.status == 0}}">未开始</text>
+        <text class='status beihuo' wx:if="{{item.status == 2}}">发放中</text>
       </view>
     </view>
   </view>
-  <button wx:if="{{item.status == 0}}" class='btns'>修改</button>
-  <view wx:if="{{item.status == 1 || item.status == 3 }}"  class='color-blue'>{{item.statusStr}}</view>
-  <button wx:if="{{item.status == 2}}" class='btns'>备货</button>
+ <navigator class="btns-nav" url='/pages/goods/group_details?id={{item.id}}'>
+    <button class='btns' wx:if="{{item.status == 0}}">修改</button>
+    <button class='btns ongoing' wx:elif="{{item.status == 1}}">团购进行中</button>
+    <button class='btns' wx:elif="{{item.status == 2}}">备货</button>
+    <button class='btns finished' wx:else>已完成</button>
   </navigator>
+
+
 </view>
 
-</scroll-view>
+<!-- 
 
-<view class="bottom" hidden="{{hideBottom}}">
-  <view>{{loadMoreData}}</view>
-  <view>{{refreshTime}}</view>
+<view class='flex flex_center flex_end flex_colum list_box'>
+  <view class='flex flex_center box_top'>
+     <image class='shop-img' src='https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png'></image>
+    <view class='flex flex_colum flex_start details-box flex_1'>
+      <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
+      <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>
+      <view class='flex flex_center flex_between line3'>
+        <text>当前参团人数：0</text>
+      </view>
+    </view>
+  </view>
+  <button class='btns ongoing'>团购进行中</button>
 </view>
+
+
+
+<view class='flex flex_center flex_end flex_colum list_box'>
+  <view class='flex flex_center box_top'>
+     <image class='shop-img' src='https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png'></image>
+    <view class='flex flex_colum flex_start details-box flex_1'>
+      <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
+      <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>
+      <view class='flex flex_center flex_between line3'>
+        <text class='color-red'>当前参团人数：0</text>
+        <text class='status beihuo'>发放中</text>
+      </view>
+    </view>
+  </view>
+  <button class='btns'>备货</button>
+</view>
+
+
+<view class='flex flex_center flex_end flex_colum list_box'>
+  <view class='flex flex_center box_top'>
+     <image class='shop-img' src='https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png'></image>
+    <view class='flex flex_colum flex_start details-box flex_1'>
+      <text class='shop-title'>快乐的蛋 出厂价团 只为宣传</text>
+      <text class='shop-brief'>快乐的蛋，可以生吃的有身份的鸡蛋</text>
+      <view class='flex flex_center flex_between line3'>
+        <text>当前参团人数：0</text>
+      </view>
+    </view>
+  </view>
+  <button class='btns finished'>已完成</button>
+</view> -->
