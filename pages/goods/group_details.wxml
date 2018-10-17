@@ -10,28 +10,12 @@
 
             <block wx:for="{{item.goodsList}}" wx:for-index="index_j" wx:for-item="item_j" wx:key="{{item_j.id}}">
 
-                        <text class='shop-brief'>【{{item_j.buyNum}}】{{item_j.name}}</text>
-                        
-                        <text class='shop-brief'>…</text>
+                        <text class='shop-brief'>【{{item_j.buyNum}}{{item_j.unit}}】{{item_j.name}}</text>
             </block>
             
           </view>
         </view>
      </view>
    </view>
-
-   <!-- <view class="lists-box">
-     <view class='list-item flex flex_between flex_center'>
-        <image class='shop-img' src='https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png'></image>
-        <view class='flex flex_center flex_1 flex_start right-details'>
-          <view class='shop-title'>微信好友1</view>
-          <view class='flex flex_colum flex_start flex_1'>
-            <text class='shop-brief'>整装箱整装箱整装箱整装箱</text>
-            <text class='shop-brief'>整装箱 20头</text>
-            <text class='shop-brief'>…</text>
-          </view>
-        </view>
-     </view>
-   </view> -->
 
 </view> 

@@ -187,22 +187,54 @@ function Friends(){
     "list": [
       {
         "id":1,  //id	
-        "name":"wangwang",	   //客户名称
-        "nickName": "wangwang",	      //微信昵称
-        "openid":"P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar":"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLW3U1bBXQGaRILfI9mUgMNuX3MRicwXdVshxp7WWia3Ojq4K4ZL2V4HrTic9BATHKyQQbeFOHb4Rw2w/0", //头像	
+        "nickName": "小熊维尼",	      //微信昵称
+        "avatar":"https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //头像	
         "goodsList": [
           {
             "id": 1, // 商品id
-            "url": "",//展示图片
-            "name": "",//名称
-            "specifications": "整箱20个",//规格
-            "marketPrice": 10.05,//市场价
-            "price": 10.05,//单价
+            "name": "细嫩多汁蜜蜂21.5C绿心奇异果",//名称
+            "unit": "盒",//单位
             "buyNum": 100,//购买数量
-          }
+          },
+          {
+            "id": 1, // 商品id
+            "name": "细嫩多汁蜜蜂21.5C绿心奇异果",//名称
+            "unit": "盒",//单位
+            "buyNum": 100,//购买数量
+          },
+          {
+            "id": 1, // 商品id
+            "name": "细嫩多汁蜜蜂21.5C绿心奇异果",//名称
+            "unit": "盒",//单位
+            "buyNum": 100,//购买数量
+          },
         ]//商品清单
-      }
+      },
+      {
+        "id": 1,  //id
+        "nickName": "东方天才",	      //微信昵称
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //头像	
+        "goodsList": [
+          {
+            "id": 1, // 商品id
+            "name": "细嫩多汁蜜蜂21.5C绿心奇异果",//名称
+            "unit": "盒",//单位
+            "buyNum": 100,//购买数量
+          },
+          {
+            "id": 1, // 商品id
+            "name": "细嫩多汁蜜蜂21.5C绿心奇异果",//名称
+            "unit": "盒",//单位
+            "buyNum": 100,//购买数量
+          },
+          {
+            "id": 1, // 商品id
+            "name": "细嫩多汁蜜蜂21.5C绿心奇异果",//名称
+            "unit": "盒",//单位
+            "buyNum": 100,//购买数量
+          },
+        ]//商品清单
+      },
     ]
   }
 
