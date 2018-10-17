@@ -15,23 +15,26 @@ Page({
   },
 
   onLoad: function (options) {
-    let userInfo = wx.getStorageSync('userInfo');
-    let token = wx.getStorageSync('token');
+    
     this.$wuxToast = app.Wux().$wuxToast
     
-    this.getCurrentLocation();
+   
 
-    if (null == userInfo || userInfo == "" || undefined == userInfo){
-      wx.navigateTo({
-        url: '/pages/firstLogin/firstLogin'
-      });
-    }
+    
   },
   onReady: function () {
 
   },
   onShow: function () {
+    let userInfo = wx.getStorageSync('userInfo');
+    let token = wx.getStorageSync('token');
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/firstLogin/firstLogin'
+      });
+    }
 
+    this.getCurrentLocation();
   },
   onHide: function () {
     // 页面隐藏
