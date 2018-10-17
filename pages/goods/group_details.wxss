@@ -9,14 +9,16 @@ page {
 .people-lists .main-title {
   font-size: 32rpx;
   color: #000;
-  padding: 40rpx;  
+  padding: 40rpx 0;  
+  margin-left: 40rpx;
+  border-bottom: solid 1px #f0f0f0; 
 }
 .lists-box {
   width: 90%;
   margin-left: 40rpx;
 }
 .list-item {
-  height: 110rpx;
+  height: 125rpx;
 }
 .list-item:last-child {
   border: none;
@@ -58,6 +60,6 @@ input::-webkit-input-placeholder {
   color: rgb(153,153,153);
 }
 .right-details {
-  height: 110rpx;
+  height: 125rpx;
   border-bottom: solid #f0f0f0 1px; 
 }

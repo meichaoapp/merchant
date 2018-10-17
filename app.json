@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
- 
     "pages/firstLogin/firstLogin",
     "pages/ucenter/index/index",
     "pages/ucenter/address/address",
