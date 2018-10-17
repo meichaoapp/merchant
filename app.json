@@ -1,9 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/goods/my_group",
-    "pages/goods/group_details",
-    "pages/goods/lendTheGoods",
+ 
     "pages/firstLogin/firstLogin",
     "pages/ucenter/index/index",
     "pages/ucenter/address/address",
@@ -13,7 +11,9 @@
     "pages/auth/login/login",
     "pages/pay/pay",
     "pages/payResult/payResult",
-    "pages/goods/goods"
+    "pages/goods/my_group",
+    "pages/goods/group_details",
+    "pages/goods/lendTheGoods"
   ],
   "window": {
     "backgroundTextStyle": "dark",
