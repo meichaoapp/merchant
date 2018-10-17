@@ -30,12 +30,14 @@ Page({
       wx.navigateTo({
         url: '/pages/firstLogin/firstLogin'
       });
+    }else{
+      this.setData({
+        userInfo: userInfo,
+        merchantName: userInfo.name,
+      });
     }
 
-    this.setData({
-      userInfo: userInfo,
-      merchantName: userInfo.name,
-    });
+    
 
     this.queryBanner();
     this.getCurrentLocation();
