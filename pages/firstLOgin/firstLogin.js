@@ -84,12 +84,15 @@ Page({
     var wxUser = e.detail.userInfo;
     console.log("userInfo" + wxUser)
     user.wxLogin(wxUser, _this.data.authCode).then(res => {
-      app.globalData.userInfo = res.data.userInfo;
-      app.globalData.token = res.data.token;
-      wx.navigateBack({
-        delta: 1
-      })
+      if (res.rs === 1) {
+        app.globalData.userInfo = res.data.user;
+        app.globalData.token = res.data.token;
+        wx.navigateBack({
+          delta: 1
+        })
+      }
     }).catch((err) => {
+      _this.$wuxToast.show({ type: 'forbidden', text: "登录失败，请重试！" });
       console.log(err)
     });
   },
