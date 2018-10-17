@@ -21,9 +21,9 @@ Page({
     
     this.getCurrentLocation();
 
-    if(null == userInfo){
-      wx.redirectTo({
-        url: '/pages/auth/login/login'
+    if (null == userInfo || userInfo == "" || undefined == userInfo){
+      wx.navigateTo({
+        url: '/pages/firstLogin/firstLogin'
       });
     }
   },

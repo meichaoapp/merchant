@@ -28,7 +28,7 @@
         <text class='label'>商超名称或个人姓名</text>
       </view>
       <view class='box-contacts'>
-        <input name="name" placeholder='请输入...' placeholder-class="phcolor"></input>
+        <input name="name" placeholder='请输入...' placeholder-class="phcolor" bindinput='bindName' value='{{name}}'></input>
       </view>
     </view>
     <view class='box-base'>
@@ -47,7 +47,7 @@
         <text class='label'>联系电话</text>
       </view>
       <view class='box-contacts'>
-        <input name="phone" placeholder='请输入...' placeholder-class="phcolor"></input>
+        <input name="phone" placeholder='请输入...' placeholder-class="phcolor" bindinput='bindPhone' value='{{phone}}'></input>
       </view>
     </view>
 

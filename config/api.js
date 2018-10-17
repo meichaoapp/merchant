@@ -2,7 +2,7 @@ var NewApiRootUrl = 'http://localhost:8080/api/';
 //var NewApiRootUrl = "https://www.gift.wananhevip.com/api/";
 module.exports = {
    
-  WXLogin: NewApiRootUrl + 'consumer/user/login',//微信登录
+  WXLogin: NewApiRootUrl + 'merchant/user/login',//微信登录
 
   QueryBanner: NewApiRootUrl + 'index/banners',//查询轮播图
 
@@ -15,5 +15,4 @@ module.exports = {
   
   Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）
   Pay: NewApiRootUrl + "common/pay", ///支付
-  lendTheGoods: NewApiRootUrl + "api/merchant/groupPurchase/list", ///支付
 };

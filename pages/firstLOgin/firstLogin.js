@@ -1,18 +1,22 @@
-// pages/firstLOgin/firstLogin.js
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+const user = require('../../services/user.js');
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    canIUse: wx.canIUse('button.open-type.getUserInfo'), // 查看用户微信版本是否支持
+    authCode:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.$wuxToast = app.Wux().$wuxToast
   },
 
   /**
@@ -62,5 +66,31 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  bindAuthCode: function (e) {
+    var _this = this;
+    this.setData({
+      authCode: e.detail.value,
+    })
+  },
+
+  login: function (e) {
+    let _this = this;
+    if (_this.data.authCode == null || _this.data.authCode == "" ){
+      _this.$wuxToast.show({ type: 'forbidden', text: "授权码不能为空，请填写后提交！", });
+      return;
+    }
+    var wxUser = e.detail.userInfo;
+    console.log("userInfo" + wxUser)
+    user.wxLogin(wxUser, _this.data.authCode).then(res => {
+      app.globalData.userInfo = res.data.userInfo;
+      app.globalData.token = res.data.token;
+      wx.navigateBack({
+        delta: 1
+      })
+    }).catch((err) => {
+      console.log(err)
+    });
+  },
 })

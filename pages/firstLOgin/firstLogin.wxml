@@ -1,4 +1,6 @@
+<import src="../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$wux.toast }}" />
 <image class="cover-img" src="../../static/images/logo.png"></image>
 <view class="main-title">请向销售索取授权码</view>
-<input class='invite-code' type='text' placeholder='请输入授权码'></input>
-<button class='confirm-btn'>提交</button>
+<input class='invite-code' type='text' placeholder='请输入授权码' value='{{authCode}}' bindinput='bindAuthCode'></input> <button  wx:if="{{canIUse}}" open-type="getUserInfo" class="login-btn" bindgetuserinfo="login" >微信登录</button>
+<view wx:else>请升级微信版本</view>

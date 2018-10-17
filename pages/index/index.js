@@ -26,6 +26,12 @@ Page({
     let userInfo = wx.getStorageSync('userInfo');
     let token = wx.getStorageSync('token');
 
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/firstLogin/firstLogin'
+      });
+    }
+
     this.setData({
       userInfo: userInfo,
       merchantName: userInfo.name,

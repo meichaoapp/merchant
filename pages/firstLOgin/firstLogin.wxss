@@ -35,3 +35,15 @@ input::-webkit-input-placeholder {
 .button-hover {
   opacity: .8;
 }
+
+.login-btn{
+    display: flex;
+    margin: 0 auto;
+    height: 96rpx;
+    line-height: 96rpx;
+    color: #fff;
+    font-size: 30rpx;
+    width: 90%;
+    background: #72cfdd;
+    border-radius: 6rpx;
+}
