@@ -17,9 +17,7 @@ Page({
   onLoad: function (options) {
     
     this.$wuxToast = app.Wux().$wuxToast
-    
-   
-
+    this.getCurrentLocation();
     
   },
   onReady: function () {
@@ -34,7 +32,7 @@ Page({
       });
     }
 
-    this.getCurrentLocation();
+ 
   },
   onHide: function () {
     // 页面隐藏
