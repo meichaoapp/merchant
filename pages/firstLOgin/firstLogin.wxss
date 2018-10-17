@@ -1,7 +1,12 @@
 /* pages/firstLOgin/firstLogin.wxss */
 .cover-img {
-  width: 100%;
-  height: 376rpx;
+  width: 60%;
+  /* height: 376rpx; */
+  height:149rpx;
+
+} 
+.cover-box {
+  padding: 93rpx 0;
 }
 .main-title {
   border-top:solid 24rpx rgb(245, 245, 245); 
@@ -37,13 +42,13 @@ input::-webkit-input-placeholder {
 }
 
 .login-btn{
-    display: flex;
     margin: 0 auto;
     height: 96rpx;
     line-height: 96rpx;
     color: #fff;
-    font-size: 30rpx;
+    font-size: 34rpx;
     width: 90%;
     background: #72cfdd;
     border-radius: 6rpx;
+    margin-top: 100rpx;
 }

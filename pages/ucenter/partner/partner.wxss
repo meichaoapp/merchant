@@ -148,9 +148,8 @@ color: #fd1a2a;
 }
 .icon-zuobiao{
   position: absolute;
-  top: 13rpx;
-  left: 0;
-font-size: 40rpx;
-color: #72cfdd;
-
+  top: 15rpx;
+  left: 6rpx;
+  font-size: 40rpx;
+  color: #72cfdd;
 }

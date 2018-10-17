@@ -96,6 +96,10 @@ page {
   border: 0!important;
   width:auto!important;
 }
+.finished,.ongoing,.status {
+  font-size: 32rpx!important;
+  text-align: right;
+}
 .btns-nav{
 background: #fff;
 width: 100%;
