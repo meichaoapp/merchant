@@ -25,6 +25,12 @@ Page({
     this.setData({
       id: options.id
     });
+    let userInfo = wx.getStorageSync('userInfo');
+    this.setData({
+      userInfo: userInfo,
+    });
+
+   
     this.getData();
   },
 
@@ -93,7 +99,7 @@ Page({
   //确认领取
   leadOrder: function () {
     var _this = this;
-    util.request(api.LeadOrder, { id: _this.data.orderId, userId: _this.data.userInfo.id }, "POST").then(function (res) {
+    util.request(api.LeadOrder, { id: _this.data.orderId, merchantId: _this.data.userInfo.id }, "POST").then(function (res) {
       if (res.rs === 1) {
         wx.switchTab({
           url: '/pages/index/index',
