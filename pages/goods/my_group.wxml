@@ -1,4 +1,3 @@
-
 <import src="../../components/loading/loading.wxml" />
 <template is="loading" data="{{ ...$wux.loading }}" />
 <view class="header" hidden="{{hideHeader}}">
@@ -6,26 +5,46 @@
   <view>{{refreshTime}}</view>
 </view>
 <scroll-view scroll-y="true">
-    <view class='flex flex_center flex_end flex_colum list_box' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <view class='flex flex_center box_top'>
-        <image class='shop-img' src='{{item.url}}'></image>
-        <view class='flex flex_colum flex_start details-box flex_1'>
-          <text class='shop-title'>{{item.name}}</text>
-          <text class='shop-brief'>{{item.merchantName}}</text>
-          <view class='flex flex_center flex_between line3'>
-            <text class='color-red'>当前参团人数：{{item.joinNum}}</text>
-            <text class='status' wx:if="{{item.status == 0}}">{{item.statusStr}}</text>
-            <text class='status beihuo' wx:if="{{item.status == 2}}">{{item.statusStr}}</text>
-          </view>
+  <view class='flex flex_center flex_end flex_colum list_box' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+    <view class='flex flex_center box_top'>
+      <image class='shop-img' src='{{item.url}}'></image>
+      <view class='flex flex_colum flex_start details-box flex_1'>
+        <text class='shop-title'>{{item.name}}</text>
+        <text class='shop-brief'>{{item.merchantName}}</text>
+        <view class='flex flex_center flex_between line3'>
+          <text class='color-red'>当前参团人数：{{item.joinNum}}</text>
+          <!-- <text class='status' wx:if="{{item.status == 0}}">{{item.statusStr}}</text>
+            <text class='status beihuo' wx:if="{{item.status == 2}}">{{item.statusStr}}</text> -->
         </view>
       </view>
-    <navigator class="btns-nav" url='/pages/goods/group_details?id={{item.id}}'>
+    </view>
+    <!-- <navigator class="btns-nav" url='/pages/goods/group_details?id={{item.id}}'>
         <button class='btns' wx:if="{{item.status == 0}}">修改</button>
         <button class='btns ongoing' wx:elif="{{item.status == 1}}">{{item.statusStr}}</button>
         <button class='btns' wx:elif="{{item.status == 2}}">备货</button>
         <button class='btns finished' wx:else>{{item.statusStr}}</button>
+      </navigator> -->
+    <block wx:if="{{item.status == 0}}">
+
+      <button class='btns started'>未开始</button>
+
+    </block>
+    <block wx:elif="{{item.status == 1}}">
+      <navigator class="btns-nav" url='/pages/goods/group_details?id={{item.id}}'>
+        <button class='btns ongoing'>团购进行中</button>
       </navigator>
-    </view>
+    </block>
+    <block wx:elif="{{item.status == 2}}">
+      <navigator class="btns-nav" url='/pages/goods/group_details?id={{item.id}}'>
+        <button class='btns doing'>发放中</button>
+      </navigator>
+    </block>
+    <block wx:else>
+      <navigator class="btns-nav" url='/pages/goods/group_details?id={{item.id}}'>
+        <button class='btns finished'>已完成</button>
+      </navigator>
+    </block>
+  </view>
 
 </scroll-view>
 
