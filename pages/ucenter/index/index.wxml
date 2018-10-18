@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="profile-info" bindtap="goLogin">
+  <view class="profile-info">
     <image class="avatar" src="{{userInfo.avatar}}"></image>
     <view class="info">
       <text class="name">{{userInfo.nickName}}</text>
@@ -7,14 +7,14 @@
     </view>
   </view>
 
-  <view class='mylists'>
+  <!-- <view class='mylists'>
     <view class='mylist-cells' bindtap='navToGroup'>
       <view class='mylist-cell-image'>
         <image src='/static/images/icons-my-list01.png'></image>
       </view>
       <view class='mylist-cell-desc'>我参团</view>
     </view>
-  </view>
+  </view> -->
 
 
   <view class='mylists'>
@@ -36,7 +36,7 @@
   </view>
 
 
-  <view class='mylists'>
+  <!-- <view class='mylists'>
       <view class='mylist-cells'>
         <view class='mylist-cell-image'>
           <image src='/static/images/icons-my-list06.png'></image>
@@ -45,6 +45,6 @@
       </view>
 
 
-  </view>
+  </view> -->
 
 </view>

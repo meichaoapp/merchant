@@ -21,7 +21,7 @@ Page({
   onLoad: function (options) {
     this.$wuxToast = app.Wux().$wuxToast
     this.setData({
-      id: parseInt(options.id)
+      id: options.id
     });
     this.getData();
   },
@@ -98,7 +98,7 @@ Page({
 
   getData:function() {
     let that = this;
-    util.request(api.QueryOrderDetail, { id: that.data.id },"POST").then(function (res) {
+    util.request(api.QueryOrderDetail, { orderId: that.data.id },"POST").then(function (res) {
       if (res.rs === 1) {
         that.setData({
           name: res.data.name,	   //团购名称
