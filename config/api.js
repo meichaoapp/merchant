@@ -1,5 +1,6 @@
 var NewApiRootUrl = 'http://localhost:8080/api/';
-//var NewApiRootUrl = "https://www.gift.wananhevip.com/api/";
+var NewApiRootUrl = "https://wxapp.galaxyxd.com/api/";
+var NewApiRootUrl = 'http://101.201.213.248:8093/api/';
 module.exports = {
    
   WXLogin: NewApiRootUrl + 'merchant/user/login',//微信登录
@@ -10,7 +11,7 @@ module.exports = {
   Friends: NewApiRootUrl + "merchant/groupPurchase/friends",//参团好友
 
   
-  QueryOrderDetail: NewApiRootUrl + "merchant/groupPurchase/orderList",//获取参团详情（我的参团-兑现)
+  QueryOrderDetail: NewApiRootUrl + "merchant/groupPurchase/details",//获取参团详情（我的参团-兑现)
   LeadOrder: NewApiRootUrl + "merchant/groupPurchase/leadOrder",//领货
   
   Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）

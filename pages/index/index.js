@@ -22,23 +22,6 @@ Page({
   },
   
   onLoad: function (options) {
-    var that = this;
-    let userInfo = wx.getStorageSync('userInfo');
-    let token = wx.getStorageSync('token');
-
-    if (null == userInfo || userInfo == "" || undefined == userInfo) {
-      wx.navigateTo({
-        url: '/pages/firstLogin/firstLogin'
-      });
-    }else{
-      this.setData({
-        userInfo: userInfo,
-        merchantName: userInfo.name,
-      });
-    }
-
-    
-
     this.queryBanner();
     this.getCurrentLocation();
 
@@ -48,6 +31,20 @@ Page({
   },
   onShow: function () {
     // 页面显示
+    var that = this;
+    let userInfo = wx.getStorageSync('userInfo');
+    let token = wx.getStorageSync('token');
+
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/firstLogin/firstLogin'
+      });
+    } else {
+      this.setData({
+        userInfo: userInfo,
+        merchantName: userInfo.name,
+      });
+    }
   },
   onHide: function () {
     // 页面隐藏
