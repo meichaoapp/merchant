@@ -105,7 +105,7 @@ Page({
           url: '/pages/index/index',
         })
       }else{
-        _this.$wuxToast.show({ type: 'forbidden', text: "领取失败，请重新操作！", });
+        _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
       }
     });
   },
@@ -119,7 +119,7 @@ Page({
 
   getData:function() {
     let that = this;
-    util.request(api.QueryOrderDetail, { orderId: that.data.id },"POST").then(function (res) {
+    util.request(api.QueryOrderDetail, { orderId: that.data.id, merchantId: that.data.userInfo.id  },"POST").then(function (res) {
       if (res.rs === 1) {
         that.setData({
           orderId: res.data.id,
@@ -128,6 +128,8 @@ Page({
           joinTime: res.data.joinTime, //参团时间，注意格式
           goodsList: res.data.goodsList, //订单商品列表
         });
+      }else{
+        that.$wuxToast.show({ type: 'forbidden', text: res.info, });
       }
     });
   }

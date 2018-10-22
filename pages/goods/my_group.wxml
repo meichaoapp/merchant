@@ -1,11 +1,14 @@
 <import src="../../components/loading/loading.wxml" />
 <template is="loading" data="{{ ...$wux.loading }}" />
+<import src="../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="header" hidden="{{hideHeader}}">
   <view>下拉刷新中……</view>
   <view>{{refreshTime}}</view>
 </view>
 <scroll-view scroll-y="true">
   <view class='flex flex_center flex_end flex_colum list_box' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+   <navigator class="btns-nav" url='/pages/goods/group_details?id={{item.id}}'>
     <view class='flex flex_center box_top'>
       <image class='shop-img' src='{{item.url}}'></image>
       <view class='flex flex_colum flex_start details-box flex_1'>
@@ -44,6 +47,7 @@
         <button class='btns finished'>已完成</button>
       </navigator>
     </block>
+    </navigator>
   </view>
 
 </scroll-view>

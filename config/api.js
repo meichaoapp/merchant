@@ -5,7 +5,7 @@ module.exports = {
    
   WXLogin: NewApiRootUrl + 'merchant/user/login',//微信登录
 
-  QueryBanner: NewApiRootUrl + 'index/banners',//查询轮播图
+  QueryBanner: NewApiRootUrl + 'merchant/banners',//查询轮播图
 
   QueryTGList: NewApiRootUrl + 'merchant/groupPurchase/list', ///获取团购信息
   Friends: NewApiRootUrl + "merchant/groupPurchase/friends",//参团好友
