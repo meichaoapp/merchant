@@ -22,7 +22,12 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
+    let userInfo = wx.getStorageSync('userInfo');
+    this.setData({
+      userInfo: userInfo,
+    });
     this.$wuxLoading = app.Wux().$wuxLoading //加载
+    this.$wuxToast = app.Wux().$wuxToast
     // 页面初始化 options为页面跳转所带来的参数
     that.setData({
       id: parseInt(options.id)
@@ -34,18 +39,39 @@ Page({
   },
 
   onShow: function () {
+    // 页面显示
+    var that = this;
     let userInfo = wx.getStorageSync('userInfo');
     let token = wx.getStorageSync('token');
 
-    this.setData({
-      userInfo: userInfo,
-    });
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/firstLogin/firstLogin'
+      });
+    } else {
+      this.setData({
+        userInfo: userInfo,
+      });
+    }
   },
   onHide: function () {
 
   },
   onUnload: function () {
 
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.refresh();
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.loadMore();
   },
 
   // 上拉加载更多
@@ -135,6 +161,8 @@ Page({
                   hideBottom: true
                 })
               }
+            }else{
+              _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
             }
           });
    }

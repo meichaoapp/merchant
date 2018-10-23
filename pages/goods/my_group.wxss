@@ -79,22 +79,26 @@ page {
 .beihuo{
    color: rgb(114,207,221)!important;  
 }
-.finished{
+.finished,.started{
   color: rgb(153, 153, 153)!important;
   background: #fff!important;
   border-radius: 0!important;
   border: 0!important;
   width:auto!important;
+  font-size: 32rpx;
 }
-.finished::after,.ongoing::after {
+.finished::after,.ongoing::after,.started::after ,.doing::after{
   border: 0!important;
 } 
-.ongoing{
+.ongoing,.doing{
   color: rgb(114,207,221)!important;  
   background: #fff!important;
   border-radius: 0!important;
   border: 0!important;
   width:auto!important;
+  font-size: 32rpx;
+  text-align:right;
+
 }
 .finished,.ongoing,.status {
   font-size: 32rpx!important;
