@@ -12,7 +12,9 @@
     "pages/payResult/payResult",
     "pages/goods/my_group",
     "pages/goods/group_details",
-    "pages/goods/lendTheGoods"
+    "pages/goods/lendTheGoods",
+    "components/error/noNetwork",
+    "components/error/noneOrder"
   ],
   "window": {
     "backgroundTextStyle": "dark",
