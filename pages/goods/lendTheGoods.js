@@ -10,6 +10,7 @@ Page({
   data: {
     userInfo:{},
     id: 1,  //订单编号	
+    status: 0,// 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
     orderId: 0,  //订单id
     name: "",	   //团购名称
     userName: "",	   //参团人
@@ -99,6 +100,9 @@ Page({
   //确认领取
   leadOrder: function () {
     var _this = this;
+    if (_this.data.status != 2){
+      return;
+    }
     util.request(api.LeadOrder, { id: _this.data.orderId, merchantId: _this.data.userInfo.id }, "POST").then(function (res) {
       if (res.rs === 1) {
         wx.switchTab({
@@ -120,9 +124,17 @@ Page({
   getData:function() {
     let that = this;
     util.request(api.QueryOrderDetail, { orderId: that.data.id, merchantId: that.data.userInfo.id  },"POST").then(function (res) {
+      if (res.data == null || res.data == undefined) {
+        wx.redirectTo({
+          url: '/pages/goods/noneOrder',
+        })
+        return;
+      }
       if (res.rs === 1) {
+       
         that.setData({
           orderId: res.data.id,
+          status: res.data.status,
           name: res.data.name,	   //团购名称
           userName: res.data.userName,	   //参团人
           joinTime: res.data.joinTime, //参团时间，注意格式

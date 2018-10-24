@@ -250,6 +250,7 @@ function QueryOrderDetail(){
     "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
     "userName": "快乐的山羊",	   //参团人
     "joinTime": "2018/09/16", //参团时间，注意格式
+    "status":3,
     "goodsList": [
       {
         "id": 1, // 商品id

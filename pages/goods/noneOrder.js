@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //跳转首页(知道了)
+  toIndex: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   }
 })

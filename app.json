@@ -14,7 +14,7 @@
     "pages/goods/group_details",
     "pages/goods/lendTheGoods",
     "components/error/noNetwork",
-    "components/error/noneOrder"
+    "pages/goods/noneOrder"
   ],
   "window": {
     "backgroundTextStyle": "dark",
