@@ -143,4 +143,14 @@ Page({
 
     //that.refresh(); // 加载行程信息
   },
+  goMyTuan: function() {
+    wx.switchTab({
+      url: '/pages/goods/my_group',
+    })
+  },
+  goMyHuoban: function () {
+    wx.switchTab({
+      url: '/pages/ucenter/partner/partner',
+    })
+  }
 })
