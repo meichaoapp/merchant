@@ -92,7 +92,7 @@ Page({
         })
       }
     }).catch((err) => {
-      _this.$wuxToast.show({ type: 'forbidden', text: "登录失败，请重试！" });
+      _this.$wuxToast.show({ type: 'forbidden', text: err.info });
       console.log(err)
     });
   },
