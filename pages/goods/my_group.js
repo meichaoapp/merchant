@@ -159,7 +159,7 @@ Page({
                 _this.setData({
                   totalPage: res.data.totalPage,
                   list: tempArray,
-                  hideBottom: true
+                  //hideBottom: true
                 })
               }
             }else{
