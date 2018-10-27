@@ -4,7 +4,6 @@
 <template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="header" hidden="{{hideHeader}}">
   <view>下拉刷新中……</view>
-  <view>{{refreshTime}}</view>
 </view>
 <scroll-view scroll-y="true">
   <view class='flex flex_center flex_end flex_colum list_box' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
@@ -54,7 +53,6 @@
 
 <view class="bottom" hidden="{{hideBottom}}">
   <view>{{loadMoreData}}</view>
-  <view>{{refreshTime}}</view>
 </view>
 <!-- 
 
