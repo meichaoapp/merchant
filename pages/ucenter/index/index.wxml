@@ -25,7 +25,7 @@
         </view>
         <view class='mylist-cell-desc'>电话客服</view>
       </view>
-      <view class='mylist-cells'>
+      <view class='mylist-cells' bindtap='toShowContactBox'>
         <view class='mylist-cell-image'>
           <image src='/static/images/icons-my-list05.png'></image>
         </view>
@@ -35,7 +35,10 @@
 
   </view>
 
-
+  <action-sheet hidden="{{isShowContactBox}}" bindchange="toHideContactBox">
+      <action-sheet-item >+美超小邻：hlkjshi</action-sheet-item>
+      <action-sheet-cancel>取消</action-sheet-cancel>
+  </action-sheet>
   <!-- <view class='mylists'>
       <view class='mylist-cells'>
         <view class='mylist-cell-image'>
