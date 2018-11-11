@@ -65,7 +65,7 @@ Page({
           joinNum:res.data.joinNum,
           getFriendslist: getFriendslist
         })
-        console.log(getFriendslist);
+        //console.log(getFriendslist);
       }
     });
 
