@@ -16,6 +16,7 @@ Page({
     userName: "",	   //参团人
     joinTime: "", //参团时间，注意格式
     goodsList: [], //订单商品列表
+    count: 0, //提交计数
   },
 
   /**
@@ -46,6 +47,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      count: 0, //提交计数
+    });
     // 页面显示
     var that = this;
     let userInfo = wx.getStorageSync('userInfo');
@@ -100,7 +104,17 @@ Page({
   //确认领取
   leadOrder: function () {
     var _this = this;
+    if (_this.data.count > 0) {
+      return;
+    }
+    _this.setData({
+      count: _this.data.count + 1,
+    });
+
     if (_this.data.status != 2){
+      _this.setData({
+        count: 0,
+      });
       return;
     }
     util.request(api.LeadOrder, { id: _this.data.orderId, merchantId: _this.data.userInfo.id }, "POST").then(function (res) {
@@ -109,6 +123,9 @@ Page({
           url: '/pages/index/index',
         })
       }else{
+        _this.setData({
+          count: 0,
+        });
         _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
       }
     });
