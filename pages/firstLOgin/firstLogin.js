@@ -10,6 +10,7 @@ Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'), // 查看用户微信版本是否支持
     authCode:"",
+    count: 0, //提交计数
   },
 
   /**
@@ -30,7 +31,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      count: 0, //提交计数
+    });
   },
 
   /**
@@ -77,7 +80,17 @@ Page({
 
   login: function (e) {
     let _this = this;
+    if (_this.data.count > 0) {
+      return;
+    }
+    _this.setData({
+      count: _this.data.count + 1,
+    });
+
     if (_this.data.authCode == null || _this.data.authCode == "" ){
+      _this.setData({
+        count: 0,
+      });
       _this.$wuxToast.show({ type: 'forbidden', text: "授权码不能为空，请填写后提交！", });
       return;
     }
@@ -90,8 +103,15 @@ Page({
         wx.navigateBack({
           delta: 1
         })
+      }else{
+        _this.setData({
+          count: 0,
+        });
       }
     }).catch((err) => {
+      _this.setData({
+        count: 0,
+      });
       _this.$wuxToast.show({ type: 'forbidden', text: err.info });
       console.log(err)
     });
