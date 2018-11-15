@@ -118,7 +118,28 @@ Page({
       });
       return;
     }
-    util.request(api.LeadOrder, { id: _this.data.orderId, merchantId: _this.data.userInfo.id }, "POST").then(function (res) {
+    var goodsIdArr = [];
+    var goodsList = _this.data.goodsList;
+    if (goodsList != null && goodsList.length > 0) {
+      goodsList.forEach(o => {
+        if (o.status == 0 && o.checked == 1) {
+          goodsIdArr.push(o.id);
+        } 
+      });
+    }
+
+    if(goodsIdArr.length == 0) {
+      _this.$wuxToast.show({ type: 'forbidden', text: "请选择要领取商品", });
+      _this.setData({
+        count: 0,
+      });
+      return;
+    }
+    util.request(api.LeadOrder, { 
+      id: _this.data.orderId, 
+      merchantId: _this.data.userInfo.id,
+      goodsIds: goodsIdArr.join(","),
+     }, "POST").then(function (res) {
       if (res.rs === 1) {
         wx.switchTab({
           url: '/pages/index/index',
@@ -139,6 +160,28 @@ Page({
     })
   },
 
+  checkGoogs:function(e) {
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    var goodsList = _this.data.goodsList;
+    if (goodsList != null && goodsList.length > 0) {
+      goodsList.forEach(o => {
+        console.log("o.checked  ----" + o.checked);
+        if (o.id == id && o.status == 0 && o.checked == 1) {
+          o.checked = 0;
+        } else if (o.id == id && o.status == 0 && o.checked == 0)  {
+          o.checked = 1;
+        }
+        console.log("o.checked 1  ----" + o.checked );
+      });
+    }
+
+    _this.setData({
+      goodsList: goodsList, //订单商品列表
+    });
+
+  },
+
   getData:function() {
     let that = this;
     util.request(api.QueryOrderDetail, { orderId: that.data.id, merchantId: that.data.userInfo.id  },"POST").then(function (res) {
@@ -149,14 +192,22 @@ Page({
         return;
       }
       if (res.rs === 1) {
-       
+        var goodsList = res.data.goodsList;
+        if (goodsList != null && goodsList.length > 0) {
+          goodsList.forEach(o => {
+            if (o.status == 0) {
+              o.checked = 0;
+            }
+          
+          });
+        }
         that.setData({
           orderId: res.data.id,
           status: res.data.status,
           name: res.data.name,	   //团购名称
           userName: res.data.userName,	   //参团人
           joinTime: res.data.joinTime, //参团时间，注意格式
-          goodsList: res.data.goodsList, //订单商品列表
+          goodsList: goodsList, //订单商品列表
         });
       }else{
         that.$wuxToast.show({ type: 'forbidden', text: res.info, });

@@ -16,12 +16,12 @@
 <view class='shop-lists'>
   <view class='main-title'>购物清单</view>
   <view class="lists-box"  wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-    <view class='list-item row'>
-      <block wx:if="{{status==0}}">
-        <image bindtap="ischecked" wx:if="{{toggleflag}}" class='checkedimg' src='../../static/images/checked.png'></image>
-        <image bindtap="ischecked" wx:if="{{!toggleflag}}" class='ncheckedimg' src='../../static/images/nchecked.png'></image>
+    <view class='list-item row' bindtap="checkGoogs"  data-id='{{item.id}}'>
+      <block wx:if="{{item.status==0}}" >
+        <image  wx:if="{{item.checked == 1}}" class='checkedimg' src='../../static/images/checked.png'></image>
+        <image  wx:if="{{item.checked == 0}}" class='ncheckedimg' src='../../static/images/nchecked.png'></image>
       </block>
-      <block wx:if="{{status==3}}">
+      <block wx:if="{{item.status==1}}">
         <image class='lingqu' src='../../static/images/lingqu.png'></image>
       </block>
       <image class='shop-img' src='{{item.url}}'></image>
@@ -65,5 +65,6 @@
   <!-- <button class="confirm-btn {{status != 2 ? 'graybtn' : '' }}" bindtap='leadOrder'>确认领取</button> -->
 
   <image bindtap='toIndex' src='../../static/images/noconfirm-btn.png'></image>
-  <image bindtap='leadOrder' src='../../static/images/confirm-btn.png'></image>
+  <image wx:if="{{status == 2}}" bindtap='leadOrder' src='../../static/images/confirm-btn.png'></image>
+  <image wx:else bindtap='leadOrder' src='../../static/images/confirm-btn.png'></image>
 </view>
