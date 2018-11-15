@@ -24,17 +24,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.$wuxToast = app.Wux().$wuxToast
-    // this.setData({
-    //   id: options.id
-    // });
-    // let userInfo = wx.getStorageSync('userInfo');
-    // this.setData({
-    //   userInfo: userInfo,
-    // });
+    this.$wuxToast = app.Wux().$wuxToast
+    this.setData({
+      id: options.id
+    });
+    let userInfo = wx.getStorageSync('userInfo');
+    this.setData({
+      userInfo: userInfo,
+    });
 
    
-    // this.getData();
+    this.getData();
   },
 
   /**
@@ -57,13 +57,13 @@ Page({
     let token = wx.getStorageSync('token');
 
     if (null == userInfo || userInfo == "" || undefined == userInfo) {
-      // wx.navigateTo({
-      //   url: '/pages/firstLogin/firstLogin'
-      // });
+      wx.navigateTo({
+        url: '/pages/firstLogin/firstLogin'
+      });
     } else {
-      // this.setData({
-      //   userInfo: userInfo,
-      // });
+      this.setData({
+        userInfo: userInfo,
+      });
     }
   },
 

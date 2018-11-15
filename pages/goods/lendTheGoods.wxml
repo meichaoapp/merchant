@@ -30,7 +30,7 @@
           {{item.name}}
         </view>
         <view class='total-count row'>
-          <text class='shop-brief'>整装箱20头</text>
+          <text class='shop-brief'>{{item.specifications}}</text>
           <text class='shop-nums'>x{{item.buyNum}}</text>
         </view>
       </view>

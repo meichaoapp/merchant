@@ -1,6 +1,6 @@
 var NewApiRootUrl = 'http://localhost:8080/api/';
 var NewApiRootUrl = "https://wxapp.galaxyxd.com/api/";
-//var NewApiRootUrl = 'http://101.201.213.248:8093/api/';
+var NewApiRootUrl = 'https://wxapp.iliangpin.cn/api/';
 module.exports = {
    
   WXLogin: NewApiRootUrl + 'merchant/user/login',//微信登录
