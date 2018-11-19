@@ -141,6 +141,9 @@ Page({
       goodsIds: goodsIdArr.join(","),
      }, "POST").then(function (res) {
       if (res.rs === 1) {
+        wx.showToast({
+          title: '领取成功!',
+        })
         wx.switchTab({
           url: '/pages/index/index',
         })
