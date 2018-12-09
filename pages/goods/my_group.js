@@ -117,6 +117,7 @@ Page({
       util.request(api.QueryTGList, data, "POST").then(function (res) {
             if (res.rs === 1) {
               var list = res.data.list;
+              console.log("QueryTGList-----" + JSON.stringify(list) );
               if (list != null && list.length > 0) {
                 // 获取当前时间，同时得到活动结束时间数组
                 let newTime = new Date().getTime();

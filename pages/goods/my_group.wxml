@@ -18,7 +18,7 @@
         </view>
         <view class="con flex flex_center">
             <view class="left_part">
-                <image src="/static/images/default.png"></image>
+                <image src="{{item.url}}"></image>
             </view>
             <view class='right_part flex flex_colum flex_just'>
                 <view class="join_num flex flex_between">
