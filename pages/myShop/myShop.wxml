@@ -11,14 +11,14 @@
         <view class="list_item bg_ff flex flex_colum"
               wx:for="{{list}}"
               wx:key="{{item.id}}"
-              data-orderid="{{item.orderId}}"
+              data-orderid="{{item.id}}"
               bindtap="goDetail">
             <view class="title flex flex_between flex_center">
                 <view>订单编号:{{item.orderId}}</view>
                 <!-- 0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中  -->
                  <view class="un_receive" wx:if="{{item.status==0}}">未开始</view>
                  <view class="un_receive" wx:if="{{item.status==1}}">团员招募中</view>
-                <view class="receive"    wx:elif="{{item.status===2}}">成团未到货</view>
+                <view class="receive"    wx:elif="{{item.status==2}}">成团未到货</view>
                 <view class="un_receive" wx:if="{{item.status==3}}">已过期</view>
                 <view class="receive"    wx:elif="{{item.status==4}}">已完成</view>
                  <view class="un_receive" wx:if="{{item.status==5}}">发放中</view>

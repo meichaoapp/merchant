@@ -112,10 +112,13 @@ Page({
   getOrderList: function () {
       let _this = this;
       util.request(api.QueryOrderList, {
+        start: _this.data.start,
+        limit: _this.data.limit,
         merchantId: _this.data.userInfo.id,
       }, "POST").then(function (res) {
           if (res.rs === 1) {
-            var list = res.data;
+            var list = res.data.list;
+            //console.log("getOrderList ---- " + JSON.stringify(list));
             if (_this.data.start == 1) { // 下拉刷新
               _this.setData({
                 list: list,
@@ -139,8 +142,9 @@ Page({
     //跳转到详情页
   goDetail(e){
       let orderId = e.currentTarget.dataset.orderid;
+     
       wx.navigateTo({
-          url: '/pages/goods/lendTheGoods?id='+orderId,
+        url: '/pages/goods/lendTheGoods?leadType=2&id='+orderId,
       });
   },
   

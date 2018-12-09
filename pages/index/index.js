@@ -60,7 +60,7 @@ Page({
       success: (res) => {
         var orderId = res.result;
         wx.redirectTo({
-          url: '/pages/goods/lendTheGoods?id='+orderId,
+          url: '/pages/goods/lendTheGoods?leadType=1&id='+orderId,
         })
       },
       fail: (res) => {

@@ -10,6 +10,7 @@ Page({
   data: {
     userInfo:{},
     id: 1,  //订单编号
+    leadType:1,
     status: 0,// 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
     orderId: 0,  //订单id
     name: "",	   //团购名称
@@ -25,8 +26,10 @@ Page({
    */
   onLoad: function (options) {
     this.$wuxToast = app.Wux().$wuxToast
+    console.log("orderId ---" + options.id);
     this.setData({
-      id: options.id
+      id: options.id,
+      leadType: options.leadType
     });
     let userInfo = wx.getStorageSync('userInfo');
     this.setData({
@@ -139,6 +142,7 @@ Page({
       id: _this.data.orderId,
       merchantId: _this.data.userInfo.id,
       goodsIds: goodsIdArr.join(","),
+      leadType: _this.data.leadType,
      }, "POST").then(function (res) {
       if (res.rs === 1) {
         wx.showToast({
@@ -188,6 +192,7 @@ Page({
   getData:function() {
     let that = this;
     util.request(api.QueryOrderDetail, { orderId: that.data.id, merchantId: that.data.userInfo.id  },"POST").then(function (res) {
+      console.log("QueryOrderDetail ---- " + res.data );
       if (res.data == null || res.data == undefined) {
         wx.redirectTo({
           url: '/pages/goods/noneOrder',
