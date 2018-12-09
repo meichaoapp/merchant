@@ -152,5 +152,11 @@ Page({
     wx.switchTab({
       url: '/pages/ucenter/partner/partner',
     })
-  }
+  },
+
+  goShop:function(){
+    wx.navigateTo({
+      url: '/pages/myShop/myShop',
+    })
+  },
 })

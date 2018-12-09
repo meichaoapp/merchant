@@ -32,9 +32,9 @@
      <image src='../../static/images/huoban.png'></image>
      <text>合作推荐</text>
    </view>
-   <view class='flex flex_center flex_colum flex_just menu-item'>
-     <!-- <image src='../../static/images/menu-icon-qrcode.png'></image>
-     <text>二维码领货</text> -->
+   <view bindtap='goShop' class='flex flex_center flex_colum flex_just menu-item'>
+     <image src='../../static/images/menu-icon-qrcode.png'></image>
+     <text>店铺订单</text>
    </view>
 </view>
   <!-- <view class="m-menu">
