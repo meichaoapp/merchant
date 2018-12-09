@@ -50,7 +50,7 @@ function getData(url, p) {
   if (url == api.QueryOrderDetail) {
     return QueryOrderDetail();
   }
-  
+
   //支付
   if(url == api.Pay){
     return JSON.stringify(RS);
@@ -60,7 +60,11 @@ function getData(url, p) {
   if (url == api.lendTheGoods) {
     return JSON.stringify(RS);
   }
-  
+  //我的店铺订单
+  if(url == api.QueryOrderList){
+      return QueryOrderList();
+  }
+
 
 
 }
@@ -68,7 +72,7 @@ function getData(url, p) {
 //微信登录
 function wxLogin() {
   var user = {
-    "id": 1,  //id	
+    "id": 1,  //id
     "name": "wangwang",	   //商户名称
     "address": "北京市海淀区上地华联商厦",	   //商户地址
     "longitude": 34.1,	   //经度
@@ -76,7 +80,7 @@ function wxLogin() {
     "nickName": "wangwang",	      //微信昵称
     "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
     "sex": 0,        // 性别 0 男 1 女
-    "avatar": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLW3U1bBXQGaRILfI9mUgMNuX3MRicwXdVshxp7WWia3Ojq4K4ZL2V4HrTic9BATHKyQQbeFOHb4Rw2w/0" //头像	
+    "avatar": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLW3U1bBXQGaRILfI9mUgMNuX3MRicwXdVshxp7WWia3Ojq4K4ZL2V4HrTic9BATHKyQQbeFOHb4Rw2w/0" //头像
   }
 
 
@@ -90,8 +94,8 @@ function wxLogin() {
 function QueryTGList() {
   var list = [
     {
-      "id": 1,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 1,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "我是一只熊",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
@@ -104,8 +108,8 @@ function QueryTGList() {
       "endTime": "2018/10/20 00:00:00", //结束时间，注意格式
     },
     {
-      "id": 2,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 2,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
@@ -119,8 +123,8 @@ function QueryTGList() {
     },
 
     {
-      "id": 3,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 3,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
@@ -134,8 +138,8 @@ function QueryTGList() {
     },
 
     {
-      "id": 4,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 4,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
@@ -148,8 +152,8 @@ function QueryTGList() {
       "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
     },
     {
-      "id": 4,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 4,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
@@ -162,8 +166,8 @@ function QueryTGList() {
       "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
     },
     {
-      "id": 4,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 4,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
@@ -176,8 +180,8 @@ function QueryTGList() {
       "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
     },
     {
-      "id": 4,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 4,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
@@ -203,13 +207,13 @@ function QueryTGList() {
 function QueryBanner() {
   var banners = [
     {
-      "id": 1,  //id	
+      "id": 1,  //id
       "name": "轮播图1",	   //轮播图名称
       "url": "https://gw.alicdn.com/tfs/TB1dHNDXMHqK1RjSZFEXXcGMXXa-750-291.jpg_Q90.jpg",	   //url
       "target": "" //跳转地址
     },
     {
-      "id": 2,  //id	
+      "id": 2,  //id
       "name": "轮播图2",	   //轮播图名称
       "url": "https://platform-wxmall.oss-cn-beijing.aliyuncs.com/upload/20180727/bff2e49136fcef1fd829f5036e07f116.jpg",	   //url
       "target": "" //跳转地址
@@ -228,9 +232,9 @@ function Friends(){
     "joinNum": 90, //参团人数
     "list": [
       {
-        "id":1,  //id	
+        "id":1,  //id
         "nickName": "小熊维尼",	      //微信昵称
-        "avatar":"https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //头像	
+        "avatar":"https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //头像
         "goodsList": [
           {
             "id": 1, // 商品id
@@ -255,7 +259,7 @@ function Friends(){
       {
         "id": 1,  //id
         "nickName": "东方天才",	      //微信昵称
-        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //头像	
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //头像
         "goodsList": [
           {
             "id": 1, // 商品id
@@ -293,6 +297,8 @@ function QueryOrderDetail(){
     "userName": "快乐的山羊",	   //参团人
     "joinTime": "2018/09/16", //参团时间，注意格式
     "status":3,
+    "orderId":"1209832080",//订单编号
+    "amount":"10004",
     "goodsList": [
       {
         "id": 1, // 商品id
@@ -321,7 +327,42 @@ function QueryOrderDetail(){
   return JSON.stringify(RS);
 }
 
+//获取我的店铺订单
+function QueryOrderList(){
+    var data = {
+        "rs":1,				//结果状态 1：成功  2：失败（失败时info会有提示信息）
+        "info":null,           //提示信息
+        "data":{
+            "totalPage":2, //总页数
+            "list":[
+                {
+                    "id":1,  //id
+                    "orderId":123456,  //订单编号 ，系统生成
+                    "userName":"会飞的猪",	   //团购名称
+                    "url":"https://yanxuan.nxxxx60",	   //店铺展示url
+                    "status":2, // 0未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
+                    "startTime":"2018-11-20 09:00:00",// 开团时间
+                    "amount": 14392.12, //实时销售额
+                    "joinNum": 90, //参团人数
+                },
+                {
+                    "id":2,  //id
+                    "orderId":1234567,  //订单编号 ，系统生成
+                    "userName":"会飞的猪2",	   //团购名称
+                    "url":"https://yanxuan.nxxxx60",	   //店铺展示url
+                    "status":4, //0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
+                    "startTime":"2018-11-20 09:00:00",// 开团时间
+                    "amount": 14000.12, //实时销售额
+                    "joinNum": 90, //参团人数
+                }
+            ]
+        }
 
+    }
+
+    RS.data = data;
+    return JSON.stringify(RS);
+}
 
 module.exports = {
   getData,

@@ -1,0 +1,36 @@
+<scroll-view scroll-y="true">
+    <view class="container">
+        <view class="list_item bg_ff flex flex_colum"
+              wx:for="{{orderList}}"
+              wx:key="{{item.id}}"
+              data-orderid="{{item.orderId}}"
+              bindtap="goDetail">
+            <view class="title flex flex_between flex_center">
+                <view>订单编号:{{item.orderId}}</view>
+                <view class="un_receive" wx:if="{{item.status===2}}">未收货</view>
+                <view class="receive"    wx:elif="{{item.status===4}}">已收货</view>
+            </view>
+            <view class="con flex">
+                <view class="left_part">
+                    <image src="/static/images/default.png"></image>
+                </view>
+                <view class="right_part flex flex_colum">
+                    <view class="flex flex_between line border_bottom">
+                        <view class="C666">下单时间</view>
+                        <view>{{item.startTime}}</view>
+                    </view>
+                    <view class="flex flex_between line border_bottom">
+                        <view class="C666">微信昵称</view>
+                        <view>{{item.userName}}</view>
+                    </view>
+                    <view class="flex flex_between line">
+                        <view class="C666">总金额</view>
+                        <view>￥{{item.amount}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</scroll-view>
+

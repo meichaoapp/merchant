@@ -1,6 +1,6 @@
 var api = require('../config/api.js');
 
-let DEBUG = false;//切换数据入口
+let DEBUG = true;//切换数据入口
 var Mock = require('mock.js')
 
 function formatTime(date) {
@@ -27,7 +27,7 @@ function formatNumber(n) {
 function request(url, data = {}, method = "GET") {
   return new Promise(function (resolve, reject) {
     let token = wx.getStorageSync('token');
-  
+
     // if (null != token){
     //   data.token = token
     // }
@@ -87,7 +87,7 @@ function request(url, data = {}, method = "GET") {
       var res = Mock.getData(url,data);
       resolve(JSON.parse(res));
     }
-   
+
   });
 }
 

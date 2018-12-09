@@ -1,16 +1,17 @@
 /* pages/goods/lengSHops.wxss */
 page {
   background: #f5f5f5;
+  height:100%;
 }
 .icon_group_buying {
   width: 32rpx;
   height: 32rpx;
-  margin-right: 20rpx; 
+  margin-right: 20rpx;
   margin-top: 8rpx;
 }
 .group_details_box {
   padding: 40rpx 32rpx;
-  line-height: 50rpx; 
+  line-height: 50rpx;
   background: #fff;
 }
 .group_details_box text {
@@ -29,22 +30,18 @@ page {
   height: 164rpx;
 }
 .shop-lists .main-title {
-  font-size: 32rpx;
-  color: #000;
-  padding: 25rpx 30rpx;  
+  font-size:32rpx;
+  height:91rpx;
+  line-height:91rpx;
+  padding:0 30rpx;
+  border-bottom:1px solid #eee;
 }
 .lists-box {
-  padding: 0 13rpx;
+  padding: 5rpx 30rpx;
 }
 .list-item {
   position: relative;
-  padding: 37rpx 0;
-  padding-left: 100rpx;
-  padding-right: 40rpx;
-  margin-bottom: 13rpx;
-  background: #fff;
-  box-shadow: 0 4rpx 18rpx rgba(0,0,0,0.08);
-  border-radius:8rpx; 
+  padding:22rpx 0;
 }
 .checkedimg,.ncheckedimg{
   width: 40rpx;
@@ -62,9 +59,9 @@ page {
   z-index: 100;
 }
 .list-item .shop-img {
- width: 106rpx;
- height: 70rpx;
- margin-right: 20rpx;
+ width: 95rpx;
+ height: 95rpx;
+ margin-right: 22rpx;
 }
 .list-item .con{
   flex: 1;
@@ -112,10 +109,10 @@ font-size: 24rpx;
   text-align: justify;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 .total-count {
- font-size: 26rpx; 
+ font-size: 26rpx;
 } */
 input.invite-code {
   border: solid 1px rgb(191,191,191);
@@ -129,11 +126,11 @@ input::-webkit-input-placeholder {
 .confirm-btn {
   width:295rpx;
   height:85rpx;
-  color: #fff; 
-  border-radius: 40rpx; 
+  color: #fff;
+  border-radius: 40rpx;
   border: none;
   background: rgb(114,207,221);
-  font-size: 32rpx; 
+  font-size: 32rpx;
   margin: 0;
 }
 .confirm-btn:first-child {
@@ -141,7 +138,7 @@ input::-webkit-input-placeholder {
 }
 .button-hover {
   opacity: .8;
-} 
+}
 .btn-box {
   padding-bottom: 60rpx;
   padding-top: 23rpx;
@@ -155,9 +152,10 @@ input::-webkit-input-placeholder {
   border: 1px solid #999999!important;
 }
 .nheader{
-padding: 37rpx 26rpx;
-padding-bottom: 22rpx;
-background: #fff;
+  padding: 25rpx 30rpx;
+  padding-bottom: 22rpx;
+  background: #fff;
+  margin-top:20rpx;
 }
 .nheader .icons{
   width: 36rpx;
@@ -188,4 +186,17 @@ background: #fff;
 .Testpass-bd image{
 width: 267rpx;
 height: 51rpx;
+}
+.line{
+  padding:15rpx 0;
+}
+.shop-lists{
+  margin-top:20rpx;
+}
+.received{
+  color:#60A33B;
+}
+.box{
+  height:100%;
+  background:#fff;
 }

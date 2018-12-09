@@ -1,0 +1,38 @@
+page{
+    height:100%;
+    background: #f4f4f4;
+}
+.list_item{
+    margin-top:20rpx;
+    height:350rpx;
+}
+.title{
+    height:89rpx;
+    border-bottom:1px solid #eee;
+    padding:0 30rpx;
+}
+.con{
+    flex:1;
+    padding:12rpx 0;
+    padding:0 30rpx;
+    margin-top:18rpx;
+}
+.left_part image{
+    border-radius: 10px;
+    width:95rpx;
+    height:95rpx;
+    margin-right:16rpx;
+}
+.right_part{
+    flex:1;
+}
+.line{
+    height: 78rpx;
+    line-height:78rpx;
+}
+.un_receive{
+    color:#FF9000
+}
+.receive{
+    color:#60A33B
+}

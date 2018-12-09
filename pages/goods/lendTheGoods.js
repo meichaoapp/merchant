@@ -9,7 +9,7 @@ Page({
    */
   data: {
     userInfo:{},
-    id: 1,  //订单编号	
+    id: 1,  //订单编号
     status: 0,// 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
     orderId: 0,  //订单id
     name: "",	   //团购名称
@@ -33,7 +33,7 @@ Page({
       userInfo: userInfo,
     });
 
-   
+
     this.getData();
   },
 
@@ -124,7 +124,7 @@ Page({
       goodsList.forEach(o => {
         if (o.status == 0 && o.checked == 1) {
           goodsIdArr.push(o.id);
-        } 
+        }
       });
     }
 
@@ -135,8 +135,8 @@ Page({
       });
       return;
     }
-    util.request(api.LeadOrder, { 
-      id: _this.data.orderId, 
+    util.request(api.LeadOrder, {
+      id: _this.data.orderId,
       merchantId: _this.data.userInfo.id,
       goodsIds: goodsIdArr.join(","),
      }, "POST").then(function (res) {
@@ -201,7 +201,7 @@ Page({
             if (o.status == 0) {
               o.checked = 0;
             }
-          
+
           });
         }
         that.setData({
@@ -210,6 +210,8 @@ Page({
           name: res.data.name,	   //团购名称
           userName: res.data.userName,	   //参团人
           joinTime: res.data.joinTime, //参团时间，注意格式
+          orderId:res.data.orderId,//订单编号
+          amount:res.data.amount,//总金额
           goodsList: goodsList, //订单商品列表
         });
       }else{

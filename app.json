@@ -1,5 +1,7 @@
 {
   "pages": [
+
+    "pages/myShop/myShop",
     "pages/index/index",
     "pages/firstLogin/firstLogin",
     "pages/ucenter/index/index",

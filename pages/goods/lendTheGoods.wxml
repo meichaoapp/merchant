@@ -1,70 +1,80 @@
 <import src="../../components/toast/toast.wxml" />
 <template is="toast" data="{{ ...$wux.toast }}" />
-<view class='nheader row'>
-  <image class='icons' src='../../static/images/icon_group_buying.png'></image>
-  <view class='buyerinfo'>
-    <text>团购名称：{{name}}</text>
-    <text>参团人：{{userName}}</text>
-    <text>参团时间：{{joinTime}}</text>
+<view class="box">
+  <view class='nheader'>
+    <view class="flex flex_between line">
+      <view class="C999 font15">订单编号</view>
+      <view class="font15">{{orderId}}</view>
+    </view>
+    <view class="flex flex_between line">
+      <view class="C999 font15">微信昵称</view>
+      <view  class="font15">{{userName}}</view>
+    </view>
+    <view class="flex flex_between line">
+      <view class="C999 font15">下单时间</view>
+      <view  class="font15">{{joinTime}}</view>
+    </view>
+    <view class="flex flex_between line">
+      <view class="C999 font15">总金额</view>
+      <view  class="font15">￥{{amount}}</view>
+    </view>
   </view>
-</view>
-
-<view class='flex flex_center flex_just checkOk'>
-  <image class='icon_check_yes' src='../../static/images/icon_check_yes.png'></image>
-  <image class='icon_check_isok' src='../../static/images/icon_check_isok.png'></image>
-</view>
-<view class='shop-lists'>
-  <view class='main-title'>购物清单</view>
-  <view class="lists-box"  wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-    <view class='list-item row' bindtap="checkGoogs"  data-id='{{item.id}}'>
-      <block wx:if="{{item.status==0}}" >
-        <image  wx:if="{{item.checked == 1}}" class='checkedimg' src='../../static/images/checked.png'></image>
-        <image  wx:if="{{item.checked == 0}}" class='ncheckedimg' src='../../static/images/nchecked.png'></image>
-      </block>
-      <block wx:if="{{item.status==1}}">
-        <image class='lingqu' src='../../static/images/lingqu.png'></image>
-      </block>
-      <image class='shop-img' src='{{item.url}}'></image>
-      <view class='con'>
-        <view class='shop-title'>
-          {{item.name}}
-        </view>
-        <view class='total-count row'>
-          <text class='shop-brief'>{{item.specifications}}</text>
-          <text class='shop-nums'>x{{item.buyNum}}</text>
+  <view class='shop-lists'>
+    <view class='main-title bg_ff font15'>购物清单</view>
+    <view class="lists-box bg_ff"  wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+      <view class='list-item row' bindtap="checkGoogs"  data-id='{{item.id}}'>
+        <block wx:if="{{item.status==0}}" >
+          <!--<image class="icon_check" src=""></image>-->
+          <image  wx:if="{{item.checked == 1}}" class='checkedimg' src='../../static/images/checked.png'></image>
+          <image  wx:if="{{item.checked == 0}}" class='ncheckedimg' src='../../static/images/nchecked.png'></image>
+        </block>
+        <block wx:if="{{item.status==1}}">
+          <image class='lingqu' src='../../static/images/lingqu.png'></image>
+        </block>
+        <image class='shop-img' src='{{item.url}}'></image>
+        <view class='con'>
+          <view class='shop-title flex flex_between'>
+            <view>{{item.name}}</view>
+            <view class="received">已领取</view>
+          </view>
+          <view class='total-count row'>
+            <!--<text class='shop-brief'>{{item.specifications}}</text>-->
+            <text class='shop-nums'>x{{item.buyNum}}</text>
+          </view>
         </view>
       </view>
     </view>
   </view>
-</view>
 
 
 
 
 
-<!-- <view class='shop-lists'>
-   <view class='main-title'>购物清单</view>
-   <view class="lists-box">
-     <view class='list-item flex flex_between flex_center' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-        <image class='shop-img' src='{{item.url}}'></image>
-        <view class='flex flex_colum flex_start flex_1'>
-          <text class='shop-title'>{{item.name}}</text>
-          <text class='shop-brief'>{{item.specifications}}</text>
-        </view>
-        <view class='total-count'>1{{item.unit}}*{{item.buyNum}}</view>
+  <!-- <view class='shop-lists'>
+     <view class='main-title'>购物清单</view>
+     <view class="lists-box">
+       <view class='list-item flex flex_between flex_center' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+          <image class='shop-img' src='{{item.url}}'></image>
+          <view class='flex flex_colum flex_start flex_1'>
+            <text class='shop-title'>{{item.name}}</text>
+            <text class='shop-brief'>{{item.specifications}}</text>
+          </view>
+          <view class='total-count'>1{{item.unit}}*{{item.buyNum}}</view>
+       </view>
+
+
+
+
      </view>
+  </view> -->
 
-  
+  <view class='flex flex_center flex_just btn-box'>
+    <!-- <button class='confirm-btn' bindtap='toIndex'>取消</button> -->
+    <!-- <button class="confirm-btn {{status != 2 ? 'graybtn' : '' }}" bindtap='leadOrder'>确认领取</button> -->
 
-     
-   </view>
-</view> -->
-
-<view class='flex flex_center flex_just btn-box'>
-  <!-- <button class='confirm-btn' bindtap='toIndex'>取消</button> -->
-  <!-- <button class="confirm-btn {{status != 2 ? 'graybtn' : '' }}" bindtap='leadOrder'>确认领取</button> -->
-
-  <image bindtap='toIndex' src='../../static/images/noconfirm-btn.png'></image>
-  <image wx:if="{{status == 2}}" bindtap='leadOrder' src='../../static/images/confirm-btn.png'></image>
-  <image wx:else  src='../../static/images/gray-confirm-btn.png'></image>
+    <image bindtap='toIndex' src='../../static/images/noconfirm-btn.png'></image>
+    <image wx:if="{{status == 2}}" bindtap='leadOrder' src='../../static/images/confirm-btn.png'></image>
+    <image wx:else  src='../../static/images/gray-confirm-btn.png'></image>
+  </view>
 </view>
+

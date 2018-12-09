@@ -5,7 +5,7 @@
   box-sizing: border-box;
   background-color: #f4f4f4;
   font-family: PingFangSC-Light,helvetica,'Heiti SC';
-} 
+}
 
 view,image,text,navigator{
   box-sizing: border-box;
@@ -38,9 +38,9 @@ view,text{
    color: #333333;
    font-weight: bold;
    font-size: 31rpx;
-   margin-left: 8rpx; 
+   margin-left: 8rpx;
  }
- 
+
 .section {
   width: 100%;
   margin-top: 20rpx;
@@ -237,4 +237,23 @@ view,text{
   background: #ccc;
   top: 18rpx;
   left: 0;
+}
+.C666{
+    color:#666;
+}
+.C999{
+    color:#999;
+}
+.ptb10{
+    padding-top:20rpx;
+    padding-bottom:20rpx;
+}
+.font15{
+    font-size:30rpx;
+}
+.bg_ff{
+    background:#fff;
+}
+.border_bottom{
+    border-bottom:1px solid #eee;
 }
