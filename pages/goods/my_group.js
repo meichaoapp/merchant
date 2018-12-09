@@ -17,7 +17,7 @@ Page({
     hideHeader: true, //隐藏顶部提示
     hideBottom: true, //隐藏底部提示
     srollViewHeight: 0, //滚动分页区域高度
-    refreshTime: '', // 刷新的时间 
+    refreshTime: '', // 刷新的时间
     loadMoreData: '加载更多',
   },
   onLoad: function (options) {
@@ -91,7 +91,7 @@ Page({
       _this.queryTGList();
     }, 300);
   },
-  
+
   // 下拉刷新
   refresh: function (e) {
     let _this = this;
@@ -121,28 +121,28 @@ Page({
                 // 获取当前时间，同时得到活动结束时间数组
                 let newTime = new Date().getTime();
                 console.log("newTime---" + newTime);
-                list.forEach(o => {
-                  if(o.status != 3){
-                    let startTime = new Date(o.startTime).getTime();
-                    let endTime = new Date(o.endTime).getTime();
-                    console.log("startTime---" + startTime);
-                    console.log("endTime---" + endTime);
-                    console.log("(newTime - startTime )---" + (newTime - startTime));
-                    if (newTime - startTime >= 0) {
-                      // 如果活动未结束，对时间进行处理
-                      if (endTime - newTime > 0) {
-                        o.status = 1; // 设置状态为进行中
-                      } else {//活动已结束，
-                        o.status = 2;
-                      }
-                    } else {
-                      o.status = 0;
-                    }
-                  }
-                 
-                  console.log("o.status --- " + o.status);
-                  o.statusStr = statusArr[o.status];
-                })
+                // list.forEach(o => {
+                //   if(o.status != 3){
+                //     let startTime = new Date(o.startTime).getTime();
+                //     let endTime = new Date(o.endTime).getTime();
+                //     console.log("startTime---" + startTime);
+                //     console.log("endTime---" + endTime);
+                //     console.log("(newTime - startTime )---" + (newTime - startTime));
+                //     if (newTime - startTime >= 0) {
+                //       // 如果活动未结束，对时间进行处理
+                //       if (endTime - newTime > 0) {
+                //         o.status = 1; // 设置状态为进行中
+                //       } else {//活动已结束，
+                //         o.status = 2;
+                //       }
+                //     } else {
+                //       o.status = 0;
+                //     }
+                //   }
+                //
+                //   console.log("o.status --- " + o.status);
+                //   o.statusStr = statusArr[o.status];
+                // })
               }
               var totalPage = res.data.totalPage;
 

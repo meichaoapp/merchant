@@ -100,98 +100,105 @@ function QueryTGList() {
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
       "price": "15元", //团购价
-      "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+      "status": 0, //0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
       "comments": "精品羊排新鲜出厂", //简述
       "limitNum": 99, //参团人数上限
-      "joinNum": 90, //参团人数
-      "startTime": "2018/10/15 00:00:00", //开始时间，注意格式
+      "joinNum": 92, //参团人数
+      "startTime": "2018/10/15 00:00:00", //开团时间，注意格式
       "endTime": "2018/10/20 00:00:00", //结束时间，注意格式
+      "amount": 14392.12, //实时销售额
     },
     {
       "id": 2,  //id
       "merchantId": 1,  //商户ID
-      "merchantName": "快乐山鸡",
+      "merchantName": "快乐山鸡2",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
       "price": "15元", //团购价
-      "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+      "status": 1, //0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
       "comments": "精品羊排新鲜出厂", //简述
       "limitNum": 99, //参团人数上限
       "joinNum": 90, //参团人数
       "startTime": "2018/10/16 00:00:00", //开始时间，注意格式
       "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
+      "amount": 14000.12, //实时销售额
     },
 
     {
       "id": 3,  //id
       "merchantId": 1,  //商户ID
-      "merchantName": "快乐山鸡",
+      "merchantName": "快乐山鸡3",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
       "price": "15元", //团购价
-      "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+      "status": 2, //0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
       "comments": "精品羊排新鲜出厂", //简述
       "limitNum": 99, //参团人数上限
       "joinNum": 90, //参团人数
       "startTime": "2018/10/18 00:00:00", //开始时间，注意格式
       "endTime": "2018/10/18 23:00:00", //结束时间，注意格式
+      "amount": 14001.12, //实时销售额
     },
 
     {
       "id": 4,  //id
       "merchantId": 1,  //商户ID
-      "merchantName": "快乐山鸡",
+      "merchantName": "快乐山鸡4",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
       "price": "15元", //团购价
-      "status": 3, //0 未开始 1 进行中 2 已成团 3 完成
+      "status": 4, //0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
       "comments": "精品羊排新鲜出厂", //简述
       "limitNum": 99, //参团人数上限
       "joinNum": 90, //参团人数
       "startTime": "2018/10/16 00:00:00", //开始时间，注意格式
       "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
+       "amount": 16000.12, //实时销售额
     },
     {
-      "id": 4,  //id
+      "id": 5,  //id
+      "merchantId": 1,  //商户ID
+      "merchantName": "快乐山鸡5",
+      "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
+      "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
+      "price": "15元", //团购价
+      "status": 5, //0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
+      "comments": "精品羊排新鲜出厂", //简述
+      "limitNum": 99, //参团人数上限
+      "joinNum": 90, //参团人数
+      "startTime": "2018/10/16 00:00:00", //开始时间，注意格式
+      "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
+      "amount": 18000.12, //实时销售额
+    },
+    {
+      "id": 6,  //id
+      "merchantId": 1,  //商户ID
+      "merchantName": "快乐山鸡6",
+      "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
+      "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
+      "price": "15元", //团购价
+      "status": 3,//0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
+      "comments": "精品羊排新鲜出厂", //简述
+      "limitNum": 99, //参团人数上限
+      "joinNum": 90, //参团人数
+      "startTime": "2018/10/16 00:00:00", //开始时间，注意格式
+      "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
+       "amount": 15000.12, //实时销售额
+    },
+    {
+      "id": 7,  //id
       "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
       "price": "15元", //团购价
-      "status": 3, //0 未开始 1 进行中 2 已成团 3 完成
+      "status": 3, //0 未开始 1 团员招募中 2 成团未到货 3 已过期 4已完成 5发放中
       "comments": "精品羊排新鲜出厂", //简述
       "limitNum": 99, //参团人数上限
       "joinNum": 90, //参团人数
       "startTime": "2018/10/16 00:00:00", //开始时间，注意格式
       "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
-    },
-    {
-      "id": 4,  //id
-      "merchantId": 1,  //商户ID
-      "merchantName": "快乐山鸡",
-      "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
-      "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
-      "price": "15元", //团购价
-      "status": 3, //0 未开始 1 进行中 2 已成团 3 完成
-      "comments": "精品羊排新鲜出厂", //简述
-      "limitNum": 99, //参团人数上限
-      "joinNum": 90, //参团人数
-      "startTime": "2018/10/16 00:00:00", //开始时间，注意格式
-      "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
-    },
-    {
-      "id": 4,  //id
-      "merchantId": 1,  //商户ID
-      "merchantName": "快乐山鸡",
-      "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
-      "url": "https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/3299989615/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",	   //展示url
-      "price": "15元", //团购价
-      "status": 3, //0 未开始 1 进行中 2 已成团 3 完成
-      "comments": "精品羊排新鲜出厂", //简述
-      "limitNum": 99, //参团人数上限
-      "joinNum": 90, //参团人数
-      "startTime": "2018/10/16 00:00:00", //开始时间，注意格式
-      "endTime": "2018/10/16 23:00:00", //结束时间，注意格式
+       "amount": 17800.12, //实时销售额
     },
   ];
 
