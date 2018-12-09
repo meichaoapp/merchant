@@ -68,13 +68,13 @@
      </view>
   </view> -->
 
-  <view class='flex flex_center flex_just btn-box'>
+  <view class='flex flex_center flex_just btn-box bg_ff'>
     <!-- <button class='confirm-btn' bindtap='toIndex'>取消</button> -->
     <!-- <button class="confirm-btn {{status != 2 ? 'graybtn' : '' }}" bindtap='leadOrder'>确认领取</button> -->
 
     <image bindtap='toIndex' src='../../static/images/noconfirm-btn.png'></image>
     <image wx:if="{{status == 2}}" bindtap='leadOrder' src='../../static/images/confirm-btn.png'></image>
-    <image wx:else  src='../../static/images/gray-confirm-btn.png'></image>
+    <image wx:else  src='../../static/images/confirm-btn.png'></image>
   </view>
 </view>
 

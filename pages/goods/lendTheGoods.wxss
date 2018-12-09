@@ -74,7 +74,7 @@ font-size: 29rpx;
   overflow:hidden;
   white-space:nowrap;
   font-family:UICTFontTextStyleBody;
-  margin-bottom: 13rpx;
+  margin-bottom: 26rpx;
 }
 .list-item .con .total-count{
 justify-content:space-between;
@@ -141,7 +141,7 @@ input::-webkit-input-placeholder {
 }
 .btn-box {
   padding-bottom: 60rpx;
-  padding-top: 23rpx;
+  padding-top: 40rpx;
 }
 .btn-box image{
   width: 296rpx;
@@ -198,5 +198,4 @@ height: 51rpx;
 }
 .box{
   height:100%;
-  background:#fff;
 }
