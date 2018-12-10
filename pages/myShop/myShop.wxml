@@ -11,7 +11,7 @@
         <view class="list_item bg_ff flex flex_colum"
               wx:for="{{list}}"
               wx:key="{{item.id}}"
-              data-orderid="{{item.id}}"
+              data-orderid="{{item.orderId}}"
               bindtap="goDetail">
             <view class="title flex flex_between flex_center">
                 <view>订单编号:{{item.orderId}}</view>
