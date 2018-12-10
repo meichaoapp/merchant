@@ -74,7 +74,7 @@
 
     <image bindtap='toIndex' src='../../static/images/noconfirm-btn.png'></image>
     <image wx:if="{{status == 2}}" bindtap='leadOrder' src='../../static/images/confirm-btn.png'></image>
-    <image wx:else  src='../../static/images/confirm-btn.png'></image>
+    <image wx:else  src='../../static/images/confirm-btn-gray.png'></image>
   </view>
 </view>
 
