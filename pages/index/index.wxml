@@ -33,7 +33,7 @@
      <text>合作推荐</text>
    </view>
    <view bindtap='goShop' class='flex flex_center flex_colum flex_just menu-item'>
-     <image src='../../static/images/menu-icon-qrcode.png'></image>
+     <image src='../../static/images/order.png'></image>
      <text>店铺订单</text>
    </view>
 </view>
