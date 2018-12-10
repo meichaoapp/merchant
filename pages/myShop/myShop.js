@@ -119,7 +119,7 @@ Page({
       }, "POST").then(function (res) {
           if (res.rs === 1) {
             var list = res.data.list;
-            //console.log("getOrderList ---- " + JSON.stringify(list));
+            console.log("getOrderList ---- " + JSON.stringify(list));
             if (_this.data.start == 1) { // 下拉刷新
               _this.setData({
                 list: list,
