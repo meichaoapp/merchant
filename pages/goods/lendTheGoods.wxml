@@ -16,7 +16,7 @@
     </view>
     <view class="flex flex_between line">
       <view class="C999 font15">总金额</view>
-      <view  class="font15">￥{{amount}}</view>
+      <view  class="font15">￥{{needPay}}</view>
     </view>
   </view>
   <view class='shop-lists'>

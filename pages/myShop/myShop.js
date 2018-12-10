@@ -111,11 +111,11 @@ Page({
   //获取店铺订单
   getOrderList: function () {
       let _this = this;
-      //console.log("getOrderList ---- " + JSON.stringify(list));
+    console.log("getOrderList ---- " + _this.data.userInfo.merchantId);
       util.request(api.QueryOrderList, {
         start: _this.data.start,
         limit: _this.data.limit,
-        merchantId: _this.data.userInfo.id,
+        merchantId: _this.data.userInfo.merchantId,
       }, "POST").then(function (res) {
           if (res.rs === 1) {
             var list = res.data.list;

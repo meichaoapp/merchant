@@ -98,6 +98,7 @@ Page({
     console.log("userInfo" + wxUser)
     user.wxLogin(wxUser, _this.data.authCode).then(res => {
       if (res.rs === 1) {
+        console.log("userInfo-------" + JSON.stringify(res.data.user))
         app.globalData.userInfo = res.data.user;
         app.globalData.token = res.data.token;
         wx.navigateBack({

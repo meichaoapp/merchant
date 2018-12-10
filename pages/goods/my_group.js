@@ -109,6 +109,7 @@ Page({
 
     queryTGList: function () {
       let _this = this;
+      console.log("QueryTGList-----" + _this.data.userInfo.id);
       var data = {
         start: _this.data.start,
         limit: _this.data.limit,

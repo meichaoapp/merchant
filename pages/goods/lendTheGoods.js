@@ -18,6 +18,7 @@ Page({
     joinTime: "", //参团时间，注意格式
     goodsList: [], //订单商品列表
     count: 0, //提交计数
+    needPay:0,
     toggleflag:true,//是否勾选清单
   },
 
@@ -139,7 +140,7 @@ Page({
       return;
     }
     util.request(api.LeadOrder, {
-      id: _this.data.orderId,
+      id: _this.data.id,
       merchantId: _this.data.userInfo.id,
       goodsIds: goodsIdArr.join(","),
       leadType: _this.data.leadType,
@@ -148,9 +149,16 @@ Page({
         wx.showToast({
           title: '领取成功!',
         })
-        wx.switchTab({
-          url: '/pages/index/index',
-        })
+        if (_this.data.leadType == 2){
+          wx.navigateTo({
+            url: '/pages/myShop/myShop',
+          })
+        }else {
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
+       
       }else{
         _this.setData({
           count: 0,
@@ -216,7 +224,7 @@ Page({
           userName: res.data.userName,	   //参团人
           joinTime: res.data.joinTime, //参团时间，注意格式
           orderId:res.data.orderId,//订单编号
-          amount:res.data.amount,//总金额
+          needPay: res.data.needPay,//总金额
           goodsList: goodsList, //订单商品列表
         });
       }else{
