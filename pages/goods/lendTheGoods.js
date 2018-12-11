@@ -29,7 +29,7 @@ Page({
     this.$wuxToast = app.Wux().$wuxToast
     console.log("orderId ---" + options.id);
     this.setData({
-      id: options.id,
+      orderId: options.id,
       leadType: options.leadType
     });
     let userInfo = wx.getStorageSync('userInfo');
@@ -199,7 +199,7 @@ Page({
 
   getData:function() {
     let that = this;
-    util.request(api.QueryOrderDetail, { orderId: that.data.id, merchantId: that.data.userInfo.id  },"POST").then(function (res) {
+    util.request(api.QueryOrderDetail, { orderId: that.data.orderId, merchantId: that.data.userInfo.id  },"POST").then(function (res) {
       console.log("QueryOrderDetail ---- " + res.data );
       if (res.data == null || res.data == undefined) {
         wx.redirectTo({
@@ -218,7 +218,7 @@ Page({
           });
         }
         that.setData({
-          orderId: res.data.id,
+          id: res.data.id,
           status: res.data.status,
           name: res.data.name,	   //团购名称
           userName: res.data.userName,	   //参团人

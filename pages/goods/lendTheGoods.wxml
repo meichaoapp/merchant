@@ -35,7 +35,8 @@
         <view class='con'>
           <view class='shop-title flex flex_between'>
             <view>{{item.name}}</view>
-            <view class="received">已领取</view>
+            <view wx:if="{{item.status == 0}}" class="received">未领取</view>
+            <view wx:if="{{item.status == 1}}" class="received">已领取</view>
           </view>
           <view class='total-count row'>
             <!--<text class='shop-brief'>{{item.specifications}}</text>-->
