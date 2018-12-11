@@ -12,7 +12,7 @@ Page({
     list: [],
     start: 1, // 页码
     totalPage: 0, // 共有页
-    limit: 3,//每页条数
+    limit: 5,//每页条数
     hideHeader: true, //隐藏顶部提示
     hideBottom: true, //隐藏底部提示
     srollViewHeight: 0, //滚动分页区域高度
@@ -77,6 +77,7 @@ Page({
 
   // 上拉加载更多
   loadMore: function () {
+    console.log('上拉加载更多');
     let _this = this;
     // 当前页是最后一页
     if (_this.data.start == _this.data.totalPage) {
