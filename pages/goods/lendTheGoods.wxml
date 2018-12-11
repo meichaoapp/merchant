@@ -23,15 +23,17 @@
     <view class='main-title bg_ff font15'>购物清单</view>
     <view class="lists-box bg_ff"  wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
       <view class='list-item row' bindtap="checkGoogs"  data-id='{{item.id}}'>
-        <block wx:if="{{item.status==0}}" >
-          <!--<image class="icon_check" src=""></image>-->
-          <image  wx:if="{{item.checked == 1}}" class='checkedimg' src='../../static/images/checked.png'></image>
-          <image  wx:if="{{item.checked == 0}}" class='ncheckedimg' src='../../static/images/nchecked.png'></image>
-        </block>
-        <block wx:if="{{item.status==1}}">
-          <image class='lingqu' src='../../static/images/lingqu.png'></image>
-        </block>
-        <image class='shop-img' src='{{item.url}}'></image>
+        <view class="left_part flex flex_center">
+          <block wx:if="{{item.status==0}}" >
+            <!--<image class="icon_check" src=""></image>-->
+            <image  wx:if="{{item.checked == 1}}" class='checkedimg' src='../../static/images/checked.png'></image>
+            <image  wx:if="{{item.checked == 0}}" class='ncheckedimg' src='../../static/images/nchecked.png'></image>
+          </block>
+          <block wx:if="{{item.status==1}}">
+            <image class='lingqu' src='../../static/images/lingqu.png'></image>
+          </block>
+          <image class='shop-img' src='{{item.url}}'></image>
+        </view>
         <view class='con'>
           <view class='shop-title flex flex_between'>
             <view>{{item.name}}</view>

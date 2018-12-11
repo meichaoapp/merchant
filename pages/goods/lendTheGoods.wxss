@@ -46,9 +46,7 @@ page {
 .checkedimg,.ncheckedimg{
   width: 40rpx;
   height: 40rpx;
-  position: absolute;
-  top: 52rpx;
-  left: 39rpx;
+  margin-right:30rpx;
 }
 .lingqu{
     width: 129rpx;
@@ -63,8 +61,12 @@ page {
  height: 95rpx;
  margin-right: 22rpx;
 }
+.list-item .left_part{
+  width:186rpx;
+}
 .list-item .con{
   flex: 1;
+  width:0;
 }
 .list-item .con .shop-title{
 color: #333333;
