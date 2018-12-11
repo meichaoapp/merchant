@@ -17,8 +17,9 @@ Page({
     var that = this;
     // 页面初始化 options为页面跳转所带来的参数
     that.setData({
-      id: parseInt(options.id)
+      id: options.id
     });
+    
     that.getFriendslist();
   },
   onReady: function () {
@@ -58,6 +59,7 @@ Page({
   getFriendslist: function (e) {
     // 获取我的团列表信息
     let that = this;
+    //console.log("id ------" + that.data.id);
     util.request(api.Friends,{id : that.data.id },"POST").then(function (res) {
       if (res.rs === 1) {
         var getFriendslist = res.data.list;

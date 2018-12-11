@@ -6,33 +6,35 @@
   <view>下拉刷新中……</view>
 </view>
 <scroll-view scroll-y="true">
-    <navigator url='/pages/goods/group_details?id={{item.id}}'>
+    
         <view class="list_item bg_ff" wx:for="{{list}}" wx:key="{{item.id}}">
-        <view class="title flex flex_between flex_center">
-            <view class="C666">开团时间：{{item.startTime}}</view>
-            <view wx:if="{{item.status == 0}}">未开始</view>
-            <view class="status1" wx:elif="{{item.status == 1}}">团员招募中</view>
-            <view class="status2" wx:elif="{{item.status == 2}}">成员未到货</view>
-            <view class="status4"wx:elif="{{item.status == 4}}">已完成</view>
-            <view class="status5"wx:else>发放中</view>
-        </view>
-        <view class="con flex flex_center">
-            <view class="left_part">
-                <image src="{{item.url}}"></image>
-            </view>
-            <view class='right_part flex flex_colum flex_just'>
-                <view class="join_num flex flex_between">
-                    <text class="C666">当前参团人数</text>
-                    <text>{{item.joinNum}}</text>
-                </view>
-                <view class="curr_sale flex flex_between">
-                    <text class="C666">实时销售额</text>
-                    <text>￥{{item.amount}}</text>
-                </view>
-            </view>
-        </view>
+        <navigator url='/pages/goods/group_details?id={{item.id}}'>
+          <view class="title flex flex_between flex_center">
+              <view class="C666">开团时间：{{item.startTime}}</view>
+              <view wx:if="{{item.status == 0}}">未开始</view>
+              <view class="status1" wx:elif="{{item.status == 1}}">团员招募中</view>
+              <view class="status2" wx:elif="{{item.status == 2}}">成员未到货</view>
+              <view class="status4"wx:elif="{{item.status == 4}}">已完成</view>
+              <view class="status5"wx:else>发放中</view>
+          </view>
+          <view class="con flex flex_center">
+              <view class="left_part">
+                  <image src="{{item.url}}"></image>
+              </view>
+              <view class='right_part flex flex_colum flex_just'>
+                  <view class="join_num flex flex_between">
+                      <text class="C666">当前参团人数</text>
+                      <text>{{item.joinNum}}</text>
+                  </view>
+                  <view class="curr_sale flex flex_between">
+                      <text class="C666">实时销售额</text>
+                      <text>￥{{item.amount}}</text>
+                  </view>
+              </view>
+          </view>
+        </navigator>
     </view>
-    </navigator>
+    
 
 </scroll-view>
 
