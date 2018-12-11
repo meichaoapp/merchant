@@ -200,7 +200,7 @@ Page({
   getData:function() {
     let that = this;
     util.request(api.QueryOrderDetail, { orderId: that.data.orderId, merchantId: that.data.userInfo.id  },"POST").then(function (res) {
-      console.log("QueryOrderDetail ---- " + res.data );
+      console.log("QueryOrderDetail ---- " + JSON.stringify(res.data) );
       if (res.data == null || res.data == undefined) {
         wx.redirectTo({
           url: '/pages/goods/noneOrder',
