@@ -1,21 +1,19 @@
 <view class='people-lists'>
    <view class='main-title'>参团人数：{{joinNum}}</view>
 
-   <view class="lists-box" wx:for="{{getFriendslist}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-     <view class='list-item flex flex_between flex_center'>
+   <view class="lists-box flex flex_between flex_center" wx:for="{{getFriendslist}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <image class='shop-img' src='{{item.avatar}}'></image>
         <view class='flex flex_center flex_1 flex_start right-details'>
           <view class='shop-title'>{{item.nickName}}</view>
-          <view class='flex flex_colum flex_start flex_1'>
+          <view class='flex flex_colum flex_start flex_1 intro'>
 
             <block wx:for="{{item.goodsList}}" wx:for-index="index_j" wx:for-item="item_j" wx:key="{{item_j.id}}">
 
                         <text class='shop-brief'>【{{item_j.buyNum}}{{item_j.unit}}】{{item_j.name}}</text>
             </block>
-            
+
           </view>
         </view>
-     </view>
    </view>
 
-</view> 
+</view>

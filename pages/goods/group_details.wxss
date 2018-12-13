@@ -4,21 +4,20 @@ page {
 }
 .people-lists {
   background: #fff;
-  margin-top: 18rpx; 
+  margin-top: 18rpx;
+  margin-bottom:20rpx;
+
 }
 .people-lists .main-title {
   font-size: 32rpx;
   color: #000;
-  padding: 40rpx 0;  
-  margin-left: 40rpx;
-  border-bottom: solid 1px #f0f0f0; 
+  padding: 40rpx 30rpx;
+  border-bottom: solid 1px #f0f0f0;
 }
 .lists-box {
-  width: 90%;
-  margin-left: 40rpx;
-}
-.list-item {
-  height: 125rpx;
+  padding:20rpx 0rpx;
+  margin:0 30rpx;
+  border-bottom: solid #f0f0f0 1px;
 }
 .list-item:last-child {
   border: none;
@@ -27,7 +26,7 @@ page {
  width:70rpx;
  height: 70rpx;
  margin-right: 20rpx;
- border-radius: 100%; 
+ border-radius: 100%;
 }
 .shop-title {
   font-size: 32rpx;
@@ -37,6 +36,7 @@ page {
   overflow: hidden;
   white-space: nowrap;
   width: 170rpx;
+  margin-right:10rpx;
 }
 .shop-brief {
   font-size: 20rpx;
@@ -45,10 +45,11 @@ page {
   text-align: justify;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap; 
+  white-space: nowrap;
+  padding:10rpx 0;
 }
 .total-count {
- font-size: 26rpx; 
+ font-size: 26rpx;
 }
 input.invite-code {
   border: solid 1px rgb(191,191,191);
@@ -60,6 +61,9 @@ input::-webkit-input-placeholder {
   color: rgb(153,153,153);
 }
 .right-details {
-  height: 125rpx;
-  border-bottom: solid #f0f0f0 1px; 
+  flex:1;
+  width:0;
+}
+.intro{
+  width:0;
 }
