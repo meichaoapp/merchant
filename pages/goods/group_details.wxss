@@ -15,8 +15,10 @@ page {
   border-bottom: solid 1px #f0f0f0;
 }
 .lists-box {
-  padding:20rpx 0rpx;
-  margin:0 30rpx;
+  padding:0 30rpx;
+}
+.lists-item{
+  padding:20rpx 0;
   border-bottom: solid #f0f0f0 1px;
 }
 .list-item:last-child {
