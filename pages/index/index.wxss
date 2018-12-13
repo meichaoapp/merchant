@@ -3,18 +3,22 @@ page {
 }
 .location-header{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   height: 80rpx;
   background: rgb(114,207,221);
-  color: #fff; 
+  color: #fff;
   font-size: 32rpx;
-  margin-top: -10rpx; 
+  margin-top: -10rpx;
   z-index: 100;
+  padding:0 30rpx;
 }
 .current-location{
-  margin-left: 32rpx;
   align-items: center;
+  flex:1;
+  width:0;
+  margin-right:10rpx;
+}
+.merchant-map{
+  width:178rpx;
 }
 .location-down {
   width: 18rpx;
@@ -31,7 +35,7 @@ page {
  }
 .location-address{
   color: #fff;
-  font-size: 32rpx; 
+  font-size: 32rpx;
   margin: 0 14rpx;
   max-width: 81%;
   text-overflow: ellipsis;
@@ -47,7 +51,8 @@ page {
  .merchant-name{
    color: #fff;
    align-items: center;
-   margin-right:32rpx;
+   flex:1;
+   width:0;
  }
 .banner {
   width: 750rpx;
@@ -94,19 +99,19 @@ page {
 /* 菜单新样式 */
 .munu-list {
   background: #fff;
-  margin-top: 24rpx; 
+  margin-top: 24rpx;
   padding: 50rpx 32rpx;
 }
 .munu-list .menu-item {
   width: 50%;
   height: 226rpx;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 .munu-list .menu-item:nth-child(odd){
-  border-right: solid 1px rgb(191, 191, 191); 
+  border-right: solid 1px rgb(191, 191, 191);
 }
 .munu-list .menu-item:first-child,.munu-list .menu-item:nth-child(2) {
-  border-bottom: solid 1px rgb(191, 191, 191); 
+  border-bottom: solid 1px rgb(191, 191, 191);
 }
 .munu-list .menu-item:first-child image,.munu-list .menu-item:nth-child(2) image {
   margin-top: -36rpx;
@@ -120,6 +125,6 @@ page {
 }
 .munu-list .menu-item text {
   color: rgb(51,51,51);
-  font-size: 32rpx; 
-  margin-top:16rpx; 
+  font-size: 32rpx;
+  margin-top:16rpx;
 }

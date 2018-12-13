@@ -257,3 +257,8 @@ view,text{
 .border_bottom{
     border-bottom:1px solid #eee;
 }
+.ellipsis{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
