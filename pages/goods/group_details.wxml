@@ -9,7 +9,7 @@
 
                     <block wx:for="{{item.goodsList}}" wx:for-index="index_j" wx:for-item="item_j" wx:key="{{item_j.id}}">
 
-                        <text class='shop-brief'>【{{item_j.buyNum}}{{item_j.unit}}】{{item_j.name}}</text>
+                        <text class='shop-brief'>【{{item_j.buyNum}}】{{item_j.name}}</text>
                     </block>
 
                 </view>

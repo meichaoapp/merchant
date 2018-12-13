@@ -37,7 +37,7 @@ page {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  width: 170rpx;
+  width: 230rpx;
   margin-right:10rpx;
 }
 .shop-brief {
