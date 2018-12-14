@@ -31,7 +31,7 @@ page {
  border-radius: 100%;
 }
 .shop-title {
-  font-size: 28rpx;
+  font-size: 23rpx;
   line-height:42rpx;
   color: #000;
   width: 230rpx;
