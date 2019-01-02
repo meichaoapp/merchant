@@ -53,6 +53,24 @@ Page({
     // 页面关闭
   },
 
+  //导航跳转
+  navTo: function (e) {
+    var url = e.currentTarget.dataset.url;
+    if (url == "null" || url == null) {
+      return;
+    }
+    //跳转TabBar路径
+    if (e.currentTarget.dataset.way == 1) {
+      wx.switchTab({
+        url: e.currentTarget.dataset.url
+      });
+    } else {
+      wx.navigateTo({
+        url: "/pages/thirdPage/thirdPage?url=" + url,
+      })
+    }
+  },
+
   //领货扫描二维码
   scanQrCode: function(){ 
     var _this = this;
