@@ -244,6 +244,9 @@ view,text{
 .C999{
     color:#999;
 }
+.Cf3f{
+    color:#FF3F3F
+}
 .ptb10{
     padding-top:20rpx;
     padding-bottom:20rpx;
@@ -251,11 +254,26 @@ view,text{
 .font15{
     font-size:30rpx;
 }
+.font18{
+    font-size:36rpx;
+}
+.font12{
+    font-size:24rpx;
+}
+.font14{
+    font-size:28rpx;
+}
+.font16{
+    font-size:32rpx;
+}
 .bg_ff{
     background:#fff;
 }
 .border_bottom{
     border-bottom:1px solid #eee;
+}
+.border_none{
+    border:none;
 }
 .ellipsis{
     overflow:hidden;

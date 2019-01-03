@@ -1,6 +1,7 @@
 /* pages/goods/lengSHops.wxss */
 page {
   background: rgb(245, 245, 245);
+  height:100%;
 }
 .people-lists {
   background: #fff;
@@ -65,4 +66,82 @@ input::-webkit-input-placeholder {
 }
 .intro{
   width:0;
+}
+
+
+
+.detail_box{
+  height:100%;
+}
+.menu{
+  height:90rpx;
+  border-top:1px solid #D9D9D9 ;
+  width:100%;
+}
+.menu view{
+  height:90rpx;
+  line-height:90rpx;
+  text-align:center;
+}
+.on{
+  border-bottom:2px solid #79C54C;
+  color:#79C54C
+}
+.detail_con{
+  flex:1;
+  margin-bottom:40rpx;
+  overflow:auto;
+}
+.mem_list{
+  margin-top:20rpx;
+  width:100%;
+}
+.mem_list .intro{
+  width:100%;
+  height:99rpx;
+  border-bottom:1px solid #89C765;
+  padding:0 30rpx;
+}
+.intro .left_part image{
+  width:50rpx;
+  height:50rpx;
+  border-radius:50%;
+  margin-right:20rpx;
+}
+.mem_list .con .detail_item{
+  margin:0 32rpx;
+  padding:19rpx 0;
+  border-bottom:1px solid #ECECEC;
+}
+.mem_list .con .detail_item:last-child{
+  border-bottom:none;
+}
+.goods_list{
+  padding:21rpx 30rpx;
+}
+.goods_list:first-child{
+  margin-top:20rpx;
+}
+.goods_list .left_part{
+  width:100rpx;
+  height:100rpx;
+  background: #F8F6F7;
+  border-radius: 5px;
+  margin-right:22rpx;
+  overflow:hidden;
+}
+.goods_list image{
+  width:95rpx;
+  height:95rpx;
+}
+.goods_list .old_price{
+  font-size:24rpx;
+  color:#999;
+  text-decoration: line-through;
+  margin-right:15rpx;
+}
+.goods_list .count{
+  margin-top:27rpx;
+  font-size:24rpx;
+  color:#999;
 }

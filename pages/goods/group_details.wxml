@@ -1,4 +1,4 @@
-<view class='people-lists'>
+<!--<view class='people-lists'>
    <view class='main-title'>参团人数：{{joinNum}}</view>
     <view class="lists-box">
         <view class="lists-item flex flex_between flex_center" wx:for="{{getFriendslist}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
@@ -13,6 +13,52 @@
                     </block>
 
                 </view>
+            </view>
+        </view>
+    </view>
+
+</view>-->
+<view class="detail_box flex flex_colum">
+    <!--菜单-->
+    <view class="menu bg_ff flex flex_center flex_around">
+        <block wx:for="{{classifyList}}" wx:key="{{item.index}}">
+            <view bindtap='switchClassifyList' data-type="{{item.index}}" class="{{classify == item.index ? 'on' : '' }}">{{item.name}}</view>
+        </block>
+    </view>
+    <view class="detail_con">
+        <!--团员-->
+        <view class="mem_list bg_ff" wx:if="{{classify==0}}" wx:for="{{memList}}" wx:key="{{index}}">
+            <view class="intro flex flex_between flex_center">
+                <view class="left_part flex flex_center">
+                    <image src="{{item.avatar}}"></image>
+                    <text>{{item.nickName}}</text>
+                </view>
+                <view class="right_part">
+                    <text  class="Cf3f font12">￥</text>
+                    <text class="Cf3f font18">{{item.needPay}}</text>
+                </view>
+            </view>
+            <view class="con">
+                <view class="detail_item flex flex_center" wx:for="{{item.detailList}}" wx:for-item="goodsInfo" wx:key="{{index}}">
+                    <text>【{{goodsInfo.buyNum}}箱】</text>
+                    <text>{{goodsInfo.title}}</text>
+                </view>
+            </view>
+        </view>
+        <!--团品-->
+        <view class="goods_list bg_ff flex" wx:if="{{classify==1}}" wx:for="{{goodsList}}">
+            <view class="left_part flex flex_center flex_just">
+                <image src="{{item.icon}}"></image>
+            </view>
+            <view class="right_part">
+                <view class=" flex flex_between">
+                    <view class="font14">{{item.title}}</view>
+                    <view>
+                        <text class="old_price">￥16.8</text>
+                        <text class="font16">￥6.8</text>
+                    </view>
+                </view>
+                <view class="count">×1</view>
             </view>
         </view>
     </view>
