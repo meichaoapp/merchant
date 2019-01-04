@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "pages/index/index",
     "pages/myShop/myShop",
     "pages/firstLogin/firstLogin",
@@ -7,6 +8,7 @@
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/feedback/feedback",
+    "pages/ucenter/details/details",
     "pages/ucenter/partner/partner",
     "pages/auth/login/login",
     "pages/pay/pay",

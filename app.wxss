@@ -241,6 +241,9 @@ view,text{
 .mb10{
     margin-bottom:10rpx;
 }
+.mt6{
+    margin-top:6rpx;
+}
 .C666{
     color:#666;
 }
@@ -249,6 +252,9 @@ view,text{
 }
 .Cf3f{
     color:#FF3F3F
+}
+.C9000{
+    color:#FF9000;
 }
 .ptb10{
     padding-top:20rpx;
@@ -268,6 +274,12 @@ view,text{
 }
 .font16{
     font-size:32rpx;
+}
+.font24{
+    font-size:48rpx;
+}
+.font25{
+    font-size:50rpx;
 }
 .bg_ff{
     background:#fff;
