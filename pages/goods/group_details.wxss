@@ -145,3 +145,16 @@ input::-webkit-input-placeholder {
   font-size:24rpx;
   color:#999;
 }
+.order_box{
+  margin-top:20rpx;
+}
+.order_box .order_title{
+  height:145rpx;
+}
+.order_code{
+  padding:0 30rpx;
+  height:73rpx;
+  background: #F9FFF6;
+  border-top: 1px solid #CEEABF;
+  border-bottom:1px solid #CEEABF;
+}

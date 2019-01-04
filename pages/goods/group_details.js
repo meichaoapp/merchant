@@ -29,7 +29,7 @@ Page({
         ],
         memList:[],//团员
         goodsList:[],//团品
-        orderList:[],//订单
+        orderInfo:{},//订单
     },
     onLoad: function (options) {
         var that = this;
@@ -127,9 +127,8 @@ Page({
             case 2:
                 util.request(api.groupPurchase+"orderDetailsByOrder", {productId: _this.data.id,start:1,limit:5}, "POST").then(function (res) {
                     if (res.rs === 1) {
-                        console.log('======',res);
                         _this.setData({
-                            orderList:res.data.list
+                            orderInfo:res.data
                         })
                     }
                 });

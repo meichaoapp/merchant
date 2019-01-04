@@ -61,6 +61,51 @@
                 <view class="count">×1</view>
             </view>
         </view>
+        <!--订单-->
+        <view class="order_box" wx:if="{{classify==2}}">
+            <view class="order_title  bg_ff flex flex_around flex_center">
+                <view class="flex flex_colum flex_center">
+                    <text class="font12 C999 mb10">参团人数</text>
+                    <text class="font16">{{orderInfo.personNum}}</text>
+                </view>
+                <view class="flex flex_colum flex_center">
+                    <text class="font12 C999 mb10">销售总份数</text>
+                    <text class="font16">{{orderInfo.buyNum}}</text>
+                </view>
+                <view class="flex flex_colum flex_center">
+                    <text class="font12 C999 mb10">总销售额</text>
+                    <text class="font16">{{orderInfo.needPay}}</text>
+                </view>
+            </view>
+            <view class="mem_list bg_ff"  wx:for="{{orderInfo.list}}" wx:key="{{index}}">
+                <view class="intro flex flex_between flex_center">
+                    <view class="left_part flex flex_center">
+                        <image src="{{item.avatar}}"></image>
+                        <text>{{item.nickName}}</text>
+                    </view>
+                    <view class="right_part">
+                        <text  class="Cf3f font12">￥</text>
+                        <text class="Cf3f font18">{{item.needPay}}</text>
+                    </view>
+                </view>
+                <view class="con">
+                    <view class="detail_item flex flex_center" wx:for="{{item.detailList}}" wx:for-item="goodsInfo" wx:key="{{index}}">
+                        <text>【{{goodsInfo.buyNum}}箱】</text>
+                        <text>{{goodsInfo.title}}</text>
+                    </view>
+                </view>
+                <view class="order_code flex flex_center flex_between">
+                    <view class="font14 C666">订单编号：{{item.orderCode}}</view>
+                    <view class="font14" wx:if="{{item.status==0}}">待支付</view>
+                    <view class="font14" wx:elif="{{item.status==1}}">已支付</view>
+                    <view class="font14" wx:elif="{{item.status==2}}">待领取</view>
+                    <view class="font14" wx:elif="{{item.status==3}}">已完成</view>
+                    <view class="font14" wx:elif="{{item.status==4}}">已放弃</view>
+                    <view class="font14" wx:elif="{{item.status==4}}">退货</view>
+                </view>
+            </view>
+        </view>
+
     </view>
 
 </view>
