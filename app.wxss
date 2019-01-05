@@ -244,6 +244,9 @@ view,text{
 .mt6{
     margin-top:6rpx;
 }
+.C000{
+    color:#000;
+}
 .C666{
     color:#666;
 }
@@ -255,6 +258,9 @@ view,text{
 }
 .C9000{
     color:#FF9000;
+}
+.C33b{
+    color:#60A33B
 }
 .ptb10{
     padding-top:20rpx;
@@ -294,4 +300,7 @@ view,text{
     overflow:hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.text_center{
+    text-align:center;
 }

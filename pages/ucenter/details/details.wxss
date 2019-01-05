@@ -1,1 +1,62 @@
-/* pages/ucenter/details/details.wxss */
+page{
+    height:100%;
+    background:#f5f5f5;
+}
+.select_box{
+    padding:0 30rpx;
+    height:104rpx;
+    position: relative;
+}
+.select{
+    background: #fff;
+    width: 156rpx;
+    height:45rpx;
+    background: #FFFFFF;
+    border-radius: 22.5px;
+    align-items: center;
+    padding: 0 20rpx;
+}
+.select_text{
+    font-size: 24rpx;
+    flex: 1;
+}
+.select_img{
+    width: 19rpx;
+    height: 11rpx;
+    display: block;
+    transition:transform 0.3s;
+}
+.select_img_rotate{
+    transform:rotate(180deg);
+}
+.option_box{
+    position: absolute;
+    top: 72rpx;
+    width: 156rpx;
+    border:1px solid #efefef;
+    box-sizing: border-box;
+    height: 0;
+    overflow-y: auto;
+    border-top: 0;
+    background: #fff;
+    transition: height 0.3s;
+}
+.option{
+    display: block;
+    line-height: 30rpx;
+    font-size: 24rpx;
+    border-bottom: 1px solid #efefef;
+    padding: 10rpx;
+}
+.detail_list{
+
+}
+.detail_list .detail_item{
+    padding:0 30rpx;
+    height:123rpx;
+    border-bottom:1px solid #D9D9D9;
+}
+.detail_list .detail_item>view{
+    flex:1;
+    width:0;
+}

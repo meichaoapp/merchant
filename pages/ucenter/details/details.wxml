@@ -1,3 +1,35 @@
-<view>
-    明细
+<view class="details_box">
+    <view class='select_box flex flex_center'>
+        <view class='select flex' catchtap='selectTap'>
+            <text class='select_text'>{{selectData[index]}}</text>
+            <image class='select_img {{show&&"select_img_rotate"}}' src='/static/images/gobottom.png'></image>
+        </view>
+        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+        </view>
+    </view>
+    <view class="detail_list bg_ff">
+        <view class="detail_item flex flex_center flex_between">
+            <view class="text_center">
+                <view class="font14 C000">佣金</view>
+                <view class="font12 C666 mt6">12-19</view>
+            </view>
+            <view>30.9</view>
+            <view class="text_center">
+                <view class="font12 C999">123456780</view>
+                <view class="C33b font12 mt6">提现中</view>
+            </view>
+        </view>
+        <view class="detail_item flex flex_center flex_between">
+            <view class="text_center">
+                <view class="font14 C000 ellipsis">会费的主桌道我爱打架快乐十分</view>
+                <view class="font12 C666 mt6">12-19</view>
+            </view>
+            <view>30.9</view>
+            <view class="text_center">
+                <view class="font12 C999">123456780</view>
+                <view class="C33b font12 mt6">提现中</view>
+            </view>
+        </view>
+    </view>
 </view>
