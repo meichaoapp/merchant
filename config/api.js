@@ -18,4 +18,16 @@ module.exports = {
     Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）
     Pay: NewApiRootUrl + "common/pay", ///支付
     QueryOrderList: NewApiRootUrl + "merchant/groupPurchase/selfSupport/list",//获取店铺订单
+
+    //我的团相关接口
+    OrderDetailsByPerson: NewApiRootUrl + "merchant/groupPurchase/orderDetailsByPerson",//获取团购明细（团员）
+    OrderDetailsByDetails: NewApiRootUrl + "merchant/groupPurchase/orderDetailsByDetails",//获取团购明细（团品）
+    OrderDetailsByOrder: NewApiRootUrl + "merchant/groupPurchase/orderDetailsByOrder",//获取团购明细（订单）
+    
+    //个人中心相关接
+    QueryMyCenter: NewApiRootUrl + "merchant/groupPurchase/myCenter",//查询个人中心
+    WithdrawDeposit: NewApiRootUrl + "merchant/groupPurchase/withdrawDeposit",//提现
+    QuerymMyTradeList: NewApiRootUrl + "merchant/groupPurchase/myTradeList",//交易列表（个人中心明细）
+    Querygifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
+
 };

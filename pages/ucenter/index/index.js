@@ -6,7 +6,8 @@ var app = getApp();
 Page({
   data: {
     userInfo: {},
-    isShowContactBox: true
+    isShowContactBox: true,
+    brokerage:0.00
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -31,12 +32,21 @@ Page({
     });
 
   },
-  onHide: function () {
-    // 页面隐藏
+  queryMyCenter: function () {
+    let that = this;
+     util.request(api.QueryMyCenter,
+      { 
+       "userId": that.data.userInfo.id,                    //用户主键id
+       "merchantId": that.data.userInfo.merchantId             //商户主键id
+      }, 
+      "POST").then(function (res) {
+      if (res.rs === 1) {
+        that.setData({
+          brokerage: res.data.brokerage
+        });
+      }
+    });
 
-  },
-  onUnload: function () {
-    // 页面关闭
   },
   //跳转到我的团
   navToGroup:function(){

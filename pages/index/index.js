@@ -5,7 +5,8 @@ const maps = require('../../utils/maps.js');
 const wecache = require('../../utils/wecache.js');
 
 const pointKey = "userLocation";
- 
+const upgrade = "UPGRADE";
+
 //获取应用实例
 const app = getApp()
 Page({
@@ -22,10 +23,25 @@ Page({
   },
   
   onLoad: function (options) {
+    //升级
+    this.upgrade();
+
     this.queryBanner();
     this.getCurrentLocation();
 
   },
+  //升级
+  upgrade: function () {
+    var version = wx.getStorageSync(upgrade);
+    var _version = app.globalData._version;
+    if (version == "" || version == null || version != _version) {
+      //清空缓存
+      wx.clearStorageSync();
+      wx.clearStorage();
+      wx.setStorageSync(upgrade, _version);
+    }
+  },
+
   onReady: function () {
     // 页面渲染完成
   },
