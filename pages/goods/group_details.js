@@ -27,8 +27,15 @@ Page({
                 name: '订单'
             },
         ],
-        memList:[],//团员
-        goodsList:[],//团品
+        list: [],
+        start: 1, // 页码
+        totalPage: 0, // 共有页
+        limit: 10,//每页条数
+        hideHeader: true, //隐藏顶部提示
+        hideBottom: true, //隐藏底部提示
+        srollViewHeight: 0, //滚动分页区域高度
+        refreshTime: '', // 刷新的时间
+      loadMoreData: '上滑加载更多',
         orderInfo:{},//订单
     },
     onLoad: function (options) {
@@ -48,90 +55,159 @@ Page({
     onShow: function () {
 
     },
-    onHide: function () {
-
-    },
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    },
-    getFriendslist: function (e) {
-        // 获取我的团列表信息
-        let that = this;
-        //console.log("id ------" + that.data.id);
-        util.request(api.Friends, {id: that.data.id}, "POST").then(function (res) {
-            if (res.rs === 1) {
-                var getFriendslist = res.data.list;
-                that.setData({
-                    joinNum: res.data.joinNum,
-                    getFriendslist: getFriendslist
-                })
-                //console.log(getFriendslist);
-            }
-        });
-
-    },
+  
     //切换分类
     switchClassifyList(e){
         let _this = this;
         let type = e.currentTarget.dataset.type;
         _this.setData({
             start: 1,
-            classify: type
+            classify: type,
+            list: [],
+            start: 1, // 页码
+            totalPage: 0, // 共有页
+            limit: 10,//每页条数
         })
        this.queryInfo(_this.data.classify);
     },
-    queryInfo(type){
+  /**
+* 页面相关事件处理函数--监听用户下拉动作
+*/
+  onPullDownRefresh: function () {
+    this.refresh();
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.loadMore();
+  },
+
+  // 上拉加载更多
+  loadMore: function () {
+    let _this = this;
+    // 当前页是最后一页
+    if (_this.data.start == _this.data.totalPage) {
+      _this.setData({ loadMoreData: '我是有底线的' })
+      return;
+    }
+    setTimeout(function () {
+      //console.log('上拉加载更多');
+      _this.setData({
+        start: _this.data.start + 1,
+        hideBottom: false
+      })
+      _this.queryInfo(_this.data.classify);
+    }, 300);
+  },
+
+  // 下拉刷新
+  refresh: function (e) {
+    let _this = this;
+    setTimeout(function () {
+      _this.setData({
+        start: 1,
+        refreshTime: new Date().toLocaleTimeString(),
+        hideHeader: false
+      })
+      _this.queryInfo(_this.data.classify);
+      wx.stopPullDownRefresh();
+    }, 300);
+  },
+
+  //查询数据
+  queryInfo(type){
         let _this = this;
+        var data = {
+          productId: _this.data.id, 
+          start: _this.data.start, 
+          limit: _this.data.limit,
+        };
         switch(type){
             case 0:
-                util.request(api.groupPurchase+"orderDetailsByPerson", {productId: _this.data.id,start:1,limit:5}, "POST").then(function (res) {
+            util.request(api.groupPurchase + "orderDetailsByPerson", data, "POST").then(function (res) {
                     if (res.rs === 1) {
-                        console.log('======',res);
+                      var list = res.data.list;
+                      if (_this.data.start == 1) { // 下拉刷新
                         _this.setData({
-                            memList:res.data.list
+                          list: list,
+                          hideHeader: true,
+                          totalPage: res.data.totalPage,
                         })
+                      } else { // 加载更多
+                        var tempArray = _this.data.list;
+                        tempArray = tempArray.concat(list);
+                        _this.setData({
+                          totalPage: res.data.totalPage,
+                          list: tempArray,
+                          //hideBottom: true
+                        })
+                      }
+                    }else{
+                      wx.showToast({
+                        icon: "none",
+                        title: res.info,
+                      })
                     }
                 });
                 break;
             case 1:
-                util.request(api.groupPurchase+"orderDetailsByDetails", {productId: _this.data.id,start:1,limit:5}, "POST").then(function (res) {
+            util.request(api.groupPurchase + "orderDetailsByDetails", data, "POST").then(function (res) {
                     if (res.rs === 1) {
-                        console.log('======',res);
-                        _this.setData({
-                            goodsList:res.data.list
+                        var list = res.data.list;
+                        if (_this.data.start == 1) { // 下拉刷新
+                          _this.setData({
+                            list: list,
+                            hideHeader: true,
+                            totalPage: res.data.totalPage,
+                          })
+                        } else { // 加载更多
+                          var tempArray = _this.data.list;
+                          tempArray = tempArray.concat(list);
+                          _this.setData({
+                            totalPage: res.data.totalPage,
+                            list: tempArray,
+                            //hideBottom: true
+                          })
+                        }
+                    } else {
+                        wx.showToast({
+                          icon: "none",
+                          title: res.info,
                         })
                     }
                 });
                 break;
             case 2:
-                util.request(api.groupPurchase+"orderDetailsByOrder", {productId: _this.data.id,start:1,limit:5}, "POST").then(function (res) {
-                    if (res.rs === 1) {
-                        _this.setData({
-                            orderInfo:res.data
-                        })
-                    }
-                });
+            util.request(api.groupPurchase + "orderDetailsByOrder", data, "POST").then(function (res) {
+                if (res.rs === 1) {
+                  _this.setData({
+                    orderInfo: res.data,
+                  })
+                  var list = res.data.list;
+                  if (_this.data.start == 1) { // 下拉刷新
+                    _this.setData({
+                      list: list,
+                      hideHeader: true,
+                      totalPage: res.data.totalPage,
+                    })
+                  } else { // 加载更多
+                    var tempArray = _this.data.list;
+                    tempArray = tempArray.concat(list);
+                    _this.setData({
+                      totalPage: res.data.totalPage,
+                      list: tempArray,
+                      //hideBottom: true
+                    })
+                  }
+                } else {
+                  wx.showToast({
+                    icon: "none",
+                    title: res.info,
+                  })
+                }
+            });
                 break;
         }
 

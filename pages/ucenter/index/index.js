@@ -35,7 +35,7 @@ Page({
     //this.queryMyCenter();
 
   },
-  //体现
+  //提现
   withdrawDeposit: function () {
     let that = this;
     if(that.data.brokerage < 5) {
