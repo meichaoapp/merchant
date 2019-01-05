@@ -28,6 +28,6 @@ module.exports = {
     QueryMyCenter: NewApiRootUrl + "merchant/groupPurchase/myCenter",//查询个人中心
     WithdrawDeposit: NewApiRootUrl + "merchant/groupPurchase/withdrawDeposit",//提现
     QuerymMyTradeList: NewApiRootUrl + "merchant/groupPurchase/myTradeList",//交易列表（个人中心明细）
-    Querygifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
+    QueryGifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
 
 };

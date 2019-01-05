@@ -7,11 +7,12 @@ Page({
   data: {
     userInfo: {},
     isShowContactBox: true,
-    brokerage:0.00
+    brokerage:0.00,
+    list:[],// 优惠券列表
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    console.log(app.globalData)
+    this.queryGifts();
   },
   onReady: function () {
 
@@ -31,7 +32,40 @@ Page({
       userInfo: app.globalData.userInfo,
     });
 
+    //this.queryMyCenter();
+
   },
+  //体现
+  withdrawDeposit: function () {
+    let that = this;
+    if(that.data.brokerage < 5) {
+      wx.showToast({
+        icon: "none",
+        title: '5元以上才能申请提现!',
+      })
+      return;
+    }
+    util.request(api.WithdrawDeposit,
+      {
+        "userId": that.data.userInfo.id,                    //用户主键id
+        "merchantId": that.data.userInfo.merchantId ,            //商户主键id
+        "brokerage": that.data.brokerage,
+      },
+      "POST").then(function (res) {
+        if (res.rs === 1) { //提现成功
+          that.setData({
+            brokerage: 0.00
+          });
+        }else {
+          wx.showToast({
+            icon: "none",
+            title: res.info,
+          })
+        }
+      });
+  },
+
+  //查询个人中心
   queryMyCenter: function () {
     let that = this;
      util.request(api.QueryMyCenter,
@@ -42,11 +76,43 @@ Page({
       "POST").then(function (res) {
       if (res.rs === 1) {
         that.setData({
-          brokerage: res.data.brokerage
+          brokerage: res.data.brokerage.toFixed(2)
         });
       }
     });
+  },
 
+  //获取流量超市优惠券
+  queryGifts: function () {
+    let that = this;
+    util.request(api.QueryGifts,
+      {
+        "token": ""   
+      },
+      "POST").then(function (res) {
+        if (res.rs === 1) {
+          that.setData({
+            list: res.data.list
+          });
+        }
+      });
+  },
+  //导航跳转
+  navTo: function (e) {
+    var url = e.currentTarget.dataset.url;
+    if (url == "null" || url == null) {
+      return;
+    }
+    //跳转TabBar路径
+    if (e.currentTarget.dataset.way == 1) {
+      wx.switchTab({
+        url: e.currentTarget.dataset.url
+      });
+    } else {
+      wx.navigateTo({
+        url: "/pages/thirdPage/thirdPage?url=" + url,
+      })
+    }
   },
   //跳转到我的团
   navToGroup:function(){

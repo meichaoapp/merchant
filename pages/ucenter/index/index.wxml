@@ -1,56 +1,3 @@
-<!--<view class="container">
-  <view class="profile-info">
-    <image class="avatar" src="{{userInfo.avatar}}"></image>
-    <view class="info">
-      <text class="name">{{userInfo.nickName}}</text>
-      <text class="level">{{userInfo.userName}}</text>
-    </view>
-  </view>
-
-  &lt;!&ndash; <view class='mylists'>
-    <view class='mylist-cells' bindtap='navToGroup'>
-      <view class='mylist-cell-image'>
-        <image src='/static/images/icons-my-list01.png'></image>
-      </view>
-      <view class='mylist-cell-desc'>我参团</view>
-    </view>
-  </view> &ndash;&gt;
-
-
-  <view class='mylists'>
-
-      <view class='mylist-cells' data-phone="010-86469811" bindtap='callCFPhone'>
-        <view class='mylist-cell-image'>
-          <image src='/static/images/icons-my-list04.png'></image>
-        </view>
-        <view class='mylist-cell-desc'>电话客服</view>
-      </view>
-      <view class='mylist-cells' bindtap='toShowContactBox'>
-        <view class='mylist-cell-image'>
-          <image src='/static/images/icons-my-list05.png'></image>
-        </view>
-        <view class='mylist-cell-desc noborder'>在线客服</view>
-      </view>
-
-
-  </view>
-
-  <action-sheet hidden="{{isShowContactBox}}" bindchange="toHideContactBox">
-      <action-sheet-item >+美超小邻：hlkjshi</action-sheet-item>
-      <action-sheet-cancel>取消</action-sheet-cancel>
-  </action-sheet>
-  &lt;!&ndash; <view class='mylists'>
-      <view class='mylist-cells'>
-        <view class='mylist-cell-image'>
-          <image src='/static/images/icons-my-list06.png'></image>
-        </view>
-        <view class='mylist-cell-desc noborder'>设置</view>
-      </view>
-
-
-  </view> &ndash;&gt;
-
-</view>-->
 <view class="mine_box">
     <view class="top">
         <image class="top_bg" src="/static/images/mine_top.png" alt=""/>
@@ -64,8 +11,8 @@
             <navigator url="/pages/ucenter/yourinfor/yourinfor?tag=0">
                 <view class="account person_line flex flex_colum">
                     <view class="font14 C999">账户余额（元）</view>
-                    <view class="flex flex_between flex_center">
-                        <text class="font24 mt6">7965.12</text>
+                    <view class="flex flex_between flex_center" bindtap='withdrawDeposit'>
+                        <text class="font24 mt6">{{brokerage}}</text>
                         <text class="btn_get">提现</text>
                     </view>
                 </view>
@@ -79,7 +26,7 @@
                     <image src="/static/images/go.png" class="icon_go"></image>
                 </view>
             </view>
-            <navigator url="/pages/ucenter/details/details">
+            <!-- <navigator url="/pages/ucenter/details/details">
                 <view class="list_item my_coupon">
                     <view class="flex flex_center flex_between">
                         <view class="left_part flex flex_center">
@@ -89,39 +36,21 @@
                         <image src="/static/images/go.png" class="icon_go"></image>
                     </view>
                 </view>
-            </navigator>
+            </navigator> -->
         </view>
     </view>
     <!--优惠券列表-->
     <view class="coupon_list bg_ff">
-        <view class="coupon_item">
+      <block wx:for="{{list}}" wx:key="{{item.index}}" data-index="{{item.index}}">
+        <view class="coupon_item"  bindtap='navTo' data-way='0' data-url='{{item.target}}'>
             <image src="/static/images/coupon_bg.png"></image>
             <view class="coupon_intro flex flex_colum flex_center flex_just">
-                <view class="font25 C9000">200 优惠券</view>
-                <view class="font12 C9000 mt6">新注册并成功贷款5万元</view>
+                <view class="font25 C9000">{{item.facevalue}} 优惠券</view>
+                <view class="font12 C9000 mt6">{{item.description}}</view>
             </view>
         </view>
-        <view class="coupon_item">
-            <image src="/static/images/coupon_bg.png"></image>
-            <view class="coupon_intro flex flex_colum flex_center flex_just">
-                <view class="font25 C9000">200 优惠券</view>
-                <view class="font12 C9000 mt6">新注册并成功贷款5万元</view>
-            </view>
-        </view>
-        <view class="coupon_item">
-            <image src="/static/images/coupon_bg.png"></image>
-            <view class="coupon_intro flex flex_colum flex_center flex_just">
-                <view class="font25 C9000">200 优惠券</view>
-                <view class="font12 C9000 mt6">新注册并成功贷款5万元</view>
-            </view>
-        </view>
-        <view class="coupon_item">
-            <image src="/static/images/coupon_bg.png"></image>
-            <view class="coupon_intro flex flex_colum flex_center flex_just">
-                <view class="font25 C9000">200 优惠券</view>
-                <view class="font12 C9000 mt6">新注册并成功贷款5万元</view>
-            </view>
-        </view>
+      </block>
+        
     </view>
 </view>
 
