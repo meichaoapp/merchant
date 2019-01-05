@@ -130,6 +130,9 @@ input::-webkit-input-placeholder {
   margin-right:22rpx;
   overflow:hidden;
 }
+.goods_list .right_part{
+  flex:1;
+}
 .goods_list image{
   width:95rpx;
   height:95rpx;
