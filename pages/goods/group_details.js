@@ -35,7 +35,7 @@ Page({
         hideBottom: true, //隐藏底部提示
         srollViewHeight: 0, //滚动分页区域高度
         refreshTime: '', // 刷新的时间
-      loadMoreData: '上滑加载更多',
+        loadMoreData: '上滑加载更多',
         orderInfo:{},//订单
     },
     onLoad: function (options) {
@@ -67,6 +67,7 @@ Page({
             start: 1, // 页码
             totalPage: 0, // 共有页
             limit: 10,//每页条数
+            orderInfo:{},
         })
        this.queryInfo(_this.data.classify);
     },
@@ -182,12 +183,10 @@ Page({
             case 2:
             util.request(api.groupPurchase + "orderDetailsByOrder", data, "POST").then(function (res) {
                 if (res.rs === 1) {
-                  _this.setData({
-                    orderInfo: res.data,
-                  })
                   var list = res.data.list;
                   if (_this.data.start == 1) { // 下拉刷新
                     _this.setData({
+                      orderInfo: res.data,
                       list: list,
                       hideHeader: true,
                       totalPage: res.data.totalPage,
