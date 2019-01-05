@@ -8,15 +8,13 @@
     </view>
     <view class="con">
         <view class="list">
-            <navigator url="/pages/ucenter/yourinfor/yourinfor?tag=0">
-                <view class="account person_line flex flex_colum">
-                    <view class="font14 C999">账户余额（元）</view>
-                    <view class="flex flex_between flex_center" bindtap='withdrawDeposit'>
-                        <text class="font24 mt6">{{brokerage}}</text>
-                        <text class="btn_get">提现</text>
-                    </view>
+            <view class="account person_line flex flex_colum">
+                <view class="font14 C999">账户余额（元）</view>
+                <view class="flex flex_between flex_center" bindtap='withdrawDeposit'>
+                    <text class="font24 mt6">{{brokerage}}</text>
+                    <text class="btn_get">提现</text>
                 </view>
-            </navigator>
+            </view>
             <view class="list_item" bindtap="navToGroup">
                 <view class="flex flex_center flex_between">
                     <view class="left_part flex flex_center">
