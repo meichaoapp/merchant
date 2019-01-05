@@ -11,6 +11,7 @@ const upgrade = "UPGRADE";
 const app = getApp()
 Page({
   data: {
+    basePath: app.globalData._base_path, //基础路径
     merchantName:"",
     banners: [],
   },

@@ -1,11 +1,12 @@
 // components/error/noneOrder.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    basePath: app.globalData._base_path, //基础路径
   },
 
   /**

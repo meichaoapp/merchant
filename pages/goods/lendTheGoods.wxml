@@ -26,11 +26,11 @@
         <view class="left_part flex flex_center">
           <block wx:if="{{item.status==0}}" >
             <!--<image class="icon_check" src=""></image>-->
-            <image  wx:if="{{item.checked == 1}}" class='checkedimg' src='../../static/images/checked.png'></image>
-            <image  wx:if="{{item.checked == 0}}" class='ncheckedimg' src='../../static/images/nchecked.png'></image>
+            <image  wx:if="{{item.checked == 1}}" class='checkedimg' src='{{basePath}}/checked.png'></image>
+            <image  wx:if="{{item.checked == 0}}" class='ncheckedimg' src='{{basePath}}/nchecked.png'></image>
           </block>
           <block wx:if="{{item.status==1}}">
-            <image class='lingqu' src='../../static/images/lingqu.png'></image>
+            <image class='lingqu' src='{{basePath}}/lingqu.png'></image>
           </block>
           <image class='shop-img' src='{{item.url}}'></image>
         </view>
@@ -75,9 +75,9 @@
     <!-- <button class='confirm-btn' bindtap='toIndex'>取消</button> -->
     <!-- <button class="confirm-btn {{status != 2 ? 'graybtn' : '' }}" bindtap='leadOrder'>确认领取</button> -->
 
-    <image bindtap='toIndex' src='../../static/images/noconfirm-btn.png'></image>
-    <image wx:if="{{status == 2}}" bindtap='leadOrder' src='../../static/images/confirm-btn.png'></image>
-    <image wx:else  src='../../static/images/confirm-btn-gray.png'></image>
+    <image bindtap='toIndex' src='{{basePath}}/noconfirm-btn.png'></image>
+    <image wx:if="{{status == 2}}" bindtap='leadOrder' src='{{basePath}}/confirm-btn.png'></image>
+    <image wx:else  src='{{basePath}}/confirm-btn-gray.png'></image>
   </view>
 </view>
 
