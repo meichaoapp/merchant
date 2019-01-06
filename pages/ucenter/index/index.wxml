@@ -1,6 +1,6 @@
 <view class="mine_box">
     <view class="top">
-        <image class="top_bg" src="/static/images/mine_top.png" alt=""/>
+        <image class="top_bg" src="{{basePath}}/mine_top.png" alt=""/>
         <view class="user_info flex flex_center flex_just flex_colum">
             <image class="avatar" src="{{userInfo.avatar}}"></image>
             <text class="name">{{userInfo.nickName}}</text>
@@ -18,20 +18,20 @@
             <view class="list_item" bindtap="navToGroup">
                 <view class="flex flex_center flex_between">
                     <view class="left_part flex flex_center">
-                        <image class="icon_mine01" src="/static/images/mine_01.png"></image>
+                        <image class="icon_mine01" src="{{basePath}}/mine_01.png"></image>
                         <text class="font15 C666">我的团</text>
                     </view>
-                    <image src="/static/images/go.png" class="icon_go"></image>
+                    <image src="{{basePath}}/go.png" class="icon_go"></image>
                 </view>
             </view>
             <!-- <navigator url="/pages/ucenter/details/details">
                 <view class="list_item my_coupon">
                     <view class="flex flex_center flex_between">
                         <view class="left_part flex flex_center">
-                            <image class="icon_mine01" src="/static/images/mine_02.png"></image>
+                            <image class="icon_mine01" src="{{basePath}}/mine_02.png"></image>
                             <text class="font15 C666">明细</text>
                         </view>
-                        <image src="/static/images/go.png" class="icon_go"></image>
+                        <image src="{{basePath}}/go.png" class="icon_go"></image>
                     </view>
                 </view>
             </navigator> -->
@@ -60,7 +60,7 @@
     <view class="coupon_list bg_ff">
       <block wx:for="{{list}}" wx:key="{{item.index}}" data-index="{{item.index}}">
         <view class="coupon_item"  bindtap='navTo' data-way='0' data-url='{{item.target}}'>
-            <image src="/static/images/coupon_bg.png"></image>
+            <image src="{{basePath}}/coupon_bg.png"></image>
             <view class="coupon_intro flex flex_colum flex_center flex_just">
                 <view class="font25 C9000">{{item.facevalue}} 优惠券</view>
                 <view class="font12 C9000 mt6">{{item.description}}</view>

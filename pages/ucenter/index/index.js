@@ -5,6 +5,7 @@ var app = getApp();
 
 Page({
     data: {
+        basePath: app.globalData._base_path, //基础路径
         userInfo: {},
         isShowContactBox: true,
         brokerage: 0.00,
@@ -33,26 +34,23 @@ Page({
         this.setData({
             userInfo: app.globalData.userInfo,
         });
-
-        //this.queryMyCenter();
-
     },
     //体现
     withdrawDeposit: function () {
         let that = this;
-        // if (that.data.brokerage < 5) {
-        //     wx.showToast({
-        //         icon: "none",
-        //         title: '5元以上才能申请提现!',
-        //     })
-        //     return;
-        // }
+        if (that.data.brokerage < 5) {
+            wx.showToast({
+                icon: "none",
+                title: '5元以上才能申请提现!',
+            })
+            return;
+        }
         that.setData({
-            showModal2:true
+            showModal2: true
         })
     },
     //点击确认按钮，确认提现
-    confirmWithDraw(){
+    confirmWithDraw() {
         let that = this;
         util.request(api.WithdrawDeposit,
             {
@@ -64,7 +62,7 @@ Page({
             if (res.rs === 1) { //提现成功
                 that.setData({
                     brokerage: 0.00,
-                    showModal2:false
+                    showModal2: false
                 });
 
             } else {
@@ -168,7 +166,7 @@ Page({
     },
     showModal() {
         this.setData({
-            showModal:true
+            showModal: true
         })
         var that = this;
         wx.getLocation({

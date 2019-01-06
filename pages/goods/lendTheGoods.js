@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    basePath: app.globalData._base_path, //基础路径
     userInfo:{},
     id: 1,  //订单编号
     leadType:1,

@@ -1,7 +1,7 @@
 <import src="../../components/toast/toast.wxml" />
 <template is="toast" data="{{ ...$wux.toast }}" />
 <view class='flex flex_just cover-box'>
-<image class="cover-img" src="../../static/images/logo.png"></image>
+<image class="cover-img" src="{{basePath}}/logo.png"></image>
 </view>
 
 <view class="main-title">请向销售索取授权码</view>

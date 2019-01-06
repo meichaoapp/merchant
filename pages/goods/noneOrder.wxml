@@ -1,4 +1,4 @@
-<image  src="../../../static/images/noneOrder.png"></image>
+<image  src="{{basePath}}/noneOrder.png"></image>
 <view>订单不存在</view>
 
 <button bindtap='toIndex'>知道了</button>
