@@ -35,6 +35,25 @@
                     </view>
                 </view>
             </navigator> -->
+
+           <view class="list_item">
+               <view class="flex flex_center flex_between">
+                   <view class="left_part flex flex_center">
+                       <image class="icon_watch" src="/static/images/icon_watch.png"></image>
+                       <text class="font15 C666">消息监控</text>
+                   </view>
+                   <image src="/static/images/go.png" class="icon_go"></image>
+               </view>
+           </view>
+           <view class="list_item my_coupon" bindtap="showModal">
+               <view class="flex flex_center flex_between">
+                   <view class="left_part flex flex_center">
+                       <image class="icon_mine01" src="/static/images/icon_watch.png"></image>
+                       <text class="font15 C666">经纬度</text>
+                   </view>
+                   <image src="/static/images/go.png" class="icon_go"></image>
+               </view>
+           </view>
         </view>
     </view>
     <!--优惠券列表-->
@@ -50,5 +69,43 @@
       </block>
         
     </view>
+    <!--自定义弹框组件对应的遮罩层-->
+    <view class='mask' wx:if="{{showModal||showModal2}}" bindtap="closeModal" catchtouchmove="return">
+    </view>
+    <!--我的经纬度弹框组件-->
+    <modal  show="{{showModal}}" height='314rpx' isShowBtn="false"  catchtouchmove="return">
+        <view class="modal_title" slot="slot1">
+           我的经纬度
+        </view>
+        <view class='modal_content flex flex_colum' slot="slot2">
+            <view class="flex flex_center flex_just">
+                <text class="font18 C9000">X：</text>
+                <text>{{latitude}}</text>
+            </view>
+            <view class="flex flex_center flex_just">
+                <text class="font18 C9000">Y：</text>
+                <text>{{longitude}}</text>
+            </view>
+        </view>
+    </modal>
+    <!--提现弹框组件-->
+    <modal  show="{{showModal2}}" height='790rpx' catchtouchmove="return">
+        <view class="modal_title" slot="slot1" catchtouchmove="return">
+            提现金额为
+        </view>
+        <view class="modal_content_box" slot="slot2" catchtouchmove="return">
+            <view class='modal_content2 flex flex_colum flex_center flex_just'>
+                <image class="icon_withdraw" src="/static/images/icon_withdraw.png"></image>
+                <view class="widthdraw_money">79.12</view>
+                <view class="Cf3f font18">*最小提现金额5元</view>
+            </view>
+            <view class='modal_content_bottom' catchtouchmove="return">
+                <view class='confirm-btn font15'  bindtap='confirmWithDraw'>确认提现</view>
+                <view class="line"></view>
+                <view class='cancel-btn font15 C9000' bindtap='closeModal'>取消提现</view>
+            </view>
+        </view>
+
+    </modal>
 </view>
 

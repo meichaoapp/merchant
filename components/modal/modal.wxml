@@ -1,0 +1,12 @@
+<!--<view class='mask2' wx:if='{{show}}' bindtap='clickMask'>-->
+    <view wx:if='{{show}}' class='modal-content' style="margin:atuo;height:{{height}}">
+        <slot name="slot1"></slot>
+        <scroll-view scroll-y class='main-content'>
+            <slot name="slot2"></slot>
+        </scroll-view>
+        <!--<view class='modal-btn-wrapper' wx:if="{{isShowBtn}}">
+            &lt;!&ndash;<view class='cancel-btn' style='color:rgba(7,17,27,0.6)' bindtap='cancel'>取消</view>&ndash;&gt;
+            <view class='confirm-btn'  bindtap='confirm'>确认选择</view>
+        </view>-->
+    </view>
+<!--</view>-->

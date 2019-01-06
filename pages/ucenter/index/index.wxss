@@ -65,6 +65,11 @@ page{
     height:35rpx;
     margin-right:24rpx;
 }
+.icon_watch{
+    width:26rpx;
+    height:38rpx;
+    margin-right:24rpx;
+}
 .icon_mine02{
     width:31rpx;
     height:35rpx;
@@ -107,4 +112,68 @@ page{
     left:0;
     right:0;
     margin:auto;
+}
+.mask{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+.modal_title{
+    height:104rpx;
+    background: #89C765;
+    line-height:104rpx;
+    text-align:center;
+    font-size:36rpx;
+    color:#fff;
+}
+.modal_content{
+    height:210rpx;
+    padding:0 33rpx;
+}
+.modal_content view{
+    flex:1;
+    border-bottom:1px solid #E1E1E1;
+}
+.modal_content view:last-child{
+    border-bottom:none;
+}
+.modal_content2{
+    height:590rpx;
+}
+.icon_withdraw{
+    width:221rpx;
+    height:231rpx;
+}
+.widthdraw_money{
+    margin-top:24rpx;
+    margin-bottom:11rpx;
+    font-size: 64px;
+    color: #FF9000;
+}
+
+.modal_content_bottom{
+    height:95rpx;
+    border-top: 1px solid #E2E2E2;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+}
+.confirm-btn,.cancel-btn{
+    width:314rpx;
+    height:95rpx;
+    text-align:center;
+    line-height:95rpx;
+}
+.line{
+    height:100%;
+    width:1px;
+    background: #E2E2E2;
 }
