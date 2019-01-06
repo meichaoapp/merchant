@@ -36,7 +36,7 @@
                 </view>
             </navigator> -->
 
-           <!-- <view class="list_item">
+           <view class="list_item">
                <view class="flex flex_center flex_between">
                    <view class="left_part flex flex_center">
                        <image class="icon_watch" src="/static/images/icon_watch.png"></image>
@@ -44,7 +44,7 @@
                    </view>
                    <image src="{{basePath}}/go.png" class="icon_go"></image>
                </view>
-           </view> -->
+           </view>
            <view class="list_item my_coupon" bindtap="showModal">
                <view class="flex flex_center flex_between">
                    <view class="left_part flex flex_center">
