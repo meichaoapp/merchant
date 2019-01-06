@@ -17,7 +17,10 @@ module.exports = {
 
     Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）
     Pay: NewApiRootUrl + "common/pay", ///支付
+
+    //店铺订单相关
     QueryOrderList: NewApiRootUrl + "merchant/groupPurchase/selfSupport/list",//获取店铺订单
+    QueryOrderSumList: NewApiRootUrl + "merchant/groupPurchase/selfSupport/sum",//获取店铺订单汇总
 
     //我的团相关接口
     OrderDetailsByPerson: NewApiRootUrl + "merchant/groupPurchase/orderDetailsByPerson",//获取团购明细（团员）
@@ -29,5 +32,5 @@ module.exports = {
     WithdrawDeposit: NewApiRootUrl + "merchant/groupPurchase/withdrawDeposit",//提现
     QuerymMyTradeList: NewApiRootUrl + "merchant/groupPurchase/myTradeList",//交易列表（个人中心明细）
     QueryGifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
-
+  
 };

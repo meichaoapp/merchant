@@ -10,15 +10,16 @@ Page({
     data: {
         basePath: app.globalData._base_path, //基础路径
         userInfo: {},
+        orderInfo:{},
         list: [],
         start: 1, // 页码
         totalPage: 0, // 共有页
-        limit: 5,//每页条数
+        limit: 10,//每页条数
         hideHeader: true, //隐藏顶部提示
         hideBottom: true, //隐藏底部提示
         srollViewHeight: 0, //滚动分页区域高度
         refreshTime: '', // 刷新的时间
-        loadMoreData: '加载更多',
+        loadMoreData: '上拉加载更多',
         classify: 0,//分类
         classifyList: [
             {
@@ -30,8 +31,9 @@ Page({
                 name: '汇总'
             }
         ],
-        selectData:['2018-1','2018-2','2018-3','2018-4','2018-9','2018-12'],//下拉列表的数据
+        selectData:[],//下拉列表的数据
         index:0//选择的下拉列表下标
+
     },
 
     /**
@@ -39,13 +41,24 @@ Page({
      */
     onLoad: function (options) {
         let userInfo = wx.getStorageSync('userInfo');
+        var dateList = [];
+        for(var i = 2019 ; i <= 2023; i ++){
+           for(var j = 1; j <= 12 ; j++){
+             var y = i + "-";
+             var m = (j < 10) ? ("0" + j) : j ;
+             var date = y + m;
+             dateList.push(date);
+           }
+        }
         this.setData({
-            userInfo: userInfo,
+          selectData: dateList,//下拉列表的数据
+          index: 0,//选择的下拉列表下标
+          userInfo: userInfo,
         });
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         this.$wuxToast = app.Wux().$wuxToast
 
-        this.getOrderList();
+        this.getOrderList(0);
     },
     // 点击下拉显示框
     selectTap(){
@@ -55,11 +68,25 @@ Page({
     },
     // 点击下拉列表
     optionTap(e){
+        let _this = this;
         let Index=e.currentTarget.dataset.index;//获取点击的下拉列表的下标
         this.setData({
             index:Index,
             show:!this.data.show
         });
+
+      _this.setData({
+        start: 1,
+        classify: 1,
+        list: [],
+        start: 1, // 页码
+        totalPage: 0, // 共有页
+        limit: 10,//每页条数
+        orderInfo: {},
+        hideHeader: true, //隐藏顶部提示
+        hideBottom: true, //隐藏底部提示
+      })
+      this.getOrderList(_this.data.classify);
     },
 
     /**
@@ -75,6 +102,7 @@ Page({
     onShow: function () {
         // 页面显示
         var that = this;
+        
         let userInfo = wx.getStorageSync('userInfo');
         let token = wx.getStorageSync('token');
 
@@ -118,7 +146,7 @@ Page({
                 start: _this.data.start + 1,
                 hideBottom: false
             })
-            _this.getOrderList();
+            _this.getOrderList(_this.data.classify);
         }, 300);
     },
 
@@ -132,15 +160,16 @@ Page({
                 refreshTime: new Date().toLocaleTimeString(),
                 hideHeader: false
             })
-            _this.getOrderList();
+            _this.getOrderList(_this.data.classify);
             wx.stopPullDownRefresh();
         }, 300);
     },
 
     //获取店铺订单
-    getOrderList: function () {
+    getOrderList: function (type) {
         let _this = this;
-        console.log("getOrderList ---- " + _this.data.userInfo.merchantId);
+      switch (type) {
+        case 0:
         util.request(api.QueryOrderList, {
             start: _this.data.start,
             limit: _this.data.limit,
@@ -148,7 +177,6 @@ Page({
         }, "POST").then(function (res) {
             if (res.rs === 1) {
                 var list = res.data.list;
-                console.log("getOrderList ---- " + JSON.stringify(list));
                 if (_this.data.start == 1) { // 下拉刷新
                     _this.setData({
                         list: list,
@@ -168,6 +196,42 @@ Page({
 
             }
         });
+        break;
+        case 1:
+          util.request(api.QueryOrderSumList, {
+            start: _this.data.start,
+            limit: _this.data.limit,
+            merchantId: _this.data.userInfo.merchantId,
+            date: _this.data.selectData[_this.data.index],
+           } , "POST").then(function (res) {
+            if (res.rs === 1) {
+              var list = res.data.list;
+              if (_this.data.start == 1) { // 下拉刷新
+                _this.setData({
+                  orderInfo: res.data,
+                  list: list,
+                  hideHeader: true,
+                  totalPage: res.data.totalPage,
+                })
+              } else { // 加载更多
+                var tempArray = _this.data.list;
+                tempArray = tempArray.concat(list);
+                _this.setData({
+                  totalPage: res.data.totalPage,
+                  list: tempArray,
+                  //hideBottom: true
+                })
+              }
+            } else {
+              wx.showToast({
+                icon: "none",
+                title: res.info,
+              })
+            }
+          });
+          break;
+      }
+
     },
     //切换tab
     switchClassifyList(e) {
@@ -181,8 +245,10 @@ Page({
             totalPage: 0, // 共有页
             limit: 10,//每页条数
             orderInfo:{},
+            hideHeader: true, //隐藏顶部提示
+            hideBottom: true, //隐藏底部提示
         })
-        //this.queryInfo(_this.data.classify);
+      this.getOrderList(_this.data.classify);
     },
     //跳转到详情页
     goDetail(e) {

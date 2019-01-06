@@ -69,6 +69,8 @@ Page({
             totalPage: 0, // 共有页
             limit: 10,//每页条数
             orderInfo:{},
+            hideHeader: true, //隐藏顶部提示
+            hideBottom: true, //隐藏底部提示
         })
        this.queryInfo(_this.data.classify);
     },
@@ -83,12 +85,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log("loadMore*************");
     this.loadMore();
   },
 
   // 上拉加载更多
   loadMore: function () {
     let _this = this;
+    console.log("loadMore*************");
     // 当前页是最后一页
     if (_this.data.start == _this.data.totalPage) {
       _this.setData({ loadMoreData: '我是有底线的' })

@@ -16,7 +16,7 @@
         </view>
         <scroll-view scroll-y="true">
             <!--订单-->
-            <view class="list_item bg_ff flex flex_colum"
+            <view wx:if="{{classify==0}}" class="list_item bg_ff flex flex_colum"
                   wx:for="{{list}}"
                   wx:key="{{item.id}}"
                   data-orderid="{{item.orderId}}"
@@ -52,9 +52,9 @@
                     </view>
                 </view>
             </view>
-        </scroll-view>
+       
         <!--汇总-->
-        <view>
+        <view wx:if="{{classify==1}}">
             <view class='select_box bg_ff flex flex_center'>
                 <view class='select flex' catchtap='selectTap'>
                     <text class='select_text'>{{selectData[index]}}</text>
@@ -67,58 +67,47 @@
             <view class="order_title  bg_ff flex flex_around flex_center">
                 <view class="flex flex_colum flex_center">
                     <text class="font12 C999 mb10">当前购买人数</text>
-                    <text class="font16">21人</text>
+                    <text class="font16">{{orderInfo.personNum}}人</text>
                 </view>
                 <view class="flex flex_colum flex_center">
                     <text class="font12 C999 mb10">销售总额</text>
-                    <text class="font16">￥342.23</text>
+                    <text class="font16">￥{{orderInfo.needPay}}</text>
                 </view>
                 <view class="flex flex_colum flex_center">
                     <text class="font12 C999 mb10">配送费总额</text>
-                    <text class="font16">￥6</text>
+                    <text class="font16">￥{{orderInfo.deliveryCost}}</text>
                 </view>
             </view>
             <!--汇总的商品列表-->
-            <view class="goods_list bg_ff flex">
+            <view  wx:for="{{list}}"
+                   wx:key="{{item.id}}"
+                   class="goods_list bg_ff flex">
                 <view class="left_part flex flex_center flex_just">
-                    <image src="/static/images/icon_withdraw.png"></image>
+                    <image src="￥{{item.icon}}"></image>
                 </view>
                 <view class="right_part">
                     <view class=" flex flex_between">
-                        <view class="font14">蜜蜂21.5绿心奇异果</view>
+                        <view class="font14">{{item.title}}</view>
                         <view>
-                            <text class="old_price">￥16.8</text>
-                            <text class="font16">￥6.8</text>
+                            <text class="old_price"></text>
+                            <text class="font16">￥{{item.needPay}}</text>
                         </view>
                     </view>
-                    <view class="count">×1</view>
+                    <view class="count">×{{item.buyNum}}</view>
                 </view>
             </view>
-            <view class="goods_list bg_ff flex">
-                <view class="left_part flex flex_center flex_just">
-                    <image src="/static/images/icon_withdraw.png"></image>
-                </view>
-                <view class="right_part">
-                    <view class=" flex flex_between">
-                        <view class="font14">蜜蜂21.5绿心奇异果</view>
-                        <view>
-                            <text class="old_price">￥16.8</text>
-                            <text class="font16">￥6.8</text>
-                        </view>
-                    </view>
-                    <view class="count">×1</view>
-                </view>
-            </view>
+            
         </view>
+        </scroll-view>
+      <view class="n-bottom" hidden="{{hideBottom}}">
+        <view>
+          <view class='transverseline'><text class='line'></text></view>
+
+          <text class='txt'>{{loadMoreData}}</text>
+
+          <view class='transverseline'><text class='line'></text></view>
+        </view>
+      </view>
     </view>
 
 
-<view class="n-bottom" hidden="{{hideBottom}}">
-  <view>
-    <view class='transverseline'><text class='line'></text></view>
-
-    <text class='txt'>{{loadMoreData}}</text>
-
-    <view class='transverseline'><text class='line'></text></view>
-  </view>
-</view>
