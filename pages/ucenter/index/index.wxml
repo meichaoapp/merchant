@@ -48,7 +48,7 @@
            <view class="list_item my_coupon" bindtap="showModal">
                <view class="flex flex_center flex_between">
                    <view class="left_part flex flex_center">
-                       <image class="icon_mine01" src="/static/images/icon_watch.png"></image>
+                       <image class="icon_mine01" src="/static/images/my-location.png"></image>
                        <text class="font15 C666">经纬度</text>
                    </view>
                    <image src="{{basePath}}/go.png" class="icon_go"></image>
