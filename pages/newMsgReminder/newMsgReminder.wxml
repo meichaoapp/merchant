@@ -1,0 +1,18 @@
+<view class="msg_reminder_box flex flex_colum flex_center flex_just">
+    <image class="icon_msg1" src="/static/images/icon_msg1.png"></image>
+    <image class="icon_msg2" src="/static/images/icon_msg2.png"></image>
+    <view class='audiosBox'>
+        <view class="audioOpen" bindtap="listenerButtonPlay" wx:if="{{!isOpen}}">
+            <image class='image2' src="/static/images/icon_msg3.png" />
+        </view>
+       <!-- <image src="../../images/pauses.png" class="audioOpen" bindtap="listenerButtonPause" wx:if="{{isOpen}}"/>-->
+        <view class='slid'>
+            <slider bindchange="sliderChange"  block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
+            <view>
+                <text class='times'>{{starttime}}</text> <!-- 进度时长 -->
+
+                <text class='times'>{{duration}}</text>   <!-- 总时长 -->
+            </view>
+        </view>
+    </view>
+</view>

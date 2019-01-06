@@ -1,6 +1,6 @@
 {
   "pages": [
-   
+
     "pages/index/index",
     "pages/myShop/myShop",
     "pages/firstLogin/firstLogin",
@@ -13,7 +13,7 @@
     "pages/goods/lendTheGoods",
     "components/error/noNetwork",
     "pages/goods/noneOrder",
-
+    "pages/newMsgReminder/newMsgReminder",
     "pages/thirdPage/thirdPage"
   ],
   "permission": {

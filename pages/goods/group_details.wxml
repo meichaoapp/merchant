@@ -9,7 +9,7 @@
             <view bindtap='switchClassifyList' data-type="{{item.index}}" class="{{classify == item.index ? 'on' : '' }}">{{item.name}}</view>
         </block>
     </view>
-    <scroll-view scroll-y="true">
+    <scroll-view scroll-y="true" style="margin-top:90rpx;">
     <view class="detail_con">
         <!--团员-->
         <view class="mem_list bg_ff" wx:if="{{classify==0}}" wx:for="{{list}}" wx:key="{{index}}">

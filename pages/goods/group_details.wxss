@@ -77,6 +77,7 @@ input::-webkit-input-placeholder {
   height:90rpx;
   border-top:1px solid #D9D9D9 ;
   width:100%;
+  position:fixed;
 }
 .menu view{
   height:90rpx;
@@ -89,7 +90,6 @@ input::-webkit-input-placeholder {
 }
 .detail_con{
   flex:1;
-  margin-bottom:40rpx;
   overflow:auto;
 }
 .mem_list{
