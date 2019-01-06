@@ -80,11 +80,11 @@
         <view class='modal_content flex flex_colum' slot="slot2">
             <view class="flex flex_center flex_just">
                 <text class="font18 C9000">X：</text>
-                <text>{{latitude}}</text>
+                <text class="font18">{{latitude}}</text>
             </view>
             <view class="flex flex_center flex_just">
                 <text class="font18 C9000">Y：</text>
-                <text>{{longitude}}</text>
+                <text class="font18">{{longitude}}</text>
             </view>
         </view>
     </modal>
