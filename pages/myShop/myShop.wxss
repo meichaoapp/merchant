@@ -2,6 +2,9 @@ page{
     height:100%;
     background: #f4f4f4;
 }
+.container{
+    height:100%;
+}
 .list_item{
     margin-top:20rpx;
     height:350rpx;
@@ -35,4 +38,104 @@ page{
 }
 .receive{
     color:#60A33B
+}
+
+.menu{
+    height:90rpx;
+    border-top:1px solid #D9D9D9 ;
+    width:100%;
+}
+.menu view{
+    height:90rpx;
+    line-height:90rpx;
+    text-align:center;
+}
+.on{
+    border-bottom:2px solid #79C54C;
+    color:#79C54C
+}
+
+.select_box{
+    padding:0 30rpx;
+    height:111rpx;
+    border-bottom:1px solid #CCCCCC;
+    position: relative;
+    margin-top:20rpx;
+}
+.select{
+    width: 156rpx;
+    height:45rpx;
+    background: #F5F5F5;
+    border-radius: 22.5px;
+    align-items: center;
+    padding: 0 20rpx;
+}
+.select_text{
+    font-size: 24rpx;
+    flex: 1;
+}
+.select_img{
+    width: 19rpx;
+    height: 11rpx;
+    display: block;
+    transition:transform 0.3s;
+}
+.select_img_rotate{
+    transform:rotate(180deg);
+}
+.option_box{
+    position: absolute;
+    top: 72rpx;
+    width: 156rpx;
+    border:1px solid #f5f5f5;
+    box-sizing: border-box;
+    height: 0;
+    overflow-y: auto;
+    border-top: 0;
+    background: #fff;
+    transition: height 0.3s;
+}
+.option{
+    display: block;
+    line-height: 30rpx;
+    font-size: 24rpx;
+    border-bottom: 1px solid #efefef;
+    padding: 10rpx;
+}
+.order_title{
+    height:145rpx;
+    margin-bottom:25rpx;
+}
+
+.goods_list{
+    padding:21rpx 30rpx;
+}
+.goods_list:first-child{
+    margin-top:20rpx;
+}
+.goods_list .left_part{
+    width:100rpx;
+    height:100rpx;
+    background: #F8F6F7;
+    border-radius: 5px;
+    margin-right:22rpx;
+    overflow:hidden;
+}
+.goods_list .right_part{
+    flex:1;
+}
+.goods_list image{
+    width:95rpx;
+    height:95rpx;
+}
+.goods_list .old_price{
+    font-size:24rpx;
+    color:#999;
+    text-decoration: line-through;
+    margin-right:15rpx;
+}
+.goods_list .count{
+    margin-top:27rpx;
+    font-size:24rpx;
+    color:#999;
 }

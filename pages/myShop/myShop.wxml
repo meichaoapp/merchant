@@ -6,47 +6,112 @@
   <view>下拉刷新中……</view>
 </view>
 
-<scroll-view scroll-y="true">
+
     <view class="container">
-        <view class="list_item bg_ff flex flex_colum"
-              wx:for="{{list}}"
-              wx:key="{{item.id}}"
-              data-orderid="{{item.orderId}}"
-              bindtap="goDetail">
-            <view class="title flex flex_between flex_center">
-                <view>订单编号:{{item.orderId}}</view>
-                <!-- 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货  -->
-                 <view class="un_receive" wx:if="{{item.status==0}}">待支付</view>
-                 <view class="un_receive" wx:if="{{item.status==1}}">已支付</view>
-                <view class="receive"    wx:elif="{{item.status==2}}">待领取</view>
-                <view class="un_receive" wx:if="{{item.status==3}}">已完成</view>
-                <view class="receive"    wx:elif="{{item.status==4}}">放弃</view>
-                 <view class="un_receive" wx:if="{{item.status==5}}">退货</view>
-               
-            </view>
-            <view class="con flex">
-                <view class="left_part">
-                    <image src="{{item.url}}"></image>
+        <!--菜单-->
+        <view class="menu bg_ff flex flex_center flex_around">
+            <block wx:for="{{classifyList}}" wx:key="{{item.index}}">
+                <view bindtap='switchClassifyList' data-type="{{item.index}}" class="{{classify == item.index ? 'on' : '' }}">{{item.name}}</view>
+            </block>
+        </view>
+        <scroll-view scroll-y="true">
+            <!--订单-->
+            <view class="list_item bg_ff flex flex_colum"
+                  wx:for="{{list}}"
+                  wx:key="{{item.id}}"
+                  data-orderid="{{item.orderId}}"
+                  bindtap="goDetail">
+                <view class="title flex flex_between flex_center">
+                    <view>订单编号:{{item.orderId}}</view>
+                    <!-- 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货  -->
+                    <view class="un_receive" wx:if="{{item.status==0}}">待支付</view>
+                    <view class="un_receive" wx:if="{{item.status==1}}">已支付</view>
+                    <view class="receive"    wx:elif="{{item.status==2}}">待领取</view>
+                    <view class="un_receive" wx:if="{{item.status==3}}">已完成</view>
+                    <view class="receive"    wx:elif="{{item.status==4}}">放弃</view>
+                    <view class="un_receive" wx:if="{{item.status==5}}">退货</view>
+
                 </view>
-                <view class="right_part flex flex_colum">
-                    <view class="flex flex_between line border_bottom">
-                        <view class="C666">下单时间</view>
-                        <view>{{item.startTime}}</view>
+                <view class="con flex">
+                    <view class="left_part">
+                        <image src="{{item.url}}"></image>
                     </view>
-                    <view class="flex flex_between line border_bottom">
-                        <view class="C666">微信昵称</view>
-                        <view>{{item.userName}}</view>
+                    <view class="right_part flex flex_colum">
+                        <view class="flex flex_between line border_bottom">
+                            <view class="C666">下单时间</view>
+                            <view>{{item.startTime}}</view>
+                        </view>
+                        <view class="flex flex_between line border_bottom">
+                            <view class="C666">微信昵称</view>
+                            <view>{{item.userName}}</view>
+                        </view>
+                        <view class="flex flex_between line">
+                            <view class="C666">总金额</view>
+                            <view>￥{{item.amount}}</view>
+                        </view>
                     </view>
-                    <view class="flex flex_between line">
-                        <view class="C666">总金额</view>
-                        <view>￥{{item.amount}}</view>
+                </view>
+            </view>
+        </scroll-view>
+        <!--汇总-->
+        <view>
+            <view class='select_box bg_ff flex flex_center'>
+                <view class='select flex' catchtap='selectTap'>
+                    <text class='select_text'>{{selectData[index]}}</text>
+                    <image class='select_img {{show&&"select_img_rotate"}}' src='{{basePath}}/gobottom.png'></image>
+                </view>
+                <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+                    <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+                </view>
+            </view>
+            <view class="order_title  bg_ff flex flex_around flex_center">
+                <view class="flex flex_colum flex_center">
+                    <text class="font12 C999 mb10">当前购买人数</text>
+                    <text class="font16">21人</text>
+                </view>
+                <view class="flex flex_colum flex_center">
+                    <text class="font12 C999 mb10">销售总额</text>
+                    <text class="font16">￥342.23</text>
+                </view>
+                <view class="flex flex_colum flex_center">
+                    <text class="font12 C999 mb10">配送费总额</text>
+                    <text class="font16">￥6</text>
+                </view>
+            </view>
+            <!--汇总的商品列表-->
+            <view class="goods_list bg_ff flex">
+                <view class="left_part flex flex_center flex_just">
+                    <image src="/static/images/icon_withdraw.png"></image>
+                </view>
+                <view class="right_part">
+                    <view class=" flex flex_between">
+                        <view class="font14">蜜蜂21.5绿心奇异果</view>
+                        <view>
+                            <text class="old_price">￥16.8</text>
+                            <text class="font16">￥6.8</text>
+                        </view>
                     </view>
+                    <view class="count">×1</view>
+                </view>
+            </view>
+            <view class="goods_list bg_ff flex">
+                <view class="left_part flex flex_center flex_just">
+                    <image src="/static/images/icon_withdraw.png"></image>
+                </view>
+                <view class="right_part">
+                    <view class=" flex flex_between">
+                        <view class="font14">蜜蜂21.5绿心奇异果</view>
+                        <view>
+                            <text class="old_price">￥16.8</text>
+                            <text class="font16">￥6.8</text>
+                        </view>
+                    </view>
+                    <view class="count">×1</view>
                 </view>
             </view>
         </view>
-
     </view>
-</scroll-view>
+
 
 <view class="n-bottom" hidden="{{hideBottom}}">
   <view>
