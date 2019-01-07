@@ -284,7 +284,7 @@ Page({
             });
         }
         this.setData({
-            timer:setInterval(this.queryNewMsgReminder,600)
+            timer:setInterval(this.queryNewMsgReminder,1000)
         })
     },
 

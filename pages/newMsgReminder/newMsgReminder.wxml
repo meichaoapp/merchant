@@ -27,7 +27,7 @@
 
     </view>
     <!--<button bindtap='start'>开始</button>-->
-    <button bindtap='pause' disabled='{{pause_disable}}'>{{pause}}</button>
+    <!--<button bindtap='pause' disabled='{{pause_disable}}'>{{pause}}</button>-->
     <!--<button bindtap='stop'>停止</button>-->
 
 </view>
