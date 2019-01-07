@@ -77,7 +77,7 @@
     <!--我的经纬度弹框组件-->
     <modal  show="{{showModal}}" height='314rpx' isShowBtn="false"  catchtouchmove="return">
         <view class="modal_title" slot="slot1">
-           我的经纬度
+           您的经纬度已复制到剪贴板
         </view>
         <view class='modal_content flex flex_colum' slot="slot2">
             <view class="flex flex_center flex_just">
