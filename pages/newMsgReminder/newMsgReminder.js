@@ -106,9 +106,9 @@ Page({
     data: {
         value: 0,
         percent: 0,
-        max: 401,
+        max: 5,
         pass_time: '00:00',
-        total_time: '06:41',
+        total_time: '00:05',
         pause: '暂停',
         pause_disable: true,
         userInfo:{},
@@ -138,9 +138,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
-            timer:setInterval(this.queryNewMsgReminder,600)
-        })
         var that = this
         this.wxzxSlider = this.selectComponent("#wxzxSlider");
         audioManager.onTimeUpdate (function () {
@@ -217,11 +214,12 @@ Page({
     },
 
     start: function () {
-        audioManager.title = '此时此刻'
-        audioManager.epname = '此时此刻'
-        audioManager.singer = '许巍'
+        audioManager.title = '新消息提醒'
+        audioManager.epname = '新消息提醒'
+        audioManager.singer = '通知'
         audioManager.coverImgUrl = 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000'
-        audioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46'
+        //audioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46'
+        audioManager.src = 'https://wxpic.iliangpin.cn/meichao/message_reminding.mp3';
         this.setData({ pause: '暂停', pause_disable: false })
     },
 
@@ -248,9 +246,10 @@ Page({
     },
     queryNewMsgReminder(){
         let _this = this;
+        console.log('======',_this.data.userInfo);
         util.request(api.newMsgReminder, {'merchantId': _this.data.userInfo.merchantId}, "POST").then(function (res) {
             if (res.rs === 1) {
-                if(res.data.countNum!=0){
+                if(res.data.countNum==0){
                     _this.start();
                 }
             }
@@ -268,6 +267,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        debugger
         // 页面显示
         var that = this;
 
@@ -283,6 +283,9 @@ Page({
                 userInfo: userInfo,
             });
         }
+        this.setData({
+            timer:setInterval(this.queryNewMsgReminder,600)
+        })
     },
 
     onUnload(){
