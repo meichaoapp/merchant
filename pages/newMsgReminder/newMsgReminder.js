@@ -249,7 +249,7 @@ Page({
         console.log('======',_this.data.userInfo);
         util.request(api.newMsgReminder, {'merchantId': _this.data.userInfo.merchantId}, "POST").then(function (res) {
             if (res.rs === 1) {
-                if(res.data.countNum==0){
+                if(res.data.countNum!=0){
                     _this.start();
                 }
             }
