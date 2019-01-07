@@ -25,7 +25,7 @@
             </view>
             <view class="con">
                 <view class="detail_item flex flex_center" wx:for="{{item.detailList}}" wx:for-item="goodsInfo" wx:key="{{index}}">
-                    <text>【{{goodsInfo.buyNum}}箱】</text>
+                    <text>【{{goodsInfo.buyNum}}】</text>
                     <text>{{goodsInfo.title}}</text>
                 </view>
             </view>
@@ -75,7 +75,7 @@
                 </view>
                 <view class="con">
                     <view class="detail_item flex flex_center" wx:for="{{item.detailList}}" wx:for-item="goodsInfo" wx:key="{{index}}">
-                        <text>【{{goodsInfo.buyNum}}箱】</text>
+                        <text>【{{goodsInfo.buyNum}}】</text>
                         <text>{{goodsInfo.title}}</text>
                     </view>
                 </view>
