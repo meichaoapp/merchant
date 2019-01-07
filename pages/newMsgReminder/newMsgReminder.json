@@ -1,1 +1,8 @@
-{}
+
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "新消息提醒",
+  "usingComponents": {
+    "wxzx-slider": "../../components/wxzx-slider/wxzx-slider"
+  }
+}

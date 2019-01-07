@@ -32,5 +32,7 @@ module.exports = {
     WithdrawDeposit: NewApiRootUrl + "merchant/groupPurchase/withdrawDeposit",//提现
     QuerymMyTradeList: NewApiRootUrl + "merchant/groupPurchase/myTradeList",//交易列表（个人中心明细）
     QueryGifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
+    //收到新消息提醒
+    newMsgReminder:NewApiRootUrl + "merchant/groupPurchase/message",//获取新消息提醒
   
 };

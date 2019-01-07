@@ -1,18 +1,33 @@
-<view class="msg_reminder_box flex flex_colum flex_center flex_just">
+<view class="msg_reminder_box flex flex_colum flex_center">
     <image class="icon_msg1" src="/static/images/icon_msg1.png"></image>
     <image class="icon_msg2" src="/static/images/icon_msg2.png"></image>
-    <view class='audiosBox'>
+    <!--<view class='audiosBox'>
+        <view class='slid flex'>
+            <text class='times'>{{starttime}}</text> &lt;!&ndash; 进度时长 &ndash;&gt;
+            <slider bindchange="sliderChange" background-color="#D8D8D8 " block-size="80px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4EE392" />
+           &lt;!&ndash; <view>
+                <text class='times'>{{starttime}}</text> &lt;!&ndash; 进度时长 &ndash;&gt;
+
+                <text class='times'>{{duration}}</text>   &lt;!&ndash; 总时长 &ndash;&gt;
+            </view>&ndash;&gt;
+        </view>
         <view class="audioOpen" bindtap="listenerButtonPlay" wx:if="{{!isOpen}}">
             <image class='image2' src="/static/images/icon_msg3.png" />
         </view>
-       <!-- <image src="../../images/pauses.png" class="audioOpen" bindtap="listenerButtonPause" wx:if="{{isOpen}}"/>-->
-        <view class='slid'>
-            <slider bindchange="sliderChange"  block-size="12px" step="2" value="{{offset}}" max="{{max}}" selected-color="#4c9dee" />
-            <view>
-                <text class='times'>{{starttime}}</text> <!-- 进度时长 -->
-
-                <text class='times'>{{duration}}</text>   <!-- 总时长 -->
-            </view>
+        <view class="audioOpen" bindtap="listenerButtonPause" wx:if="{{isOpen}}">
+            <image class='image2' src="/static/images/icon_msg4.png" />
         </view>
+    </view>-->
+    <view class='time_view'>
+        <view>{{pass_time}}</view>
+        <view>{{total_time}}</view>
     </view>
+    <view class='slider_bg'>
+        <wxzx-slider id='wxzxSlider' blockSrc='/static/images/icon_msg4.png' blockImageWidth='54' blockImageHeight='54' value='{{value}}' max='{{max}}' percent='{{percent}}' width='600' bind:sliderTap="sliderTap" bind:sliderStart="sliderStart" bind:sliderChange="sliderChange" bind:sliderEnd="sliderEnd" bind:sliderCancel="sliderCancel" slider-left='75' disabled='{{disabled}}'></wxzx-slider>
+
+    </view>
+    <!--<button bindtap='start'>开始</button>-->
+    <button bindtap='pause' disabled='{{pause_disable}}'>{{pause}}</button>
+    <button bindtap='stop'>停止</button>
+
 </view>
