@@ -94,6 +94,8 @@ Page({
     },
 })*/
 // pages/audio/audio.js
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
 const audioManager = wx.getBackgroundAudioManager()
 
 Page({
@@ -108,7 +110,9 @@ Page({
         pass_time: '00:00',
         total_time: '06:41',
         pause: '暂停',
-        pause_disable: true
+        pause_disable: true,
+        userInfo:{},
+        timer:''
     },
 
     secondTransferTime: function (time) {
@@ -134,6 +138,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+            timer:setInterval(this.queryNewMsgReminder,600)
+        })
         var that = this
         this.wxzxSlider = this.selectComponent("#wxzxSlider");
         audioManager.onTimeUpdate (function () {
@@ -239,6 +246,16 @@ Page({
             disabled: true
         })
     },
+    queryNewMsgReminder(){
+        let _this = this;
+        util.request(api.newMsgReminder, {'merchantId': _this.data.userInfo.merchantId}, "POST").then(function (res) {
+            if (res.rs === 1) {
+                if(res.data.countNum!=0){
+                    _this.start();
+                }
+            }
+        })
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -251,8 +268,25 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.start();
+        // 页面显示
+        var that = this;
+
+        let userInfo = wx.getStorageSync('userInfo');
+        let token = wx.getStorageSync('token');
+
+        if (null == userInfo || userInfo == "" || undefined == userInfo) {
+            wx.navigateTo({
+                url: '/pages/firstLogin/firstLogin'
+            });
+        } else {
+            this.setData({
+                userInfo: userInfo,
+            });
+        }
     },
 
-
+    onUnload(){
+        clearInterval(this.data.timer);//切换页面时清除定时器
+        this.stop();
+    }
 })
