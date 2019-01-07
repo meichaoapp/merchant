@@ -283,7 +283,7 @@ Page({
             });
         }
         this.setData({
-            timer:setInterval(this.queryNewMsgReminder,1000)
+            timer:setInterval(this.queryNewMsgReminder,30000)
         })
     },
 
