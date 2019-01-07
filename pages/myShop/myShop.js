@@ -50,9 +50,21 @@ Page({
              dateList.push(date);
            }
         }
+       var d = new Date();
+       var year = d.getFullYear();
+       var month = d.getMonth() + 1 ;
+       var mt = (month < 10) ? ("0" + month) : month;
+       var date = year + "-" + mt;
+       var index = 0;
+       for (var i = 0; i < dateList.length; i++ ) {
+          if(date == dateList[i]) {
+            index = i;
+            break;
+          }
+       }
         this.setData({
           selectData: dateList,//下拉列表的数据
-          index: 0,//选择的下拉列表下标
+          index: index,//选择的下拉列表下标
           userInfo: userInfo,
         });
         this.$wuxLoading = app.Wux().$wuxLoading //加载
