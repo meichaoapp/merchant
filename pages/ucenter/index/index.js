@@ -177,8 +177,17 @@ Page({
                     latitude: res.latitude,
                     longitude: res.longitude,
                 });
+                //复制到剪切板
+                wx.setClipboardData({
+                    data:'X:'+that.data.latitude+ '\n\rY:'+that.data.longitude,
+                    success (res) {
+                        wx.hideToast(); //隐藏复制成功的弹窗提示,根据需求可选
+                    }
+                })
             }
-        })
+        });
+
+
     },
     closeModal() {
         this.setData({
