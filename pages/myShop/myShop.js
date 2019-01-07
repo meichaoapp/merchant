@@ -41,7 +41,7 @@ Page({
      */
     onLoad: function (options) {
         let userInfo = wx.getStorageSync('userInfo');
-        var dateList = [];
+        var dateList = ["2018-10", "2018-11", "2018-12"];
         for(var i = 2019 ; i <= 2023; i ++){
            for(var j = 1; j <= 12 ; j++){
              var y = i + "-";

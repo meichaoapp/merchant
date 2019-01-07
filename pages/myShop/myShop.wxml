@@ -83,7 +83,7 @@
                    wx:key="{{item.id}}"
                    class="goods_list bg_ff flex">
                 <view class="left_part flex flex_center flex_just">
-                    <image src="￥{{item.icon}}"></image>
+                    <image src="{{item.icon}}"></image>
                 </view>
                 <view class="right_part">
                     <view class=" flex flex_between">
