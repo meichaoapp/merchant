@@ -66,6 +66,12 @@ Page({
             show: !this.data.show
         });
     },
+    //关闭下拉框
+    closeTap(){
+        this.setData({
+            show: false
+        });
+    },
     // 点击下拉列表
     optionTap(e){
         let _this = this;
