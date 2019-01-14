@@ -191,6 +191,7 @@ Page({
         util.request(api.QueryOrderList, {
             start: _this.data.start,
             limit: _this.data.limit,
+            userId: _this.data.userInfo.id,
             merchantId: _this.data.userInfo.merchantId,
         }, "POST").then(function (res) {
             if (res.rs === 1) {
@@ -219,6 +220,7 @@ Page({
           util.request(api.QueryOrderSumList, {
             start: _this.data.start,
             limit: _this.data.limit,
+            userId: _this.data.userInfo.id,
             merchantId: _this.data.userInfo.merchantId,
             date: _this.data.selectData[_this.data.index],
            } , "POST").then(function (res) {

@@ -24,8 +24,8 @@
                     <image src="{{basePath}}/go.png" class="icon_go"></image>
                 </view>
             </view>
-            <!-- <navigator url="/pages/ucenter/details/details">
-                <view class="list_item my_coupon">
+            <navigator url="/pages/ucenter/details/details">
+                <view class="list_item">
                     <view class="flex flex_center flex_between">
                         <view class="left_part flex flex_center">
                             <image class="icon_mine01" src="{{basePath}}/mine_02.png"></image>
@@ -34,7 +34,7 @@
                         <image src="{{basePath}}/go.png" class="icon_go"></image>
                     </view>
                 </view>
-            </navigator> -->
+            </navigator>
          <navigator url="/pages/newMsgReminder/newMsgReminder">
            <view class="list_item">
                <view class="flex flex_center flex_between">

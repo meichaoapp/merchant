@@ -31,7 +31,8 @@ Page({
     this.$wuxToast = app.Wux().$wuxToast
     // 页面初始化 options为页面跳转所带来的参数
     that.setData({
-      id: parseInt(options.id)
+      id: parseInt(options.id),
+      userInfo: userInfo,
     });
     this.queryTGList();
   },
