@@ -51,15 +51,15 @@
             <view class="order_title  bg_ff flex flex_around flex_center">
                 <view class="flex flex_colum flex_center">
                     <text class="font12 C999 mb10">参团人数</text>
-                    <text class="font16">{{orderInfo.personNum}}</text>
+                    <text class="font16">{{orderInfo.personNum != null ? orderInfo.personNum : 0 }}</text>
                 </view>
                 <view class="flex flex_colum flex_center">
                     <text class="font12 C999 mb10">销售总份数</text>
-                    <text class="font16">{{orderInfo.buyNum}}</text>
+                    <text class="font16">{{orderInfo.buyNum != null ? orderInfo.buyNum : 0 }}</text>
                 </view>
                 <view class="flex flex_colum flex_center">
                     <text class="font12 C999 mb10">总销售额</text>
-                    <text class="font16">{{orderInfo.needPay}}</text>
+                    <text class="font16">{{orderInfo.needPay != null ? orderInfo.needPay : 0 }}</text>
                 </view>
             </view>
             <view class="mem_list bg_ff"  wx:for="{{list}}" wx:key="{{index}}">
