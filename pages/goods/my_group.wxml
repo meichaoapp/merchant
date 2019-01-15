@@ -14,8 +14,11 @@
               <view wx:if="{{item.status == 0}}">未开始</view>
               <view class="status1" wx:elif="{{item.status == 1}}">团员招募中</view>
               <view class="status2" wx:elif="{{item.status == 2}}">成员未到货</view>
-              <view class="status4"wx:elif="{{item.status == 4}}">已完成</view>
-              <view class="status5"wx:else>发放中</view>
+              <view class="status4" wx:elif="{{item.status == 3}}">已过期</view>
+              <view class="status5" wx:elif="{{item.status == 4}}">已完成</view>
+              <view class="status4" wx:elif="{{item.status == 5}}">发起送货</view>
+              <view class="status5" wx:elif="{{item.status == 6}}">确认收货</view>
+              <view class="status5" wx:elif="{{item.status == 7}}">确认送达</view>
           </view>
           <view class="con flex flex_center">
               <view class="left_part">
@@ -24,7 +27,7 @@
               <view class='right_part flex flex_colum flex_just'>
                   <view class="join_num flex flex_between">
                       <text class="C666">当前参团人数</text>
-                      <text>{{item.joinNum}}</text>
+                      <text>{{item.joinNum != null ? item.joinNum : 0 }}</text>
                   </view>
                   <view class="curr_sale flex flex_between">
                       <text class="C666">实时销售额</text>

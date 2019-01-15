@@ -1,6 +1,6 @@
 //var NewApiRootUrl = 'http://localhost:8080/api/';
 //var NewApiRootUrl = "https://wxapp.galaxyxd.com/api/";
-//var NewApiRootUrl = 'https://wxapp.iliangpin.cn/api/';
+//var NewApiRootUrl = 'https://mcapp.iliangpin.cn/api/';
 var NewApiRootUrl = "http://101.201.213.248:8093/api/";
 module.exports = {
 
@@ -26,6 +26,7 @@ module.exports = {
     OrderDetailsByPerson: NewApiRootUrl + "merchant/groupPurchase/orderDetailsByPerson",//获取团购明细（团员）
     OrderDetailsByDetails: NewApiRootUrl + "merchant/groupPurchase/orderDetailsByDetails",//获取团购明细（团品）
     OrderDetailsByOrder: NewApiRootUrl + "merchant/groupPurchase/orderDetailsByOrder",//获取团购明细（订单）
+    ConfirmReceipt: NewApiRootUrl + "merchant/groupPurchase/confirmReceipt", //确认收货
     
     //个人中心相关接
     QueryMyCenter: NewApiRootUrl + "merchant/groupPurchase/myCenter",//查询个人中心
