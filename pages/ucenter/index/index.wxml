@@ -98,7 +98,7 @@
         <view class="modal_content_box" slot="slot2" catchtouchmove="return">
             <view class='modal_content2 flex flex_colum flex_center flex_just'>
                 <image class="icon_withdraw" src="/static/images/icon_withdraw.png"></image>
-                <view class="widthdraw_money">79.12</view>
+                <view class="widthdraw_money">{{brokerage}}</view>
                 <view class="Cf3f font18">*最小提现金额5元</view>
             </view>
             <view class='modal_content_bottom' catchtouchmove="return">
