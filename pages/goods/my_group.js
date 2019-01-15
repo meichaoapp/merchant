@@ -149,5 +149,34 @@ Page({
               _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
             }
           });
-   }
+   },
+   //确认收货
+  confirmReceipt:function(e) {
+    let that = this;
+    var id = e.currentTarget.dataset.id;
+    util.request(api.ConfirmReceipt,
+      {
+        "productId": id,                    //商品ID
+      },
+      "POST").then(function (res) {
+        if (res.rs === 1) { //成功
+          var list = that.data.list;
+          list.forEach(o => {
+            if (o.id == id) {
+              o.brokerage = res.data.brokerage;
+              o.status = 6; //确认收货
+            } 
+          });
+          that.setData({
+            list:list,
+          });
+
+        } else {
+          wx.showToast({
+            icon: "none",
+            title: res.info,
+          })
+        }
+      });
+  },
 })
