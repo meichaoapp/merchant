@@ -15,50 +15,18 @@ Page({
         srollViewHeight: 0, //滚动分页区域高度
         refreshTime: '', // 刷新的时间
         loadMoreData: '上拉加载更多',
-        show:false,//控制下拉列表的显示隐藏，false隐藏、true显示
-        selectData:[],//下拉列表的数据
-        index:0//选择的下拉列表下标
+        date:'',//日期
     },
-    // 点击下拉显示框
-    selectTap(){
-        this.setData({
-            show: !this.data.show
-        });
-    },
-    // 点击下拉列表
-    optionTap(e){
-        let Index=e.currentTarget.dataset.index;//获取点击的下拉列表的下标
-        this.setData({
-            index:Index,
-            show:!this.data.show
-        });
-    },
+
     onLoad: function (options) {
       let userInfo = wx.getStorageSync('userInfo');
-      var dateList = ["2018-10", "2018-11", "2018-12"];
-      for (var i = 2019; i <= 2023; i++) {
-        for (var j = 1; j <= 12; j++) {
-          var y = i + "-";
-          var m = (j < 10) ? ("0" + j) : j;
-          var date = y + m;
-          dateList.push(date);
-        }
-      }
       var d = new Date();
       var year = d.getFullYear();
       var month = d.getMonth() + 1;
       var mt = (month < 10) ? ("0" + month) : month;
       var date = year + "-" + mt;
-      var index = 0;
-      for (var i = 0; i < dateList.length; i++) {
-        if (date == dateList[i]) {
-          index = i;
-          break;
-        }
-      }
       this.setData({
-        selectData: dateList,//下拉列表的数据
-        index: index,//选择的下拉列表下标
+        date:date,
         userInfo: userInfo,
       });
       this.getList();
@@ -140,7 +108,7 @@ Page({
       limit: _this.data.limit,
       userId: _this.data.userInfo.id,
       merchantId: _this.data.userInfo.merchantId,
-      date: _this.data.selectData[_this.data.index],
+      date: _this.data.date,
     }, "POST").then(function (res) {
       if (res.rs === 1) {
         var list = res.data.list;
@@ -164,29 +132,10 @@ Page({
       }
     });
   },
-
-  // 点击下拉显示框
-  selectTap() {
+  //点击日期组件确定事件
+  bindDateChange: function(e) {
     this.setData({
-      show: !this.data.show
-    });
-  },
-  //关闭下拉框
-  closeTap() {
-    this.setData({
-      show: false
-    });
-  },
-  // 点击下拉列表
-  optionTap(e) {
-    let _this = this;
-    let Index = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
-    this.setData({
-      index: Index,
-      show: !this.data.show
-    });
-
-    _this.setData({
+      date: e.detail.value,
       start: 1,
       list: [],
       start: 1, // 页码
@@ -198,7 +147,4 @@ Page({
     })
     this.getList();
   },
-
-
-
 })

@@ -31,8 +31,7 @@ Page({
                 name: '汇总'
             }
         ],
-        selectData:[],//下拉列表的数据
-        index:0//选择的下拉列表下标
+        date:''//日期
 
     },
 
@@ -41,30 +40,13 @@ Page({
      */
     onLoad: function (options) {
         let userInfo = wx.getStorageSync('userInfo');
-        var dateList = ["2018-10", "2018-11", "2018-12"];
-        for(var i = 2019 ; i <= 2023; i ++){
-           for(var j = 1; j <= 12 ; j++){
-             var y = i + "-";
-             var m = (j < 10) ? ("0" + j) : j ;
-             var date = y + m;
-             dateList.push(date);
-           }
-        }
        var d = new Date();
        var year = d.getFullYear();
        var month = d.getMonth() + 1 ;
        var mt = (month < 10) ? ("0" + month) : month;
        var date = year + "-" + mt;
-       var index = 0;
-       for (var i = 0; i < dateList.length; i++ ) {
-          if(date == dateList[i]) {
-            index = i;
-            break;
-          }
-       }
         this.setData({
-          selectData: dateList,//下拉列表的数据
-          index: index,//选择的下拉列表下标
+          date:date,
           userInfo: userInfo,
         });
         this.$wuxLoading = app.Wux().$wuxLoading //加载
@@ -72,41 +54,22 @@ Page({
 
         this.getOrderList(0);
     },
-    // 点击下拉显示框
-    selectTap(){
+    //  点击日期组件确定事件
+    bindDateChange: function(e) {
         this.setData({
-            show: !this.data.show
-        });
+            date: e.detail.value,
+            start: 1,
+            classify: 1,
+            list: [],
+            start: 1, // 页码
+            totalPage: 0, // 共有页
+            limit: 10,//每页条数
+            orderInfo: {},
+            hideHeader: true, //隐藏顶部提示
+            hideBottom: true, //隐藏底部提示
+        })
+        this.getOrderList(this.data.classify);
     },
-    //关闭下拉框
-    closeTap(){
-        this.setData({
-            show: false
-        });
-    },
-    // 点击下拉列表
-    optionTap(e){
-        let _this = this;
-        let Index=e.currentTarget.dataset.index;//获取点击的下拉列表的下标
-        this.setData({
-            index:Index,
-            show:!this.data.show
-        });
-
-      _this.setData({
-        start: 1,
-        classify: 1,
-        list: [],
-        start: 1, // 页码
-        totalPage: 0, // 共有页
-        limit: 10,//每页条数
-        orderInfo: {},
-        hideHeader: true, //隐藏顶部提示
-        hideBottom: true, //隐藏底部提示
-      })
-      this.getOrderList(_this.data.classify);
-    },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -222,7 +185,7 @@ Page({
             limit: _this.data.limit,
             userId: _this.data.userInfo.id,
             merchantId: _this.data.userInfo.merchantId,
-            date: _this.data.selectData[_this.data.index],
+            date: _this.data.date,
            } , "POST").then(function (res) {
             if (res.rs === 1) {
               var list = res.data.list;
