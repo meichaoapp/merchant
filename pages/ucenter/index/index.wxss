@@ -86,8 +86,14 @@ page{
     margin-right:24rpx;
 }
 .btn_get{
-    font-size:34rpx;
-    color:#5A88FF;
+    width:112rpx;
+    height:42rpx;
+    line-height: 42rpx;
+    text-align:center;
+    font-size:28rpx;
+    color:#6892FF;
+    border: 1px solid #6892FF;
+    border-radius: 4px;
 }
 .coupon_list{
     padding:30rpx;
