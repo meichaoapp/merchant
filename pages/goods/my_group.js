@@ -34,7 +34,7 @@ Page({
       id: parseInt(options.id),
       userInfo: userInfo,
     });
-    this.queryTGList();
+    
   },
   onReady: function () {
 
@@ -55,6 +55,7 @@ Page({
         userInfo: userInfo,
       });
     }
+    this.queryTGList();
   },
   onHide: function () {
 

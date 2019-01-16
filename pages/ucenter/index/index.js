@@ -40,6 +40,7 @@ Page({
         this.setData({
             userInfo: app.globalData.userInfo,
         });
+        this.queryMyCenter();
     },
     //体现
     withdrawDeposit: function () {
