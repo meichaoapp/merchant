@@ -66,6 +66,9 @@ Page({
             },
             "POST").then(function (res) {
             if (res.rs === 1) { //提现成功
+              wx.showToast({
+                title: "提现成功",
+              })
                 that.setData({
                     brokerage: 0.00,
                     showModal2: false
