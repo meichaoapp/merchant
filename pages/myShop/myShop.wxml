@@ -7,7 +7,7 @@
 </view>
 
 
-    <view class="container" bindtap="closeTap">
+    <view class="container">
         <!--菜单-->
         <view class="menu bg_ff flex flex_center flex_around">
             <block wx:for="{{classifyList}}" wx:key="{{item.index}}">
