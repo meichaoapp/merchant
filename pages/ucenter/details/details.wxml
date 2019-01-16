@@ -4,20 +4,21 @@
 <view class="details_box">
     <view class="section" style="padding:0 30rpx;">
         <picker mode="date" value="{{date}}" fields="month" start="2018-10" end="2028-12" bindchange="bindDateChange">
-            <view class="picker">
-                日期: {{date}}
+            <view class="picker flex flex_between flex_center">
+                <view>日期: {{date}}</view>
+                <image src="{{basePath}}/go.png" class="icon_go"></image>
             </view>
         </picker>
     </view>
     <scroll-view scroll-y="true" class="detail_list bg_ff">
       <block  wx:for="{{list}}"  wx:key="{{item.id}}">
         <view class="detail_item flex flex_center flex_between">
-            <view class="text_center">
+            <view class="name_box">
                 <view class="font14 C000">{{item.name}}</view>
                 <view class="font12 C666 mt6">{{item.startTime}}</view>
             </view>
-            <view>{{item.amount}}</view>
-            <view class="text_center">
+            <view class="C9000 amount">{{item.amount}}</view>
+            <view class="name_box flex flex_colum flex_center">
                 <view class="font12 C999">{{item.code}}</view>
                 <view class="C33b font12 mt6">{{item.statusStr}}</view>
             </view>

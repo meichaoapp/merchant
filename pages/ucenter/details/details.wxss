@@ -53,10 +53,17 @@ page{
 }
 .detail_list .detail_item{
     padding:0 30rpx;
-    height:123rpx;
+    min-height:123rpx;
     border-bottom:1px solid #D9D9D9;
 }
-.detail_list .detail_item>view{
+.detail_list .detail_item .name_box{
     flex:1;
     width:0;
+}
+.amount{
+    margin:0 20rpx;
+}
+.icon_go{
+    width:15rpx;
+    height:26rpx;
 }

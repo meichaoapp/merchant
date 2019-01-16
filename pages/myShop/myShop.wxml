@@ -57,8 +57,9 @@
         <view wx:if="{{classify==1}}">
             <view class="section" style="padding:0 30rpx;">
                 <picker mode="date" value="{{date}}" fields="month" start="2018-10" end="2028-12" bindchange="bindDateChange">
-                    <view class="picker">
-                        日期: {{date}}
+                    <view class="picker flex flex_between flex_center">
+                        <view>日期: {{date}}</view>
+                        <image src="{{basePath}}/go.png" class="icon_go"></image>
                     </view>
                 </picker>
             </view>

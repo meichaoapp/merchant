@@ -139,3 +139,7 @@ page{
     font-size:24rpx;
     color:#999;
 }
+.icon_go{
+    width:15rpx;
+    height:26rpx;
+}
