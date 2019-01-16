@@ -12,11 +12,11 @@
           <view class="title flex flex_between flex_center">
               <view class="C666">开团时间：{{item.startTime}}</view>
               <view wx:if="{{item.status == 0}}">未开始</view>
-              <view class="status1" wx:elif="{{item.status == 1}}">团员招募中</view>
+              <view class="status1 " wx:elif="{{item.status == 1}}">团员招募中</view>
               <view class="status2" wx:elif="{{item.status == 2}}">成员未到货</view>
               <view class="status4" wx:elif="{{item.status == 3}}">已过期</view>
               <view class="status5" wx:elif="{{item.status == 4}}">已完成</view>
-              <view class="status4" wx:elif="{{item.status == 5}}">发起送货</view>
+              <view class="btn_sure" wx:elif="{{item.status == 5}}" catchtap="confirmReceipt" data-id="{{item.id}}">确认收货</view>
               <view class="status5" wx:elif="{{item.status == 6}}">确认收货</view>
               <view class="status5" wx:elif="{{item.status == 7}}">确认送达</view>
           </view>
@@ -32,6 +32,10 @@
                   <view class="curr_sale flex flex_between">
                       <text class="C666">实时销售额</text>
                       <text>￥{{item.amount}}</text>
+                  </view>
+                  <view class="curr_sale flex flex_between" wx:if="{{item.status == 4 || item.status == 6 || item.status == 7}}">
+                      <text class="C666">佣金</text>
+                      <text>￥{{item.brokerage}}</text>
                   </view>
               </view>
           </view>

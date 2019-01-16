@@ -152,6 +152,7 @@ Page({
    },
    //确认收货
   confirmReceipt:function(e) {
+    debugger
     let that = this;
     var id = e.currentTarget.dataset.id;
     util.request(api.ConfirmReceipt,

@@ -49,3 +49,9 @@ page {
 .status5{
   color:#FF3F3F;
 }
+.btn_sure{
+  color:#60A33B;
+  border:1px solid #60A33B;
+  border-radius:30rpx;
+  padding:0rpx 10rpx 2rpx;
+}
