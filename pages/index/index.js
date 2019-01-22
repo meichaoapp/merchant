@@ -25,7 +25,7 @@ Page({
   
   onLoad: function (options) {
     //升级
-    this.upgrade();
+    //this.upgrade();
 
     this.queryBanner();
     this.getCurrentLocation();
