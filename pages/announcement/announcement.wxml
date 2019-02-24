@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="list_item">
+        <view class="title">五一活动来袭</view>
+        <view class="con">百度百科是百度公司推出的一部内容开放、自由的网络百科全书平</view>
+    </view>
+    <view class="list_item">
+        <view class="title">五一活动来袭</view>
+        <view class="con">百度百科是百度公司推出的一部内容开放、自百
+            度百科是百度公司推出的一部内容开放、自由的网络百科全书百度百科是百
+            度公司推出的一部内容开放、自由的网络百科全书百度百科是百
+            度公司推出的一部内容开放、自由的网络百科全书由的网络百科全书平</view>
+    </view>
+    <view class="list_item">
+        <view class="title">五一活动来袭</view>
+        <view class="con">百度百科是百度公司推出的一部内容开放、自由的网络百科全书平</view>
+    </view>
+</view>

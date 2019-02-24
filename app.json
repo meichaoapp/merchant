@@ -13,7 +13,8 @@
     "components/error/noNetwork",
     "pages/goods/noneOrder",
     "pages/newMsgReminder/newMsgReminder",
-    "pages/thirdPage/thirdPage"
+    "pages/thirdPage/thirdPage",
+    "pages/announcement/announcement"
   ],
   "permission": {
     "scope.userLocation": {
