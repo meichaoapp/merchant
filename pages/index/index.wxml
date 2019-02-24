@@ -18,7 +18,8 @@
         </swiper-item>
     </swiper>
     <!--公告-->
-    <view class="announcement flex bg_ff">
+    <navigator url='/pages/announcement/announcement'>
+        <view class="announcement flex bg_ff">
         <view class="left_part flex flex_colum flex_center ">
             <view class="font18 strong mb10">活动</view>
             <view style="position:relative;">
@@ -36,6 +37,7 @@
             <image src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant//go.png"></image>
         </view>
     </view>
+    </navigator>
     <!-- 菜单 -->
     <view class='munu-list flex flex_just flex_center flex_wrap'>
         <view bindtap='scanQrCode' class='flex flex_center  flex_just menu-item'>
