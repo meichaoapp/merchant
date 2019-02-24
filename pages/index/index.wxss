@@ -100,31 +100,69 @@ page {
 .munu-list {
   background: #fff;
   margin-top: 24rpx;
-  padding: 50rpx 32rpx;
 }
 .munu-list .menu-item {
   width: 50%;
-  height: 226rpx;
+  height: 136rpx;
   box-sizing: border-box;
 }
 .munu-list .menu-item:nth-child(odd){
-  border-right: solid 1px rgb(191, 191, 191);
+  border-right: solid 1px #E1E1E1 ;
 }
 .munu-list .menu-item:first-child,.munu-list .menu-item:nth-child(2) {
-  border-bottom: solid 1px rgb(191, 191, 191);
+  border-bottom: solid 1px #E1E1E1 ;
 }
 .munu-list .menu-item:first-child image,.munu-list .menu-item:nth-child(2) image {
-  margin-top: -36rpx;
+  margin-right:12rpx;
 }
 .munu-list .menu-item:nth-child(3) image,.munu-list .menu-item:nth-child(4) image {
-  margin-top: 36rpx;
+    margin-right:12rpx;
 }
 .munu-list .menu-item image {
-  width: 130rpx;
-  height: 130rpx
+  width: 38rpx;
+  height: 38rpx
 }
 .munu-list .menu-item text {
   color: rgb(51,51,51);
   font-size: 32rpx;
-  margin-top:16rpx;
+}
+.announcement{
+  min-height:138rpx;
+  padding:30rpx 0;
+  margin-top:24rpx;
+
+}
+.announcement .left_part{
+  width:135rpx;
+  border-right: 1px solid #BABABA;
+}
+.announcement .left_part image{
+  width:91rpx;
+  height:36rpx;
+}
+.right_part{
+  padding:0 30rpx;
+}
+.right_part .title{
+  font-size:30rpx;
+  margin-bottom:11rpx;
+}
+.right_part .desc{
+  width: 100%;
+  line-height:40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.right_part image{
+  width:20rpx;
+  height:38rpx;
+  margin-left:30rpx;
+}
+.txt{
+  position:absolute;
+  left:12rpx;
+  top:-2rpx;
 }

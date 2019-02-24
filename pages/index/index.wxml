@@ -1,49 +1,66 @@
-
 <!--index.wxml-->
 <view class="container">
-  <view class='location-header flex flex_between'>
-     <view class='current-location flex flex_center'  bindtap='selectLocation'>
-         <image class='location-icon' src='{{basePath}}/location.png'></image>
-         <text class='location-address'>{{pointName}}</text>
-         <image class='location-down' src='{{basePath}}/down.png'></image>
-     </view>
-     <view class='merchant-map flex flex_center flex_end' wx:if="{{ merchantName != '' && merchantName != null}}">
-         <image class='icon_commander' src='{{basePath}}/icon_commander.png'></image>
-         <text class='merchant-name ellipsis'>{{merchantName}}</text>
-     </view>
-  </view>
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-     <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
-        <image  bindtap='navTo' data-way='0' data-url='{{item.target}}' src="{{item.url}}" background-size="cover"></image>
-    </swiper-item>
-  </swiper>
-
-<!-- 菜单 -->
-<view class='munu-list flex flex_just flex_center flex_wrap'>
-   <view bindtap='scanQrCode' class='flex flex_center flex_colum flex_just menu-item'>
-     <image src='{{basePath}}/menu-icon-qrcode.png'></image>
-     <text>二维码领货</text>
-   </view>
-   <view bindtap='goMyTuan' class='flex flex_center flex_colum flex_just menu-item'>
-     <image src='{{basePath}}/tuan.png'></image>
-     <text>我的团</text>
-   </view>
-   <view bindtap='goMyHuoban' class='flex flex_center flex_colum flex_just menu-item'>
-     <image src='{{basePath}}/huoban.png'></image>
-     <text>合作推荐</text>
-   </view>
-   <view bindtap='goShop' class='flex flex_center flex_colum flex_just menu-item'>
-     <image src='{{basePath}}/order.png'></image>
-     <text>店铺订单</text>
-   </view>
-</view>
-  <!-- <view class="m-menu">
-    <view  class="item" data-url="{{item.url}}" data-way='{{item.way}}' wx:for="{{navs}}" wx:key="{{item.id}}" bindtap='navTo'>
-      <image src="{{item.icon_url}}" background-size="cover"></image>
-      <text>{{item.name}}</text>
+    <view class='location-header flex flex_between'>
+        <view class='current-location flex flex_center' bindtap='selectLocation'>
+            <image class='location-icon' src='{{basePath}}/location.png'></image>
+            <text class='location-address'>{{pointName}}</text>
+            <image class='location-down' src='{{basePath}}/down.png'></image>
+        </view>
+        <view class='merchant-map flex flex_center flex_end' wx:if="{{ merchantName != '' && merchantName != null}}">
+            <image class='icon_commander' src='{{basePath}}/icon_commander.png'></image>
+            <text class='merchant-name ellipsis'>{{merchantName}}</text>
+        </view>
     </view>
-  </view>  -->
-
+    <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+        <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
+            <image bindtap='navTo' data-way='0' data-url='{{item.target}}' src="{{item.url}}"
+                   background-size="cover"></image>
+        </swiper-item>
+    </swiper>
+    <!--公告-->
+    <view class="announcement flex bg_ff">
+        <view class="left_part flex flex_colum flex_center ">
+            <view class="font18 strong mb10">活动</view>
+            <view style="position:relative;">
+                <image src="/static/images/icon_active.png"></image>
+                <text class="txt Cfff font14">公告</text>
+            </view>
+        </view>
+        <view class="right_part flex flex_center flex_1">
+            <view class="flex_1">
+                <view class="title strong">五一活动来袭</view>
+                <view class="desc C999 font12">
+                    百度百科是百度公司推出的一部内容开放、自由的网络百科全书平台。
+                </view>
+            </view>
+            <image src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant//go.png"></image>
+        </view>
+    </view>
+    <!-- 菜单 -->
+    <view class='munu-list flex flex_just flex_center flex_wrap'>
+        <view bindtap='scanQrCode' class='flex flex_center  flex_just menu-item'>
+            <image src='{{basePath}}/menu-icon-qrcode.png'></image>
+            <text>二维码领货</text>
+        </view>
+        <view bindtap='goMyTuan' class='flex flex_center  flex_just menu-item'>
+            <image src='{{basePath}}/tuan.png' style=""></image>
+            <text>我的团</text>
+        </view>
+        <view bindtap='goMyHuoban' class='flex flex_center  flex_just menu-item'>
+            <image src='{{basePath}}/huoban.png'></image>
+            <text>合作推荐</text>
+        </view>
+        <view bindtap='goShop' class='flex flex_center  flex_just menu-item'>
+            <image src='{{basePath}}/order.png'></image>
+            <text>店铺订单</text>
+        </view>
+    </view>
+    <!-- <view class="m-menu">
+      <view  class="item" data-url="{{item.url}}" data-way='{{item.way}}' wx:for="{{navs}}" wx:key="{{item.id}}" bindtap='navTo'>
+        <image src="{{item.icon_url}}" background-size="cover"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>  -->
 
 
 </view>
