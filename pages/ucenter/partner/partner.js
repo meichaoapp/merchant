@@ -29,7 +29,7 @@ Page({
     let token = wx.getStorageSync('token');
     if (null == userInfo || userInfo == "" || undefined == userInfo) {
       wx.navigateTo({
-        url: '/pages/firstLogin/firstLogin'
+        url: '/pages/auth/login/login'
       });
     }
 

@@ -207,7 +207,7 @@ Page({
     },
     goLogin() {
         wx.navigateTo({
-            url: '/pages/firstLogin/firstLogin',
+          url: '/pages/auth/login/login',
         })
     },
     exitLogin: function () {

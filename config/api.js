@@ -8,6 +8,7 @@ module.exports = {
     WXLogin: NewApiRootUrl + 'merchant/user/login',//微信登录
 
     QueryBanner: NewApiRootUrl + 'merchant/banners',//查询轮播图
+    QueryNotices: NewApiRootUrl + 'merchant/notice/list',//查询公告
 
     QueryTGList: NewApiRootUrl + 'merchant/groupPurchase/list', ///获取团购信息
     Friends: NewApiRootUrl + "merchant/groupPurchase/friends",//参团好友
@@ -36,5 +37,13 @@ module.exports = {
     QueryGifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
     //收到新消息提醒
     newMsgReminder:NewApiRootUrl + "merchant/groupPurchase/message",//获取新消息提醒
+
+    
+    GetVerifiCode: NewApiRootUrl + "common/sendMsg", //短信验证码
+
+    ///绑定手机号相关
+    BindMobile: NewApiRootUrl + "common/savePhone",//绑定手机号
+    PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
+    PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
   
 };

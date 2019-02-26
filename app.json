@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/myShop/myShop",
-    "pages/firstLogin/firstLogin",
+
+    "pages/manageGoods/goodsList",
+    
     "pages/ucenter/index/index",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/details/details",
@@ -14,7 +16,11 @@
     "pages/goods/noneOrder",
     "pages/newMsgReminder/newMsgReminder",
     "pages/thirdPage/thirdPage",
-    "pages/announcement/announcement"
+    "pages/announcement/announcement",
+    "pages/auth/login/login",
+    "pages/auth/mobileBind/normalBind",
+    "pages/auth/mobileBind/mobileBind"
+
   ],
   "permission": {
     "scope.userLocation": {
