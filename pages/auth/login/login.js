@@ -1,6 +1,6 @@
-var util = require('../../utils/util.js');
-var api = require('../../config/api.js');
-const user = require('../../services/user.js');
+var util = require('../../../utils/util.js');
+var api = require('../../../config/api.js');
+const user = require('../../../services/user.js');
 var app = getApp();
 Page({
 
@@ -100,11 +100,22 @@ Page({
     user.wxLogin(wxUser, _this.data.authCode).then(res => {
       if (res.rs === 1) {
         console.log("userInfo-------" + JSON.stringify(res.data.user))
+        var userInfo = res.data.user;
         app.globalData.userInfo = res.data.user;
         app.globalData.token = res.data.token;
-        wx.navigateBack({
-          delta: 1
-        })
+
+        var session_key = userInfo.session_key;
+        let bindingPhone = userInfo.phone;
+        console.log("bindingPhone --- " + bindingPhone);
+        if (null == bindingPhone || "" == bindingPhone) { // 未绑定手机号
+          wx.navigateTo({
+            url: '/pages/auth/mobileBind/mobileBind?session_key=' + session_key,
+          })
+        } else { // 已绑定
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
       }else{
         _this.setData({
           count: 0,

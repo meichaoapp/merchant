@@ -14,6 +14,7 @@ Page({
     basePath: app.globalData._base_path, //基础路径
     merchantName:"",
     banners: [],
+    notice:null,
   },
   onShareAppMessage: function () {
     return {
@@ -28,6 +29,7 @@ Page({
     //this.upgrade();
 
     this.queryBanner();
+    this.queryNotices();
     this.getCurrentLocation();
 
   },
@@ -54,7 +56,7 @@ Page({
 
     if (null == userInfo || userInfo == "" || undefined == userInfo) {
       wx.navigateTo({
-        url: '/pages/firstLogin/firstLogin'
+        url: '/pages/auth/login/login'
       });
     } else {
       this.setData({
@@ -123,6 +125,32 @@ Page({
     });
 
   },
+  
+  ///查询公告信息
+  queryNotices: function() {
+    let that = this;
+    util.request(api.QueryNotices, 
+     {
+        token: "", start: 1, // 页码
+        start: 1, 
+        limit: 1,
+      }, "POST").then(function (res) {
+      if (res.rs === 1) {
+        var list = res.data.list;
+        if (null != list && list.length > 0){
+          that.setData({
+            notice: list[0]
+          });
+        }else{
+          that.setData({
+            notice: null
+          });
+        }
+      
+      }
+    });
+  },
+
   //选择位置
   selectLocation: function () {
     let _this = this;
@@ -193,5 +221,11 @@ Page({
     wx.navigateTo({
       url: '/pages/myShop/myShop',
     })
+  },
+  //商品管理
+  goManage:function(){
+   wx.navigateTo({
+     url: '/pages/manageGoods/goodsList',
+   })
   },
 })

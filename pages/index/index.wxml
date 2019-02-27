@@ -19,7 +19,7 @@
     </swiper>
     <!--公告-->
     <navigator url='/pages/announcement/announcement'>
-        <view class="announcement flex bg_ff">
+        <view wx:if="{{notice != null }}" class="announcement flex bg_ff">
         <view class="left_part flex flex_colum flex_center ">
             <view class="font18 strong mb10">活动</view>
             <view style="position:relative;">
@@ -29,9 +29,9 @@
         </view>
         <view class="right_part flex flex_center flex_1">
             <view class="flex_1">
-                <view class="title strong">五一活动来袭</view>
+                <view class="title strong">{{notice.title}}</view>
                 <view class="desc C999 font12">
-                    百度百科是百度公司推出的一部内容开放、自由的网络百科全书平台。
+                    {{notice.content}}
                 </view>
             </view>
             <image src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant//go.png"></image>
@@ -41,19 +41,33 @@
     <!-- 菜单 -->
     <view class='munu-list flex flex_just flex_center flex_wrap'>
         <view bindtap='scanQrCode' class='flex flex_center  flex_just menu-item'>
-            <image src='/static/images/menu-icon-qrcode.png'></image>
+            <image src='{{basePath}}/index-icon1.png'></image>
             <text>二维码领货</text>
         </view>
         <view bindtap='goMyTuan' class='flex flex_center  flex_just menu-item'>
+<<<<<<< .mine
             <image src='/static/images/tuan.png' style=""></image>
+=======
+            <image src='{{basePath}}/index-icon2.png' style=""></image>
+>>>>>>> .theirs
             <text>我的团</text>
         </view>
+<<<<<<< .mine
         <view bindtap='goMyHuoban' class='flex flex_center  flex_just menu-item'>
             <image src='/static/images/product.png'></image>
             <text>合作推荐</text>
+=======
+        <view bindtap='goManage' class='flex flex_center  flex_just menu-item'>
+            <image src='{{basePath}}/index-icon3.png'></image>
+            <text>商品管理</text>
+>>>>>>> .theirs
         </view>
         <view bindtap='goShop' class='flex flex_center  flex_just menu-item'>
+<<<<<<< .mine
             <image src='/static/images/order.png'></image>
+=======
+            <image src='{{basePath}}/index-icon4.png'></image>
+>>>>>>> .theirs
             <text>店铺订单</text>
         </view>
     </view>

@@ -89,7 +89,7 @@ Page({
 
         if (null == userInfo || userInfo == "" || undefined == userInfo) {
             wx.navigateTo({
-                url: '/pages/firstLogin/firstLogin'
+              url: '/pages/auth/login/login'
             });
         } else {
             this.setData({
