@@ -45,29 +45,15 @@
             <text>二维码领货</text>
         </view>
         <view bindtap='goMyTuan' class='flex flex_center  flex_just menu-item'>
-<<<<<<< .mine
-            <image src='/static/images/tuan.png' style=""></image>
-=======
             <image src='{{basePath}}/index-icon2.png' style=""></image>
->>>>>>> .theirs
             <text>我的团</text>
         </view>
-<<<<<<< .mine
-        <view bindtap='goMyHuoban' class='flex flex_center  flex_just menu-item'>
-            <image src='/static/images/product.png'></image>
-            <text>合作推荐</text>
-=======
         <view bindtap='goManage' class='flex flex_center  flex_just menu-item'>
             <image src='{{basePath}}/index-icon3.png'></image>
             <text>商品管理</text>
->>>>>>> .theirs
         </view>
         <view bindtap='goShop' class='flex flex_center  flex_just menu-item'>
-<<<<<<< .mine
-            <image src='/static/images/order.png'></image>
-=======
             <image src='{{basePath}}/index-icon4.png'></image>
->>>>>>> .theirs
             <text>店铺订单</text>
         </view>
     </view>
