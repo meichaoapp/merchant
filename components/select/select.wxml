@@ -1,0 +1,11 @@
+<Select class="my-class">
+    <view class='com-selectBox '>
+        <view class='com-sContent pink' bindtap='selectToggle'>
+            <view class='com-sTxt'>{{nowText}}</view>
+            <image src='/static/images/down.png'  class='com-sImg'  animation="{{animationData}}"></image>
+        </view>
+        <view class='com-sList' wx:if="{{selectShow}}">
+            <view wx:for="{{propArray}}" data-index="{{index}}" wx:key='' class='com-sItem' bindtap='setText'>{{item.text}}</view>
+        </view>
+    </view>
+</Select>

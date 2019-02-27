@@ -1,0 +1,72 @@
+<view class="container">
+    <view class="info_box bg_ff">
+        <view class="input_box flex flex_center">
+            <text class="C666 font15 label">名称</text>
+            <input type="text" placeholder="商品名称"/>
+        </view>
+        <view class="input_box flex flex_center">
+            <text class="C666 font15 label">简介</text>
+            <input type="text" placeholder="星级典句宣传，意大利语！"/>
+        </view>
+        <view class="input_box flex flex_center">
+            <text class="C666 font15 label">现价</text>
+            <input type="text" placeholder="现价（如：10.00）"/>
+        </view>
+        <view class="input_box flex flex_center">
+            <text class="C666 font15 label">原价</text>
+            <input type="text" placeholder="原价（如：18.00）"/>
+        </view>
+        <view class="input_box flex flex_center">
+            <text class="C666 font15 label">单位</text>
+            <input type="text" placeholder="袋"/>
+        </view>
+        <view class="input_box flex flex_center">
+            <text class="C666 font15 label">单位描述</text>
+            <input type="text" placeholder="2 *252克/袋"/>
+        </view>
+        <view class="input_box flex flex_center">
+            <text class="C666 font15 label">库存</text>
+            <input type="text" placeholder="发出总的团购份数"/>
+        </view>
+        <view class="input_box flex flex_center">
+            <text class="C666 font15 label">每人限购</text>
+            <input type="text" placeholder="每人限购份数"/>
+        </view>
+    </view>
+
+    <view class="state_box bg_ff">
+        <view class="single_line flex flex_center">
+            <text class="C666 font15 label">首页展示位置</text>
+            <Select prop-array='{{selectArray}}' my-class="gray_bg" pink="pink"></Select>
+        </view>
+        <view class="single_line flex flex_center">
+            <text class="C666 font15 label">分类</text>
+            <Select prop-array='{{selectArray}}'></Select>
+        </view>
+        <view class="single_line flex flex_center">
+            <text class="C666 font15 label">商品状态</text>
+            <view class="flex">
+                <view class="flex flex_center" style="margin-right:110rpx;">
+                    <image class="icon_check_on" src="/static/images/icon_check_on.png"></image>
+                    <view  class="font14 C666">存入库中</view>
+                </view>
+                <view class="flex flex_center">
+                    <image class="icon_check" src="/static/images/icon_check.png"></image>
+                    <view class="font14 C666">上架</view>
+                </view>
+            </view>
+        </view>
+        <view class="single_line flex">
+            <text class="C666 font15 label">描述</text>
+            <textarea placeholder="描述" placeholder-class="placeholdText"/>
+        </view>
+    </view>
+
+    <view class="select_box bg_ff">
+        <view>图标</view>
+        <view>
+            <image class="icon_choose" src="/static/images/add.png" catchtap="chooseImg"></image>
+            <view>大小不能超过1M</view>
+        </view>
+    </view>
+</view>
