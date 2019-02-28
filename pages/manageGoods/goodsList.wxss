@@ -71,6 +71,8 @@ page{
     line-height: 40rpx;
     border: 1rpx solid #C8C8C8;
     border-radius: 20.5rpx;
+    color:#999;
+    font-size:28rpx;
 }
 .btn_box view:first-child{
     margin-right:15rpx;
