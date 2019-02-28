@@ -1,0 +1,32 @@
+<veiw class="container">
+    <view class="title flex flex_center flex_between bg_ff">
+        <view>
+            <text class="C333 font15">已售</text>
+            <text class="font12 C2A2A">(3)</text>
+        </view>
+        <view>
+            <text class="C333 font15">已使用</text>
+            <text class="font12 C2A2A">(23)</text>
+        </view>
+        <view>
+            <text class="C333 font15">未使用</text>
+            <text class="font12 C2A2A">(23)</text>
+        </view>
+    </view>
+    <view class="list bg_ff">
+        <view class="single_item flex flex_center">
+            <image class="avatar" src="/static/images/icon_msg1.png"></image>
+            <view class="C333 font14">沧海一只喵</view>
+            <view class="C333 font14">1234567890</view>
+            <view class="C333 font14">¥5</view>
+            <view class="used">已使用</view>
+        </view>
+        <view class="single_item flex flex_center">
+            <image class="avatar" src="/static/images/icon_msg1.png"></image>
+            <view class="C333 font14">沧海一只喵</view>
+            <view class="C333 font14">1234567890</view>
+            <view class="C333 font14">¥5</view>
+            <view class="font14 no_use">未使用</view>
+        </view>
+    </view>
+</veiw>

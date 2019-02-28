@@ -268,6 +268,9 @@ view,text{
 .C33b{
     color:#60A33B
 }
+.C2A2A{
+    color:#2A2A2A;
+}
 .ptb10{
     padding-top:20rpx;
     padding-bottom:20rpx;

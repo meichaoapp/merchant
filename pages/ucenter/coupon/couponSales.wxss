@@ -1,0 +1,32 @@
+page{
+    background-color:#f4f4f4;
+}
+.title{
+    padding:0 30rpx;
+    height:83rpx;
+    margin-bottom:20rpx;
+}
+.single_item{
+    padding:30rpx;
+    border-bottom:1px solid #E6E6E6;
+}
+.single_item .avatar{
+    width:42rpx;
+    height:42rpx;
+    border-radius:50%;
+    margin-right:13rpx;
+}
+.single_item view{
+    flex-grow: 1;
+}
+.single_item:last-child{
+    border-bottom:none;
+}
+.used{
+    color:#FF8811;
+    text-align:right;
+}
+.no_use{
+    color:#79C54C;
+    text-align:right;
+}
