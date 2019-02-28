@@ -48,17 +48,4 @@
             </view>
         </view>
     </view>
-
-    <!--复制团长手机号成功-->
-    <view class="mask"  wx:if="{{showModal}}">
-        <view class="float_box">
-            <image src="/static/images/bindSuccess.png"></image>
-            <view class="tip">
-                <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
-                <view class="C860 font18">{{modalTitle}}</view>
-            </view>
-            <view class="sure_btn" bindtap="closeFloat">确认</view>
-        </view>
-    </view>
-
 </view>
