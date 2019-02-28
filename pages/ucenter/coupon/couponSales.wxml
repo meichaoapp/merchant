@@ -2,31 +2,26 @@
     <view class="title flex flex_center flex_between bg_ff">
         <view>
             <text class="C333 font15">已售</text>
-            <text class="font12 C2A2A">(3)</text>
+            <text class="font12 C2A2A">({{sumNum}})</text>
         </view>
         <view>
             <text class="C333 font15">已使用</text>
-            <text class="font12 C2A2A">(23)</text>
+            <text class="font12 C2A2A">({{useNum}})</text>
         </view>
         <view>
             <text class="C333 font15">未使用</text>
-            <text class="font12 C2A2A">(23)</text>
+            <text class="font12 C2A2A">({{unusedNum}})</text>
         </view>
     </view>
     <view class="list bg_ff">
+      <block wx:for="{{list}}" wx:key="{{item.id}}">
         <view class="single_item flex flex_center">
-            <image class="avatar" src="/static/images/icon_msg1.png"></image>
-            <view class="C333 font14">沧海一只喵</view>
-            <view class="C333 font14">1234567890</view>
-            <view class="C333 font14">¥5</view>
-            <view class="used">已使用</view>
+            <image class="avatar" src="{{item.avatar}}"></image>
+            <view class="C333 font14">{{item.nickName}}</view>
+            <view class="C333 font14">{{item.orderCode}}</view>
+            <view class="C333 font14">¥{{item.needPay}}</view>
+            <view class="used">{{item.statusStr}}</view>
         </view>
-        <view class="single_item flex flex_center">
-            <image class="avatar" src="/static/images/icon_msg1.png"></image>
-            <view class="C333 font14">沧海一只喵</view>
-            <view class="C333 font14">1234567890</view>
-            <view class="C333 font14">¥5</view>
-            <view class="font14 no_use">未使用</view>
-        </view>
+      </block>  
     </view>
 </veiw>

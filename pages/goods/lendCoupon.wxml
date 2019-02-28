@@ -15,7 +15,7 @@
         </view>
     </view>
     <view class="flex flex_just flex_center bg_ff">
-        <image class="icon_check" src="/static/images/icon_msg1.png"></image>
+        <image class="icon_check" src="/static/images/safe.png"></image>
         <view class="check_txt">检验通过</view>
     </view>
     <!--购物券介绍-->

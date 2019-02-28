@@ -39,8 +39,8 @@
                 <view wx:if="{{tabIndex == 0}}" class="Cf3f font12">上架中</view>
                 <view wx:if="{{tabIndex == 1}}" class="Cf3f font12">已下架</view>
                 <view class="btn_box flex">
-                  <view wx:if="{{tabIndex == 0}}" data-id='{{item.id}}' bindtap='changeStatus'>上架</view>
-                  <view wx:if="{{tabIndex == 1}}" data-id='{{item.id}}' bindtap='changeStatus'>下架</view>
+                  <view wx:if="{{tabIndex == 0}}" data-id='{{item.id}}' bindtap='changeStatus'>下架</view>
+                  <view wx:if="{{tabIndex == 1}}" data-id='{{item.id}}' bindtap='changeStatus'>上架</view>
                   <view data-id='{{item.id}}' bindtap='toEditPage' >编辑</view>
                 </view>
               </view>

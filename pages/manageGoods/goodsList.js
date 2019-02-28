@@ -68,8 +68,12 @@ Page({
   changeStatus:function(e){
     let _this = this;
     var id = e.currentTarget.dataset.id;
+    var status = 1;
+    if (_this.data.tabIndex == 0) {
+      status = 2;
+    }
     var data = {
-      status: statusArr[_this.data.tabIndex],
+      status: status,
       merchantId: _this.data.userInfo.merchantId,
       detailId:id,
     }
@@ -79,6 +83,13 @@ Page({
           wx.showToast({
             title: "操作成功!",
           })
+          _this.setData({
+            list: [],
+            start: 1, // 页码
+            totalPage: 0, // 共有页
+            tabIndex: (_this.data.tabIndex == 0) ? 1 : 0,
+          });
+          _this.queryList();
         } else {
           wx.showToast({
             icon: "none",
@@ -148,7 +159,7 @@ Page({
       start: _this.data.start,
       limit: _this.data.limit,
       status:statusArr[_this.data.tabIndex],
-      //searchText: _this.data.searchText,
+      searchText: _this.data.searchText,
       merchantId: _this.data.userInfo.merchantId,
     }
     util.request(api.QueryPurchasGoodsList, data, "POST").then(function (res) {
