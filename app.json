@@ -1,5 +1,6 @@
 {
   "pages": [
+
     "pages/index/index",
     "pages/myShop/myShop",
 
@@ -16,6 +17,7 @@
     "pages/goods/my_group",
     "pages/goods/group_details",
     "pages/goods/lendTheGoods",
+    "pages/goods/lendCoupon",
     "components/error/noNetwork",
     "pages/goods/noneOrder",
     "pages/newMsgReminder/newMsgReminder",

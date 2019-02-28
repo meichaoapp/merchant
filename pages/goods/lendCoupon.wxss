@@ -1,0 +1,80 @@
+
+.container{
+    height:100%;
+}
+.order_box{
+    padding:30rpx;
+    margin-top:20rpx;
+}
+.merchant_box{
+    margin-top:20rpx;
+}
+.merchant_box .title{
+    height:99rpx;
+    padding:0 30rpx;
+    border-bottom:1px solid #E8E8E8;
+}
+.merchant_box .title image{
+    width:43rpx;
+    height:43rpx;
+    border-radius:5rpx;
+    margin-right:20rpx;
+}
+.merchant_box .con{
+    padding:20rpx 30rpx;
+}
+
+.icon_check{
+    width:61rpx;
+    height:69rpx;
+    margin-right:20rpx;
+}
+.check_txt{
+    font-size: 48rpx;
+    color: #60A33B;
+}
+.coupon_desc{
+    padding:20rpx 70rpx;
+}
+
+
+.dot{
+    width:10rpx;
+    height:10rpx;
+    margin-right:6rpx;
+    border-radius:50%;
+    background: #7CBF3A;
+}
+.common_lineHeight{
+    line-height:50rpx;
+}
+
+.wxParse-inline{
+    color: #999;
+}
+.bg_title{
+    width:600rpx;
+    height:180rpx;
+    background:url('https://wxpic.iliangpin.cn/meichao/mini-program/consumer/discount_coupon1.png') no-repeat;
+    background-size:100% 100%;
+}
+.btn_box{
+    margin:28rpx 0 50rpx 0;
+}
+.btn_box view{
+    width:276rpx;
+    height:75rpx;
+    line-height:75rpx;
+    text-align:center;
+    font-size:30rpx;
+    color:#fff;
+    border-radius: 37.5rpx;
+}
+.btn_box view:first-child{
+    background: #89C765;
+   margin-right:36rpx;
+}
+.btn_box view:last-child{
+   background: #BDBDBD;
+    margin-right:36rpx;
+}
