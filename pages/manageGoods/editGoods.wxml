@@ -63,10 +63,26 @@
     </view>
 
     <view class="select_box bg_ff">
-        <view>图标</view>
-        <view>
+        <view  class="C666 font15">图标</view>
+        <view class="flex flex_colum flex_center">
             <image class="icon_choose" src="/static/images/add.png"></image>
-            <view>大小不能超过1M</view>
+            <view class="font14 C999">大小不能超过1M</view>
         </view>
+    </view>
+    <!--详情图片-->
+    <view class="detail_img bg_ff">
+        <view  class="C666 font15" style="margin-bottom:12rpx;">详情图片</view>
+        <view>
+            <image class="single_img" src="/static/images/icon_withdraw.png"></image>
+            <image class="single_img" src="/static/images/icon_withdraw.png"></image>
+            <image class="single_img" src="/static/images/icon_withdraw.png"></image>
+            <image class="single_img" src="/static/images/icon_withdraw.png"></image>
+            <image class="icon_add" src="/static/images/add.png"></image>
+
+        </view>
+        <view class="font14 C999 tip">大小不能超过1M</view>
+    </view>
+    <view class="btn_add_box flex flex_center flex_just">
+        <view class="btn_add font15 cfff">确认添加</view>
     </view>
 </view>

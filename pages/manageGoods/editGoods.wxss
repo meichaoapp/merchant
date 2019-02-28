@@ -45,12 +45,13 @@ page{
     margin-right:10rpx;
 }
 textarea{
-    width:490rpx;
-    height:242rpx;
+    width:470rpx;
+    height:222rpx;
     background: #F6F6F6;
     border: 1px solid #EFEFEF;
     border-radius: 6px;
     margin-bottom:17rpx;
+    padding:10rpx;
 }
 .select_box{
     margin-top:20rpx;
@@ -60,4 +61,38 @@ textarea{
     width:160rpx;
     height:160rpx;
     margin:20rpx 0 15rpx;
+}
+.detail_img{
+    padding:30rpx;
+    padding-bottom:50rpx;
+    border-top:1px solid #E1E1E1;
+}
+.single_img{
+    width:160rpx;
+    height:160rpx;
+    margin:8rpx;
+    border:1px solid #ddd;
+    border-radius:10rpx;
+    float:left;
+}
+.icon_add{
+    width:160rpx;
+    height:160rpx;
+    margin:8rpx;
+}
+.tip{
+    margin-top:30rpx;
+    text-align:center;
+}
+.btn_add_box{
+    height:210rpx;
+}
+.btn_add{
+    width:480rpx;
+    height:100rpx;
+    background: #81C95A;
+    box-shadow: 0 8rpx 16rpx 0 rgba(129,201,90,0.63);
+    border-radius: 48.5rpx;
+    text-align:center;
+    line-height:100rpx;
 }
