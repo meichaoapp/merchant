@@ -1,0 +1,88 @@
+<view class="container flex flex_just">
+    <view class="coupon_box">
+        <button class="share flex flex_center flex_just" open-type='share'>
+            <image src="/static/images/share.png"></image>
+            <text class="font12 cfff">分享好友</text>
+        </button>
+        <!--顶部信息-->
+        <view class="top_info">
+            <view class="top_part flex flex_center flex_between">
+                <view>
+                    <view class="name font18 ">{{detail.name}}</view>
+                    <view>
+                        <text>{{detail.comments}}</text>
+                    </view>
+                </view>
+                <view class="font32 c_9000">￥{{detail.price}}</view>
+            </view>
+            <view class="flex flex_between progress_box" >
+                <view class="progress">
+                    <view class="progress_bar">
+                        <view class="bg_ff"></view>
+                    </view>
+                </view>
+                <view class="c_f3f font15" wx:if="{{detail.limitNum - detail.joinNum >=0 }}">
+                    仅剩{{detail.limitNum - detail.joinNum}}张</view>
+            </view>
+        </view>
+        <!--团长信息-->
+        <view class="merchant_box bg_ff">
+            <view class="title flex flex_between flex_center">
+                <view class="flex flex_center">
+                    <image src="{{merchant.logo}}"></image>
+                    <text class="font15 strong">{{merchant.merchantName}}</text>
+                </view>
+                <view class="wx_btn font12" catchtap='copyWxCode'>微信联系团长</view>
+            </view>
+            <view class="con">
+                <view class="user flex flex_center">
+                    <view class="merchant_name flex flex_center">
+                        <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
+                        <text class="font14">{{merchant.merchantUserName}}</text>
+                    </view>
+                    <view class="flex flex_center" catchtap="copyPhone">
+                        <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
+                        <text class="font14">{{merchant.merchantPhone}}</text>
+                    </view>
+                </view>
+                <view class="flex address_box">
+                    <image class="icon_address" src="https://wxpic.iliangpin.cn/meichao/location-icon.png"></image>
+                    <view class="font14">{{merchant.address}}</view>
+                </view>
+            </view>
+        </view>
+        <!--优惠券使用说明-->
+        <view class="coupon_con">
+            <view class="flex">
+                <text class="font14 common_lineHeight">有效日期：</text>
+                <text class="font14 C999 common_lineHeight">{{detail.validityDate}}</text>
+            </view>
+            <view class="flex">
+                <text class="font14 common_lineHeight">适用范围：</text>
+                <text class="font14 C999 common_lineHeight">{{detail.scope}}</text>
+            </view>
+            <view class="flex">
+                <text class="font14 common_lineHeight">使用规则：</text>
+                <view class="flex_1 C999">
+                    <view class=" font14 C999 common_lineHeight">
+                        <import src="../../lib/wxParse/wxParse.wxml"/>
+                        <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}"/>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+<!--复制团长手机号成功-->
+<view class="mask"  wx:if="{{showModal}}">
+    <view class="float_box">
+        <image src="/static/images/bindSuccess.png"></image>
+        <view class="tip">
+            <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
+            <view class="C860 font18">{{modalTitle}}</view>
+        </view>
+        <view class="sure_btn" bindtap="closeFloat">确认</view>
+    </view>
+</view>

@@ -1,0 +1,44 @@
+<view class="header" hidden="{{hideHeader}}">
+    <view>下拉刷新中…</view>
+</view>
+
+<view class="container">
+
+    <scroll-view scroll-y="true"  class='section'>
+        <view class="coupon_list">
+
+            <block wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+                <view class="coupon_item  flex flex_colum {{item.status==2?'hasexpired':'canUse'}}" bindtap='toDetail' data-id='{{item.orderId}}'>
+                    <!--未使用和已使用-->
+                    <block>
+                        <view class="desc flex flex_1 flex_center">
+                            <image class="icon_image" src="{{item.url}}"></image>
+                            <view class="right_part">
+                                <view wx:if="{{item.status == 3}}" class="name font16 strong" style="color:#898989">{{item.title}}</view>
+                                <view wx:else class="name font16 strong">{{item.title}}</view>
+                                <view class="font12 C999 txt">{{item.comments}}</view>
+                                <view class="flex flex_between">
+                                    <view class="c_f3f">￥{{item.price}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="time C999">
+                            <view class="check_detail">查看详情</view>
+                            <view class="check_sales">查看销量</view>
+                        </view>
+                    </block>
+                </view>
+            </block>
+
+        </view>
+    </scroll-view>
+    <view class="n-bottom" hidden="{{hideBottom}}">
+        <view>
+            <view class='transverseline'><text class='line'></text></view>
+
+            <text class='txt'>{{loadMoreData}}</text>
+
+            <view class='transverseline'><text class='line'></text></view>
+        </view>
+    </view>
+</view>

@@ -22,8 +22,7 @@ page{
     margin-right:10rpx;
     position:absolute;
     left:58rpx;
-    top:15rpx;
-
+    top:33rpx;
 }
 .menu{
     height:90rpx;

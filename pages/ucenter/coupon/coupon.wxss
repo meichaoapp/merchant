@@ -1,0 +1,74 @@
+.container{
+    height:100%;
+    overflow:hidden;
+}
+
+
+
+.coupon_list{
+    padding:0 30rpx;
+}
+.coupon_item{
+    margin:20rpx 0;
+    height:280rpx;
+    padding:0 40rpx;
+}
+.hasexpired{
+    background:url('https://wxpic.iliangpin.cn/meichao/mini-program/consumer/discount_coupon2.png') no-repeat;
+    background-size:100%;
+}
+.canUse{
+    background:url('https://wxpic.iliangpin.cn/meichao/mini-program/consumer/discount_coupon3.png') no-repeat;
+    background-size:100%;
+}
+.txt{
+    margin-top:10rpx;
+    margin-bottom:22rpx;
+}
+.coupon_item .desc .icon_image{
+    width:151rpx;
+    height:151rpx;
+    border-radius: 5rpx;
+    margin-right:30rpx;
+}
+.time{
+    height:69rpx;
+}
+.right_part{
+    flex:1;
+}
+.btn_common{
+    width:130rpx;
+    hegiht:50rpx;
+    border-radius: 27.5rpx;
+    line-height:50rpx;
+    text-align:center;
+}
+.btn_unused{
+    background: #89C765;
+}
+.btn_hasUsed{
+    background: #FFCF3B;
+}
+.btn_hasExpired{
+    background: #D8D8D8;
+}
+.check_detail{
+    width:146rpx;
+    height:39rpx;
+    border: 1px solid #7CBF3A;
+    border-radius: 19.5rpx;
+    margin-right:20rpx;
+    color:#7CBF3A;
+    line-height:39rpx;
+    text-align:center;
+}
+.check_sales{
+    width:146rpx;
+    height:39rpx;
+    border: 1px solid #7CBF3A;
+    border-radius: 19.5rpx;
+    color:#7CBF3A;
+    line-height:39rpx;
+    text-align:center;
+}

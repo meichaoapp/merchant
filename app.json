@@ -1,5 +1,6 @@
 {
   "pages": [
+
     "pages/index/index",
     "pages/myShop/myShop",
 
@@ -9,6 +10,8 @@
     "pages/ucenter/index/index",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/details/details",
+    "pages/ucenter/coupon/coupon",
+    "pages/ucenter/coupon/couponDetail",
     "pages/ucenter/partner/partner",
     "pages/goods/my_group",
     "pages/goods/group_details",
