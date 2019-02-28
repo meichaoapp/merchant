@@ -22,9 +22,9 @@
                                 </view>
                             </view>
                         </view>
-                        <view class="time C999">
-                            <view class="check_detail" bindtap='toDetail' data-id='{{item.id}}'>查看详情</view>
-                            <view class="check_sales" bindtap='toSales' data-id='{{item.id}}'>查看销量</view>
+                        <view class="time C999 flex flex_center flex_end">
+                            <view class="check_detail font12" bindtap='toDetail' data-id='{{item.id}}'>查看详情</view>
+                            <view class="check_sales font12" bindtap='toSales' data-id='{{item.id}}'>查看销量</view>
                         </view>
                     </block>
                 </view>
