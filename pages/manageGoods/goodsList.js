@@ -2,12 +2,15 @@
 const app = getApp();
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
+const statusArr = [1,2];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    basePath: app.globalData._base_path, //基础路径
+    userInfo: {},
     list: [],
     start: 1, // 页码
     totalPage: 0, // 共有页
@@ -17,20 +20,19 @@ Page({
     srollViewHeight: 0, //滚动分页区域高度
     refreshTime: '', // 刷新的时间
     loadMoreData: '上拉加载更多',
+    tabIndex:0,
+    searchText:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let userInfo = wx.getStorageSync('userInfo');
+    this.setData({
+      userInfo: userInfo,
+    });
     this.queryList();
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
   },
 
   /**
@@ -38,6 +40,52 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  //切换
+  switchTabs:function(e) {
+    let _this = this;
+    var index = e.currentTarget.dataset.index;
+    _this.setData({
+      list: [],
+      start: 1, // 页码
+      totalPage: 0, // 共有页
+      tabIndex: index,
+      searchText: "",
+    });
+
+    _this.queryList();
+  },
+  
+  //监听输入框变化
+  bindSearchText: function (e) {
+    this.setData({
+      searchText: e.detail.value
+    })
+  },
+
+  //商品上下架
+  changeStatus:function(e){
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    var data = {
+      status: statusArr[_this.data.tabIndex],
+      merchantId: _this.data.userInfo.merchantId,
+      detailId:id,
+    }
+
+    util.request(api.PurchasGoodsUpDown,data, "POST").then(function (res) {
+        if (res.rs == 1) {
+          wx.showToast({
+            title: "操作成功!",
+          })
+        } else {
+          wx.showToast({
+            icon: "none",
+            title: res.info,
+          })
+        }
+    });
   },
 
   /**
@@ -91,8 +139,11 @@ Page({
     var data = {
       start: _this.data.start,
       limit: _this.data.limit,
+      status:statusArr[_this.data.tabIndex],
+      //searchText: _this.data.searchText,
+      merchantId: _this.data.userInfo.merchantId,
     }
-    util.request(api.QueryNotices, data, "POST").then(function (res) {
+    util.request(api.QueryPurchasGoodsList, data, "POST").then(function (res) {
       if (res.rs === 1) {
         var list = res.data.list;
  
@@ -114,6 +165,7 @@ Page({
         }
       } else {
         wx.showToast({
+          icon:"none",
           title: res.info,
         })
       }

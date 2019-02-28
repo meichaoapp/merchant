@@ -45,5 +45,10 @@ module.exports = {
     BindMobile: NewApiRootUrl + "common/savePhone",//绑定手机号
     PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
     PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
+
+    ///商品管理
+    CheckPurchasGoodsPromise: NewApiRootUrl + 'merchant/groupPurchase/verifySelfSupport', ///校验编辑商品权限
+    QueryPurchasGoodsList: NewApiRootUrl + 'merchant/groupPurchase/tolist', ///商品列表
+    PurchasGoodsUpDown: NewApiRootUrl + 'merchant/groupPurchase/updateStatus', ///商品上下架
   
 };
