@@ -39,7 +39,8 @@
                 <view class="list_item">
                     <view class="flex flex_center flex_between">
                         <view class="left_part flex flex_center">
-                            <image class="icon_mine01" src="{{basePath}}/mine_04.png"></image>
+                            <image class="icon_mine01" 
+                                  src="https://wxpic.iliangpin.cn/meichao/mini-program/consumer//mine_04.png"></image>
                             <text class="font15 C666">我的优惠券</text>
                         </view>
                         <image src="{{basePath}}/go.png" class="icon_go"></image>

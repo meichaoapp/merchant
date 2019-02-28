@@ -57,8 +57,8 @@ module.exports = {
     ///优惠券相关
     QueryMyCouponList: NewApiRootUrl + "discountCoupon/merchant/mylist", //我的优惠券
     QueryMyCouponDetail: NewApiRootUrl + "discountCoupon/merchant/myDetail", //我的优惠券详情
-    QueryMyCouponDetail: NewApiRootUrl + "discountCoupon/merchant/salesVolume", //我的优惠券销量
-    QueryMyCouponDetail: NewApiRootUrl + "discountCoupon/merchant/leadOrder", //优惠券领货
+    QuerysalesVolume: NewApiRootUrl + "discountCoupon/merchant/salesVolume", //我的优惠券销量
+    LeadCoupon: NewApiRootUrl + "discountCoupon/merchant/leadOrder", //优惠券领货
 
 
   

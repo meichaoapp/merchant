@@ -1,18 +1,35 @@
-// pages/ucenter/coupon/couponDetail.js
+var util = require('../../../utils/util.js');
+var api = require('../../../config/api.js');
+var WxParse = require('../../../lib/wxParse/wxParse.js');
+var app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: 0,
+    userInfo: {},
+    detail: {},
+    merchant: {},
+    showModal: false,
+    modalTitle: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let _this = this;
+    this.setData({
+      id: options.id,
+    });
+    let userInfo = wx.getStorageSync('userInfo');
+    this.setData({
+      userInfo: userInfo,
+    });
+    this.queryCouponDetail();
   },
 
   /**
@@ -29,38 +46,60 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  //查询详情
+  queryCouponDetail: function () {
 
+    let that = this;
+    util.request(api.QueryMyCouponDetail,
+      {
+        "id": that.data.id,
+         merchantId: that.data.userInfo.merchantId,
+      },
+      "POST").then(function (res) {
+        if (res.rs === 1) {
+          that.setData({
+            detail: res.data.detail,
+            merchant: res.data.merchant,
+          });
+          WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
+        }
+      });
+  },
+  copyPhone() {
+    let that = this;
+    //复制到剪切板
+    wx.setClipboardData({
+      data: that.data.merchant.merchantPhone,
+      success() {
+        wx.hideToast();
+        that.setData({
+          modalTitle: "您已复制团长手机号",
+          showModal: true
+        });
+      }
+    })
+  },
+  copyWxCode() {
+    let that = this;
+    //复制到剪切板
+    wx.setClipboardData({
+      data: that.data.merchant.wxcode,
+      success() {
+        wx.hideToast();
+        that.setData({
+          modalTitle: "您已复制团长微信",
+          showModal: true
+        });
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  closeFloat() {
+    this.setData({
+      modalTitle: "",
+      showModal: false
+    });
   }
+
+
 })
