@@ -11,8 +11,6 @@
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/details/details",
     "pages/ucenter/partner/partner",
-    "pages/ucenter/productControl/productControl",
-    "pages/ucenter/productControl/addProduct",
     "pages/goods/my_group",
     "pages/goods/group_details",
     "pages/goods/lendTheGoods",

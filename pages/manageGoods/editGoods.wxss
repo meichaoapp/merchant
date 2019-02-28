@@ -1,1 +1,63 @@
-/* pages/manageGoods/editGoods.wxss */
+page{
+    height:100%;
+}
+.container{
+    min-height:100%;
+}
+.info_box{
+    margin-bottom:20rpx;
+}
+.input_box{
+    padding:0 30rpx;
+    height:100rpx;
+    border-bottom:1px solid #E1E1E1;
+}
+.input_box:last-child{
+    border-bottom:none;
+}
+.label{
+    width:200rpx;
+}
+.input_box input{
+    flex:1;
+}
+.state_box{
+    padding:17rpx 30rpx 0;
+}
+.state_box .single_line{
+    padding:17rpx 0;
+}
+.single_line .gray_bg{
+    background:red;
+    width:300rpx;
+}
+.pink{
+    color:pink;
+}
+.icon_check_on {
+    width:24rpx;
+    height:24rpx;
+    margin-right:10rpx;
+}
+.icon_check{
+    width:24rpx;
+    height:24rpx;
+    margin-right:10rpx;
+}
+textarea{
+    width:490rpx;
+    height:242rpx;
+    background: #F6F6F6;
+    border: 1px solid #EFEFEF;
+    border-radius: 6px;
+    margin-bottom:17rpx;
+}
+.select_box{
+    margin-top:20rpx;
+    padding:30rpx;
+}
+.icon_choose{
+    width:160rpx;
+    height:160rpx;
+    margin:20rpx 0 15rpx;
+}

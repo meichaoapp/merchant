@@ -220,7 +220,7 @@ Page({
     util.request(api.CheckPurchasGoodsPromise, 
        { 
          token: "",
-         merchantId: _this.data.userInfo.merchantId,
+         merchantId: that.data.userInfo.merchantId,
         }, "POST").then(function (res) {
           if (res.rs == 1) {
             wx.navigateTo({
