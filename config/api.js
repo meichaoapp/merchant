@@ -38,17 +38,28 @@ module.exports = {
     //收到新消息提醒
     newMsgReminder:NewApiRootUrl + "merchant/groupPurchase/message",//获取新消息提醒
 
-    
+    /** 通用模块 */
     GetVerifiCode: NewApiRootUrl + "common/sendMsg", //短信验证码
+    CollectLogs: NewApiRootUrl + "common/logCollection",//日志采集
+    UplodUrl: NewApiRootUrl + "api/fileupload/upload",//上传
 
     ///绑定手机号相关
     BindMobile: NewApiRootUrl + "common/savePhone",//绑定手机号
-    PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
-    PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
+    PareseMobile: NewApiRootUrl + "merchant/getPhoneNumber",//绑定手机号
 
-    ///商品管理
+    ///商品管理相关
     CheckPurchasGoodsPromise: NewApiRootUrl + 'merchant/groupPurchase/verifySelfSupport', ///校验编辑商品权限
     QueryPurchasGoodsList: NewApiRootUrl + 'merchant/groupPurchase/tolist', ///商品列表
     PurchasGoodsUpDown: NewApiRootUrl + 'merchant/groupPurchase/updateStatus', ///商品上下架
+    QueryPurchasGoods: NewApiRootUrl + 'merchant/groupPurchase/toEdit', ///查询商品
+    EditPurchasGoods: NewApiRootUrl + 'merchant/groupPurchase/submit', ///编辑团购商品
+
+    ///优惠券相关
+    QueryMyCouponList: NewApiRootUrl + "discountCoupon/merchant/mylist", //我的优惠券
+    QueryMyCouponDetail: NewApiRootUrl + "discountCoupon/merchant/myDetail", //我的优惠券详情
+    QueryMyCouponDetail: NewApiRootUrl + "discountCoupon/merchant/salesVolume", //我的优惠券销量
+    QueryMyCouponDetail: NewApiRootUrl + "discountCoupon/merchant/leadOrder", //优惠券领货
+
+
   
 };

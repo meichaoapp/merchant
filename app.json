@@ -5,7 +5,8 @@
     "pages/myShop/myShop",
 
     "pages/manageGoods/goodsList",
-    
+    "pages/manageGoods/editGoods",
+
     "pages/ucenter/index/index",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/details/details",

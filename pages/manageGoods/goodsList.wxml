@@ -41,7 +41,7 @@
                 <view class="btn_box flex">
                   <view wx:if="{{tabIndex == 0}}" data-id='{{item.id}}' bindtap='changeStatus'>上架</view>
                   <view wx:if="{{tabIndex == 1}}" data-id='{{item.id}}' bindtap='changeStatus'>下架</view>
-                  <view >编辑</view>
+                  <view data-id='{{item.id}}' bindtap='toEditPage' >编辑</view>
                 </view>
               </view>
             </view>
@@ -49,7 +49,7 @@
     </view>
     <view class="fixed_bottom flex flex_center flex_just">
       <image class="icon_add" src="/static/images/icon_add.png"></image>
-      <view class="font15 Cfff">添加商品</view>
+      <view class="font15 Cfff" data-id='0' bindtap='toEditPage'>添加商品</view>
     </view>
   </view>
  
