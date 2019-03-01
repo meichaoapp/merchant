@@ -41,7 +41,9 @@ module.exports = {
     /** 通用模块 */
     GetVerifiCode: NewApiRootUrl + "common/sendMsg", //短信验证码
     CollectLogs: NewApiRootUrl + "common/logCollection",//日志采集
-    UplodUrl: NewApiRootUrl + "api/fileupload/upload",//上传
+    UplodUrl: NewApiRootUrl + "fileupload/upload",//上传
+    QueryCategories: NewApiRootUrl + "common/getBaseData",//分类
+  
 
     ///绑定手机号相关
     BindMobile: NewApiRootUrl + "common/savePhone",//绑定手机号

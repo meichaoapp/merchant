@@ -13,12 +13,17 @@ Page({
     id:0, //商品id
     userInfo: {},
     detail:{}, //商品详情
+    sellList: [],
+    classifys: [], 
     imgs: [],
+    icons:[],
     imgLen: 0,
     upload: true,
+    uploading0: false,
     uploading: false,
     qiniu: '',
-    showError: false
+    showError: false,
+    status:1,
   },
 
   /**
@@ -33,9 +38,7 @@ Page({
       userInfo: userInfo,
     });
 
-    if(0 != id) { //加载商品信息
-      _this.loadGoodsDetail();
-    }
+    _this.queryCategories();
   },
 
 
@@ -44,6 +47,40 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  //商品上下架
+  changeStatus: function (e) {
+    let _this = this;
+    var status = e.currentTarget.dataset.status;
+    _this.setData({
+      status: status,
+    });
+  },
+
+  //获取下拉数据
+  queryCategories:function() {
+    let _this = this;
+    var data = {
+      token:"",
+      type:"1003,1004",
+    }
+    util.request(api.QueryCategories, data, "POST").then(function (res) {
+      if (res.rs == 1) {
+        _this.setData({
+          sellList: res.data.sellList,
+          classifys: res.data.classifys, 
+        });
+        if (0 != _this.data.id) { //加载商品信息
+          _this.loadGoodsDetail();
+        }
+      } else {
+        wx.showToast({
+          icon: "none",
+          title: res.info,
+        })
+      }
+    });
   },
    
   //加载商品详情
@@ -54,9 +91,24 @@ Page({
     };
     util.request(api.QueryPurchasGoods, data, "POST").then(function (res) {
       if (res.rs == 1) {
-        _this.setData({
-          detail: res.data.detail,
-        });
+        if (res.data) {
+          var detail = res.data.detail;
+          if(detail) {
+            var icon = detail.iocn;
+            var pics = detail.pics;
+            var icons = [];
+            var imgs = [];
+            if(null != icon && icon != "") {icons.push(icon);}
+            if (null != pics && pics.length > 0) { imgs = pics; }
+            _this.setData({
+              detail: detail,
+              icons: icons,
+              imgs: imgs,
+              status: detail.status,
+            });
+          }
+        }
+       
       } else {
         wx.showToast({
           icon: "none",
@@ -69,11 +121,45 @@ Page({
   //提交编辑
   submit: function(e) {
     let _this = this;
+  
+    var icon = "";
+    if(_this.data.icons.length > 0) { icon = _this.data.icons[0]; }
+    e.detail.value.icon = icon;
+
+    e.detail.value.status = _this.data.status; //状态
+
     if (!_this.validate(e)){
        return;
     }
+    if (_this.data.imgs.length <= 0) {
+      wx.showToast({
+        icon: "none",
+        title: "详情图片不能为空",
+      })
+      return;
+    }else {
+      e.detail.value.pics = _this.data.imgs.join(",");
+    }
+
+    var formData = e.detail.value;
+    console.log("formData-------------" + JSON.stringify(formData));
+
+    util.request(api.EditPurchasGoods, formData, "POST").then(function (res) {
+      if (res.rs == 1) {
+        wx.showToast({
+          title: "操作成功!",
+        })
+      } else {
+        wx.showToast({
+          icon: "none",
+          title: res.info,
+        })
+      }
+    });
 
   },
+
+  
 
   //参数校验
   validate: function(e) {
@@ -86,6 +172,25 @@ Page({
         required: true,
         maxlength: 300,
       },
+      currentPrice: {
+        required: true,
+      },
+      originalPrice: {
+        required: true,
+      },
+      unit: {
+        required: true,
+      },
+      unitDesc: {
+        required: true,
+      },
+      stock: {
+        required: true,
+        min:0,
+      },
+      icon: {
+        required: true,
+      },
       
     }
     var messages = {
@@ -96,6 +201,25 @@ Page({
       tagline: {
         required: "简述不能为空",
         maxlength: "简述不能大于300字",
+      },
+      currentPrice: {
+        required: "现价不能为空",
+      },
+      originalPrice: {
+        required: "原价不能为空",
+      },
+      unit: {
+        required: "单位不能为空",
+      },
+      unitDesc: {
+        required: "单位描述不能为空",
+      },
+      stock: {
+        required: "库存不能为空",
+        min: "库存数量不能小于0",
+      },
+      icon: {
+        required: "图标不能为空",
       },
      
     }
@@ -113,9 +237,34 @@ Page({
     return true;
   },
 
-  //选择图片
-  choosePhoto: function () {
+  //移除图片
+  removePhoto:function(e) {
     var _this = this;
+    var tag = e.currentTarget.dataset.tag;
+    var index = e.currentTarget.dataset.tag;
+    if(tag == 0) {
+       _this.deleteArryByIndex(_this.data.icons, index);
+    }else {
+      _this.deleteArryByIndex(_this.data.imgs, index);
+    }
+  },
+
+  deleteArryByIndex: function (arr, index) {
+    var _arr = [];
+    if(arr) {
+      for(var i = 0 ; i < arr.length; i++) {
+        if(i != index) {
+          _arr.push(arr[i]);
+        }
+      }
+    }
+    return _arr;
+  },
+
+  //选择图片
+  choosePhoto: function (e) {
+    var _this = this;
+    var tag = e.currentTarget.dataset.tag;
     //检查网络状态
     wx.getNetworkType({
       success: function (res) {
@@ -128,12 +277,12 @@ Page({
             confirmText: '继续',
             success: function (res) {
               if (res.confirm) {
-                _this.chooseImage();
+                _this.chooseImage(tag);
               }
             }
           });
         } else if (networkType == 'wifi') {
-          _this.chooseImage();
+          _this.chooseImage(tag);
         } else {
           wx.showModal({
             title: '系统提示',
@@ -148,25 +297,28 @@ Page({
 
   },
   //选择图片
-  chooseImage: function () {
+  chooseImage: function (tag) {
     var _this = this;
+   
     wx.chooseImage({
-      count: 4,
+      count: 1,
       sourceType: ['album'],
       success: function (res) {
+       
         var tempFilePaths = res.tempFilePaths, imgLen = tempFilePaths.length;
         _this.setData({
-          uploading: true,
+          uploading0: (tag == 0),
+          uploading: (tag == 1),
           imgLen: _this.data.imgLen + imgLen
         });
         tempFilePaths.forEach(function (e) {
-          _this.uploadImg(e);
+          _this.uploadImg(e,tag);
         });
       }
     });
   },
   //上传图片
-  uploadImg: function (path) {
+  uploadImg: function (path,tag) {
     var _this = this;
     if (app.g_status) {
       wx.showModal({
@@ -176,7 +328,6 @@ Page({
         success: function (res) {
         }
       });
-      // app.showErrorModal(app.g_status, '上传失败');
       return;
     }
     wx.showNavigationBarLoading();
@@ -187,30 +338,30 @@ Page({
         'Content-Type': 'multipart/form-data'
       },
       filePath: path,
-      name: 'file',
-      formData: {
-        platformCode: "wx10001",
-        dirFolderName: 'feedback',
-      },
+      name: 'myfile',
       success: function (res) {
-
         var data = JSON.parse(res.data);
-        if (data.data.uploadRst) {
-          _this.setData({
-            imgs: _this.data.imgs.concat(data.data.uploadRst[0].fileServerPath),
-          });
+        if (data.data) {
+          if(tag == 1) {
+            _this.setData({
+              imgs: _this.data.imgs.concat(data.data),
+            });
+          }else {
+            _this.setData({
+              icons: _this.data.imgs.concat(data.data),
+            });
+          }
         }
-
-        if (_this.data.imgs.length === _this.data.imgLen) {
-          _this.setData({
-            uploading: false
-          });
-        }
+        _this.setData({
+          uploading0: false,
+          uploading: false
+        });
       },
       fail: function (res) {
-        _this.setData({
-          imgLen: _this.data.imgLen - 1
-        });
+        wx.showToast({
+          icon:"none",
+          title: res.info,
+        })
       },
       complete: function () {
         wx.hideNavigationBarLoading();

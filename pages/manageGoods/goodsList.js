@@ -2,7 +2,7 @@
 const app = getApp();
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
-const statusArr = [1,2];
+const statusArr = [2,1]; // 1 仓库 2 上架
 Page({
 
   /**
@@ -39,7 +39,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.queryList();
   },
 
   //切换
@@ -70,6 +70,8 @@ Page({
     var id = e.currentTarget.dataset.id;
     var status = 1;
     if (_this.data.tabIndex == 0) {
+      status = 1;
+    }else {
       status = 2;
     }
     var data = {

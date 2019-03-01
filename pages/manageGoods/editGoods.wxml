@@ -1,88 +1,104 @@
 <view class="container">
-    <view class="info_box bg_ff">
-        <view class="input_box flex flex_center">
-            <text class="C666 font15 label">名称</text>
-            <input type="text" placeholder="商品名称"/>
-        </view>
-        <view class="input_box flex flex_center">
-            <text class="C666 font15 label">简介</text>
-            <input type="text" placeholder="星级典句宣传，意大利语！"/>
-        </view>
-        <view class="input_box flex flex_center">
-            <text class="C666 font15 label">现价</text>
-            <input type="text" placeholder="现价（如：10.00）"/>
-        </view>
-        <view class="input_box flex flex_center">
-            <text class="C666 font15 label">原价</text>
-            <input type="text" placeholder="原价（如：18.00）"/>
-        </view>
-        <view class="input_box flex flex_center">
-            <text class="C666 font15 label">单位</text>
-            <input type="text" placeholder="袋"/>
-        </view>
-        <view class="input_box flex flex_center">
-            <text class="C666 font15 label">单位描述</text>
-            <input type="text" placeholder="2 *252克/袋"/>
-        </view>
-        <view class="input_box flex flex_center">
-            <text class="C666 font15 label">库存</text>
-            <input type="text" placeholder="发出总的团购份数"/>
-        </view>
-        <view class="input_box flex flex_center">
-            <text class="C666 font15 label">每人限购</text>
-            <input type="text" placeholder="每人限购份数"/>
-        </view>
-    </view>
-
-    <view class="state_box bg_ff">
-        <view class="single_line flex flex_center">
-            <text class="C666 font15 label">首页展示位置</text>
-            <Select prop-array='{{selectArray}}' my-class="gray_bg" pink="pink"></Select>
-        </view>
-        <view class="single_line flex flex_center">
-            <text class="C666 font15 label">分类</text>
-            <Select prop-array='{{selectArray}}'></Select>
-        </view>
-        <view class="single_line flex flex_center">
-            <text class="C666 font15 label">商品状态</text>
-            <view class="flex">
-                <view class="flex flex_center" style="margin-right:110rpx;">
-                    <image class="icon_check_on" src="/static/images/icon_check_on.png"></image>
-                    <view  class="font14 C666">存入库中</view>
-                </view>
-                <view class="flex flex_center">
-                    <image class="icon_check" src="/static/images/icon_check.png"></image>
-                    <view class="font14 C666">上架</view>
-                </view>
+  <form bindsubmit="submit" report-submit='true' >
+        <view class="info_box bg_ff">
+            <view class="input_box flex flex_center">
+                <text class="C666 font15 label">名称</text>
+                <input type="text" name="title"  value='{{detail.title}}' placeholder="商品名称"/>
+            </view>
+            <view class="input_box flex flex_center">
+                <text class="C666 font15 label">简介</text>
+                <input type="text" name="tagline"  value='{{detail.tagline}}' placeholder="星级典句宣传，意大利语！"/>
+            </view>
+            <view class="input_box flex flex_center">
+                <text class="C666 font15 label">现价</text>
+                <input type="digit" name="currentPrice"  value='{{detail.currentPrice}}' placeholder="现价（如：10.00）"/>
+            </view>
+            <view class="input_box flex flex_center">
+                <text class="C666 font15 label">原价</text>
+                <input type="digit" name="originalPrice"  value='{{detail.originalPrice}}'  placeholder="原价（如：18.00）"/>
+            </view>
+            <view class="input_box flex flex_center">
+                <text class="C666 font15 label">单位</text>
+                <input type="text" name="unit"  value='{{detail.unit}}' placeholder="袋"/>
+            </view>
+            <view class="input_box flex flex_center">
+                <text class="C666 font15 label">单位描述</text>
+                <input type="text" name="unitDesc"  value='{{detail.unitDesc}}'  placeholder="克/袋"/>
+            </view>
+            <view class="input_box flex flex_center">
+                <text class="C666 font15 label">库存</text>
+                <input type="number" name="stock"  value='{{detail.stock}}'  placeholder="发出总的团购份数"/>
+            </view>
+            <view class="input_box flex flex_center">
+                <text class="C666 font15 label">每人限购</text>
+                <input type="number" name="buyLimitNum"  value='{{detail.buyLimitNum}}'  placeholder="每人限购份数"/>
             </view>
         </view>
-        <view class="single_line flex">
-            <text class="C666 font15 label">描述</text>
-            <textarea placeholder="描述" placeholder-class="placeholdText"/>
-        </view>
-    </view>
 
-    <view class="select_box bg_ff">
-        <view  class="C666 font15">图标</view>
-        <view class="flex flex_colum flex_center">
-            <image class="icon_choose" src="/static/images/add.png"></image>
-            <view class="font14 C999">大小不能超过1M</view>
+        <view class="state_box bg_ff">
+            <view class="single_line flex flex_center">
+                <text class="C666 font15 label">首页展示位置</text>
+                <Select prop-array='{{sellList}}' my-class="gray_bg" pink="pink"></Select>
+            </view>
+            <view class="single_line flex flex_center">
+                <text class="C666 font15 label">分类</text>
+                <Select prop-array='{{classifys}}'></Select>
+            </view>
+            <view class="single_line flex flex_center">
+                <text class="C666 font15 label">商品状态</text>
+                <view class="flex">
+                    <view class="flex flex_center" style="margin-right:110rpx;">
+                        <image wx:if="{{status == 1}}" class="icon_check_on" src="/static/images/icon_check_on.png"></image>
+                        <image wx:else class="icon_check" src="/static/images/icon_check.png" data-status='1' bindtap='changeStatus'></image>
+                        <view  class="font14 C666">存入库中</view>
+                    </view>
+                    <view class="flex flex_center">
+                        <image wx:if="{{status == 2}}" class="icon_check_on" src="/static/images/icon_check_on.png"></image>
+                        <image wx:else class="icon_check" src="/static/images/icon_check.png" data-status='2' bindtap='changeStatus'></image>
+                        <view class="font14 C666">上架</view>
+                    </view>
+                </view>
+            </view>
+            <view class="single_line flex" >
+                <text class="C666 font15 label">描述</text>
+                <textarea placeholder="描述" name="content"  value='{{detail.content}}'  placeholder-class="placeholdText"/>
+            </view>
         </view>
-    </view>
-    <!--详情图片-->
-    <view class="detail_img bg_ff">
-        <view  class="C666 font15" style="margin-bottom:12rpx;">详情图片</view>
-        <view>
-            <image class="single_img" src="/static/images/icon_withdraw.png"></image>
-            <image class="single_img" src="/static/images/icon_withdraw.png"></image>
-            <image class="single_img" src="/static/images/icon_withdraw.png"></image>
-            <image class="single_img" src="/static/images/icon_withdraw.png"></image>
-            <image class="icon_add" src="/static/images/add.png"></image>
 
+        <view wx:if="{{upload}}" class="detail_img bg_ff">
+            <view class="C666 font15"  style="margin-bottom:12rpx;">图标</view>
+            <view class="issues-img-panel {{(showError&&uploading)?'error':''}}">
+              <view class="issues-photo-item" wx:if="{{uploading0}}">
+                <image class="remind-img" src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant/loading.gif"></image>
+              </view>
+              <view class="issues-photo-item" wx:for="{{icons}}" wx:key="*this">
+                <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap="previewPhoto"></image>
+              </view>
+              <view class="issues-photo-item add-photo" wx:if="{{!uploading && icons.length < 1}}" data-tag='0'  bindtap="choosePhoto" >
+                 <image src="/static/images/add.png"></image>
+              </view>
+            </view>
+             <view class="font14 C999 tip">大小不能超过1M</view>
         </view>
-        <view class="font14 C999 tip">大小不能超过1M</view>
-    </view>
-    <view class="btn_add_box flex flex_center flex_just">
-        <view class="btn_add font15 cfff">确认添加</view>
-    </view>
+      
+
+         <view wx:if="{{upload}}" class="detail_img bg_ff">
+            <view class="C666 font15"  style="margin-bottom:12rpx;">详情图片</view>
+            <view class="issues-img-panel {{(showError&&uploading)?'error':''}}">
+              <view class="issues-photo-item" wx:if="{{uploading}}">
+                <image class="remind-img" src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant/loading.gif"></image>
+              </view>
+              <view class="issues-photo-item" wx:for="{{imgs}}" wx:key="*this">
+                <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap="previewPhoto"></image>
+              </view>
+              <view class="issues-photo-item add-photo" wx:if="{{!uploading && imgs.length < 5}}" data-tag='1' bindtap="choosePhoto">
+                 <image src="/static/images/add.png"></image>
+              </view>
+            </view>
+             <view class="font14 C999 tip">大小不能超过1M</view>
+        </view>
+
+        <button form-type="submit"   class='submit-btn'>确认添加</button>
+      
+  </form>
 </view>
