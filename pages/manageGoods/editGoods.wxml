@@ -38,11 +38,11 @@
         <view class="state_box bg_ff">
             <view class="single_line flex flex_center">
                 <text class="C666 font15 label">首页展示位置</text>
-                <Select prop-array='{{sellList}}' my-class="gray_bg" pink="pink"></Select>
+                <Select prop-array='{{sellList}}' bind:getOptions='getSellListOption' my-class="gray_bg" pink="pink"></Select>
             </view>
             <view class="single_line flex flex_center">
                 <text class="C666 font15 label">分类</text>
-                <Select prop-array='{{classifys}}'></Select>
+                <Select prop-array='{{classifys}}' bind:getOptions='getClassifysOption'></Select>
             </view>
             <view class="single_line flex flex_center">
                 <text class="C666 font15 label">商品状态</text>

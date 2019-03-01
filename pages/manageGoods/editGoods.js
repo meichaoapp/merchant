@@ -24,6 +24,8 @@ Page({
     qiniu: '',
     showError: false,
     status:1,
+    selectedClassify:0,
+    selectedSell: 0,
   },
 
   /**
@@ -49,6 +51,23 @@ Page({
 
   },
 
+  getClassifysOption:function(e) {
+    console.log(e.detail)
+    let _this = this;
+    _this.setData({
+      selectedClassify: e.detail.id,
+    });
+
+  },
+
+  getSellListOption: function (e) {
+    console.log(e.detail)
+    let _this = this;
+    _this.setData({
+      selectedSell: e.detail.id,
+    });
+  },
+
   //商品上下架
   changeStatus: function (e) {
     let _this = this;
@@ -67,9 +86,33 @@ Page({
     }
     util.request(api.QueryCategories, data, "POST").then(function (res) {
       if (res.rs == 1) {
+        var sellList = [];
+        var sList = res.data.sellList;
+        if(sList) {
+          sList.forEach(t => {
+             var l = {
+               id: t.code,
+               text: t.name, 
+               selected: false,
+             };
+             sellList.push(l);
+          });
+        }
+        var classifys = [];
+        var cList = res.data.classifys;
+        if (cList) {
+          cList.forEach(t => {
+            var l = {
+              id: t.code,
+              text: t.name,
+              selected: false,
+            };
+            classifys.push(l);
+          });
+        }
         _this.setData({
-          sellList: res.data.sellList,
-          classifys: res.data.classifys, 
+          sellList: sellList,
+          classifys: classifys, 
         });
         if (0 != _this.data.id) { //加载商品信息
           _this.loadGoodsDetail();
@@ -351,7 +394,7 @@ Page({
             });
           }else {
             _this.setData({
-              icons: _this.data.imgs.concat(data.data),
+              icons: _this.data.icons.concat(data.data),
             });
           }
         }
