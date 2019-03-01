@@ -70,11 +70,11 @@
     color:#fff;
     border-radius: 37.5rpx;
 }
-.btn_box view:first-child{
+.actived{
     background: #89C765;
    margin-right:36rpx;
 }
-.btn_box view:last-child{
+.disabled{
    background: #BDBDBD;
-    margin-right:36rpx;
+   margin-right:36rpx;
 }

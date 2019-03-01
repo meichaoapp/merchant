@@ -121,7 +121,10 @@ Page({
   //提交编辑
   submit: function(e) {
     let _this = this;
-  
+    if (0 != _this.data.id) { //加载商品信息
+      e.detail.value.id = _this.data.detail.id; //产品详情id
+      e.detail.value.productId = _this.data.detail.productId; // 团id
+    }
     var icon = "";
     if(_this.data.icons.length > 0) { icon = _this.data.icons[0]; }
     e.detail.value.icon = icon;

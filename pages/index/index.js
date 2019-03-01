@@ -87,10 +87,28 @@ Page({
     var _this = this;
     wx.scanCode({
       success: (res) => {
-        var orderId = res.result;
-        wx.redirectTo({
-          url: '/pages/goods/lendTheGoods?leadType=1&id='+orderId,
-        })
+        //ordeId=2019022811395345000241&type=5
+        //2019022811395345000241
+        var str = res.result;
+        var orderId = 0;
+        var type = 0;
+        if (str.indexOf("type") != -1) {
+          var arr = str.split("&");
+          orderId = arr[0].split("=")[1];
+          type = arr[1].split("=")[1];
+        }else {
+          orderId = str;
+        }
+        if(type == 5) {
+          wx.redirectTo({
+            url: '/pages/goods/lendCoupon?leadType=1&id=' + orderId + '&type=' + type,
+          })
+        }else {
+          wx.redirectTo({
+            url: '/pages/goods/lendTheGoods?leadType=1&id='+orderId + '&type=' + type,
+          })
+        }
+       
       },
       fail: (res) => {
         wx.showToast({

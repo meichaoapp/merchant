@@ -61,7 +61,7 @@ module.exports = {
     QueryMyCouponDetail: NewApiRootUrl + "discountCoupon/merchant/myDetail", //我的优惠券详情
     QuerysalesVolume: NewApiRootUrl + "discountCoupon/merchant/salesVolume", //我的优惠券销量
     LeadCoupon: NewApiRootUrl + "discountCoupon/merchant/leadOrder", //优惠券领货
-
+    QueryCouponDetail: NewApiRootUrl + "merchant/discountCoupon/details", //二维码扫描结果
 
   
 };
