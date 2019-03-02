@@ -24,8 +24,9 @@
     "pages/thirdPage/thirdPage",
     "pages/announcement/announcement",
     "pages/auth/login/login",
-    "pages/auth/mobileBind/normalBind",
-    "pages/auth/mobileBind/mobileBind"
+    "pages/auth/mobileBind/mobileBind",
+    "pages/auth/mobileBind/bindSuccess",
+    "pages/auth/mobileBind/getCode"
 
   ],
   "permission": {
