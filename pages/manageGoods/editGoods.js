@@ -24,8 +24,8 @@ Page({
     qiniu: '',
     showError: false,
     status:1,
-    selectedClassify:0,
-    selectedSell: 0,
+    classifyIndex:0,
+    sellIndex: 0,
   },
 
   /**
@@ -52,19 +52,17 @@ Page({
   },
 
   getClassifysOption:function(e) {
-    console.log(e.detail)
     let _this = this;
     _this.setData({
-      selectedClassify: e.detail.id,
+      classifyIndex: e.detail.value,
     });
 
   },
 
   getSellListOption: function (e) {
-    console.log(e.detail)
     let _this = this;
     _this.setData({
-      selectedSell: e.detail.id,
+      sellIndex: e.detail.value,
     });
   },
 
@@ -89,11 +87,14 @@ Page({
         var sellList = [];
         var sList = res.data.sellList;
         if(sList) {
+          sellList.push({
+            id: -1,
+            text: "请选择",
+          });
           sList.forEach(t => {
              var l = {
                id: t.code,
                text: t.name, 
-               selected: false,
              };
              sellList.push(l);
           });
@@ -101,11 +102,14 @@ Page({
         var classifys = [];
         var cList = res.data.classifys;
         if (cList) {
+          classifys.push({
+            id: -1,
+            text: "请选择",
+          });
           cList.forEach(t => {
             var l = {
               id: t.code,
               text: t.name,
-              selected: false,
             };
             classifys.push(l);
           });
@@ -143,11 +147,35 @@ Page({
             var imgs = [];
             if(null != icon && icon != "") {icons.push(icon);}
             if (null != pics && pics.length > 0) { imgs = pics; }
+            var classifyIndex = 0;
+            var sellIndex = 0;
+           //console.log("detail.classify)-------" + detail.classify);
+            if (null != detail.classify) {
+              var classifys = _this.data.classifys;
+              //console.log("classifys-------" + JSON.stringify(classifys));
+              for (var i = 0; i < classifys.length; i++) {
+                if (classifys[i].id == detail.classify ) {
+                  classifyIndex = i;
+                  break;
+                }
+              }
+            }
+            if (null != detail.sellType) {
+              var sellList = _this.data.sellList;
+              for (var i = 0; i < sellList.length; i++) {
+                if (sellList[i].id == detail.sellType) {
+                  sellIndex = i;
+                  break;
+                }
+              }
+            }
             _this.setData({
               detail: detail,
               icons: icons,
               imgs: imgs,
               status: detail.status,
+              classifyIndex: classifyIndex,
+              sellIndex: sellIndex,
             });
           }
         }
@@ -186,6 +214,27 @@ Page({
     }else {
       e.detail.value.pics = _this.data.imgs.join(",");
     }
+
+    var classify = null;
+    var sellType = null;
+
+    if (_this.data.sellIndex == 0 &&  _this.data.classifyIndex == 0) {
+      wx.showToast({
+        icon: "none",
+        title: "首页展示位置和分类必须选择一个",
+      })
+      return;
+    }else {
+      if (_this.data.sellIndex != 0) {
+        sellType = _this.data.classifys[_this.data.classifyIndex].id;
+      }
+      if (_this.data.classifyIndex != 0) {
+        classify = _this.data.classifys[_this.data.classifyIndex].id;
+      }
+    }
+
+    e.detail.value.classify = classify;
+    e.detail.value.sellType = sellType;
 
     var formData = e.detail.value;
     console.log("formData-------------" + JSON.stringify(formData));

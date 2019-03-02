@@ -38,11 +38,21 @@
         <view class="state_box bg_ff">
             <view class="single_line flex flex_center">
                 <text class="C666 font15 label">首页展示位置</text>
-                <Select prop-array='{{sellList}}' bind:getOptions='getSellListOption' my-class="gray_bg" pink="pink"></Select>
+                   <picker bindchange="getClassifysOption" 
+                       value="{{classifys[classifyIndex].text}}" range="{{classifys}}" range-key="{{'text'}}">
+                      <view class="picker">
+                        {{classifys[classifyIndex].text}}
+                      </view>
+                  </picker>
             </view>
             <view class="single_line flex flex_center">
                 <text class="C666 font15 label">分类</text>
-                <Select prop-array='{{classifys}}' bind:getOptions='getClassifysOption'></Select>
+                 <picker bindchange="getSellListOption" 
+                       value="{{sellList[sellIndex].text}}" range="{{sellList}}" range-key="{{'text'}}">
+                      <view class="picker">
+                        {{sellList[sellIndex].text}}
+                      </view>
+                  </picker>
             </view>
             <view class="single_line flex flex_center">
                 <text class="C666 font15 label">商品状态</text>
