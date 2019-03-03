@@ -132,6 +132,9 @@ Page({
           count: 0,
         });
         _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
+        wx.redirectTo({
+          url: '/pages/goods/noneOrder',
+        })
       }
     });
   },

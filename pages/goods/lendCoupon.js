@@ -73,6 +73,9 @@ Page({
             icon:"none",
             title: res.info,
           })
+          wx.redirectTo({
+            url: '/pages/goods/noneOrder',
+          })
         }
       });
   },

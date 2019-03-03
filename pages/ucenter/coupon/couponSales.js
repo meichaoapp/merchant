@@ -109,6 +109,13 @@ Page({
     }
     util.request(api.QuerysalesVolume, data, "POST").then(function (res) {
       if (res.rs === 1) {
+        _this.setData(
+          {
+            useNum: res.data.useNum,
+            sumNum: res.data.sumNum,
+            unusedNum: res.data.unusedNum,
+          }
+        );
         var list = res.data.list;
 
         var totalPage = res.data.totalPage;
