@@ -75,7 +75,7 @@
             </view>
             <view class="single_line flex" >
                 <text class="C666 font15 label">描述</text>
-                <textarea placeholder="描述" name="content"  value='{{detail.content}}'  placeholder-class="placeholdText"/>
+                <textarea placeholder="一句宣传语" name="content"  value='{{detail.content}}'  placeholder-class="placeholdText"/>
             </view>
         </view>
 
