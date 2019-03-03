@@ -47,9 +47,9 @@
             </view>
         </block>
     </view>
-    <view class="fixed_bottom flex flex_center flex_just">
+    <view class="fixed_bottom flex flex_center flex_just" bindtap='toEditPage'>
       <image class="icon_add" src="/static/images/icon_add.png"></image>
-      <view class="font15 Cfff" data-id='0' bindtap='toEditPage'>添加商品</view>
+      <view class="font15 Cfff" data-id='0' >添加商品</view>
     </view>
   </view>
  
