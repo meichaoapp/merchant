@@ -85,8 +85,8 @@
               <view class="issues-photo-item" wx:if="{{uploading0}}">
                 <image class="remind-img" src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant/loading.gif"></image>
               </view>
-              <view class="issues-photo-item" wx:for="{{icons}}" wx:key="*this">
-                <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap="previewPhoto"></image>
+              <view class="issues-photo-item" wx:for="{{icons}}" wx:key="*this" >
+                <image src="{{item}}" mode="aspectFill" data-index="{{index}}" data-tag="0" bindtap="previewPhoto" bindlongpress="removePhoto"></image>
               </view>
               <view class="issues-photo-item add-photo" wx:if="{{!uploading && icons.length < 1}}" data-tag='0'  bindtap="choosePhoto" >
                  <image src="/static/images/add.png"></image>
@@ -103,7 +103,7 @@
                 <image class="remind-img" src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant/loading.gif"></image>
               </view>
               <view class="issues-photo-item" wx:for="{{imgs}}" wx:key="*this">
-                <image src="{{item}}" mode="aspectFill" data-index="{{index}}" bindtap="previewPhoto"></image>
+                <image src="{{item}}" mode="aspectFill" data-index="{{index}}" data-tag="1" bindtap="previewPhoto" bindlongpress="removePhoto"></image>
               </view>
               <view class="issues-photo-item add-photo" wx:if="{{!uploading && imgs.length < 5}}" data-tag='1' bindtap="choosePhoto">
                  <image src="/static/images/add.png"></image>

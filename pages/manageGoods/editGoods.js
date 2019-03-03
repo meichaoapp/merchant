@@ -331,29 +331,52 @@ Page({
 
     return true;
   },
-
   //移除图片
   removePhoto:function(e) {
     var _this = this;
     var tag = e.currentTarget.dataset.tag;
-    var index = e.currentTarget.dataset.tag;
+    var index = e.currentTarget.dataset.index;
     if(tag == 0) {
-       _this.deleteArryByIndex(_this.data.icons, index);
+       _this.deleteArryByIndex(_this.data.icons, index,tag);
     }else {
-      _this.deleteArryByIndex(_this.data.imgs, index);
+      _this.deleteArryByIndex(_this.data.imgs, index,tag);
     }
   },
 
-  deleteArryByIndex: function (arr, index) {
-    var _arr = [];
-    if(arr) {
-      for(var i = 0 ; i < arr.length; i++) {
-        if(i != index) {
-          _arr.push(arr[i]);
-        }
-      }
-    }
-    return _arr;
+  deleteArryByIndex: function (arr, index,tag) {
+    let that = this;
+      wx.showModal({
+          title: '提示',
+          content: '确定要删除此图片吗？',
+          success: function (res) {
+              if (res.confirm) {
+                  console.log('点击确定了');
+                  arr.splice(index, 1);
+              } else if (res.cancel) {
+                  console.log('点击取消了');
+                  return false;
+              }
+              if(tag==0){
+                  that.setData({
+                      icons:arr
+                  })
+              }else{
+                  that.setData({
+                      imgs:arr
+                  })
+              }
+
+          }
+      })
+    // var _arr = [];
+    // if(arr) {
+    //   for(var i = 0 ; i < arr.length; i++) {
+    //     if(i != index) {
+    //       _arr.push(arr[i]);
+    //     }
+    //   }
+    // }
+    // return _arr;
   },
 
   //选择图片
