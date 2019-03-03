@@ -219,3 +219,16 @@ textarea{
 .submit-btn:active{
     opacity: .7;
 }
+picker{
+    flex:1;
+    background: #F6F6F6;
+    border: 1px solid #EFEFEF;
+    border-radius: 6rpx;
+    height:51rpx;
+    line-height:51rpx;
+    padding:0 16rpx;
+}
+.com-sImg{
+    width: 21rpx;
+    height: 27rpx;
+}

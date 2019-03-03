@@ -38,20 +38,24 @@
         <view class="state_box bg_ff">
             <view class="single_line flex flex_center">
                 <text class="C666 font15 label">首页展示位置</text>
-                   <picker bindchange="getClassifysOption" 
+                   <picker bindchange="getClassifysOption"
                        value="{{classifys[classifyIndex].text}}" range="{{classifys}}" range-key="{{'text'}}">
-                      <view class="picker">
-                        {{classifys[classifyIndex].text}}
+                      <view class="picker flex flex_between flex_center">
+                          <view>{{classifys[classifyIndex].text}}</view>
+                          <image src='/static/images/down.png'  class='com-sImg'></image>
                       </view>
+
                   </picker>
             </view>
             <view class="single_line flex flex_center">
                 <text class="C666 font15 label">分类</text>
                  <picker bindchange="getSellListOption" 
                        value="{{sellList[sellIndex].text}}" range="{{sellList}}" range-key="{{'text'}}">
-                      <view class="picker">
-                        {{sellList[sellIndex].text}}
+                      <view class="picker flex flex_between flex_center">
+                        <view>{{sellList[sellIndex].text}}</view>
+                        <image src='/static/images/down.png'  class='com-sImg'></image>
                       </view>
+
                   </picker>
             </view>
             <view class="single_line flex flex_center">
