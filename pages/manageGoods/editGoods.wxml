@@ -81,7 +81,7 @@
 
         <view wx:if="{{upload}}" class="detail_img bg_ff">
             <view class="C666 font15"  style="margin-bottom:12rpx;">图标</view>
-            <view class="issues-img-panel {{(showError&&uploading)?'error':''}}">
+            <view class="issues-img-panel {{(showError&&uploading)?'error':''}} center">
               <view class="issues-photo-item" wx:if="{{uploading0}}">
                 <image class="remind-img" src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant/loading.gif"></image>
               </view>
@@ -98,7 +98,7 @@
 
          <view wx:if="{{upload}}" class="detail_img bg_ff">
             <view class="C666 font15"  style="margin-bottom:12rpx;">详情图片</view>
-            <view class="issues-img-panel {{(showError&&uploading)?'error':''}}">
+            <view class="issues-img-panel {{(showError&&uploading)?'error':''}} {{imgs.length>0?'no_center':'center'}}">
               <view class="issues-photo-item" wx:if="{{uploading}}">
                 <image class="remind-img" src="https://wxpic.iliangpin.cn/meichao/mini-program/merchant/loading.gif"></image>
               </view>

@@ -229,3 +229,9 @@ picker{
     width: 21rpx;
     height: 27rpx;
 }
+.no_center{
+    justify-content: flex-start;
+}
+.center{
+    justify-content: center;
+}
