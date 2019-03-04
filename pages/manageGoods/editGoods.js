@@ -11,6 +11,7 @@ Page({
    */
   data: {
     id:0, //商品id
+    productId: 0,
     userInfo: {},
     detail:{}, //商品详情
     sellList: [],
@@ -33,10 +34,10 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
-    var id = options.id;
     let userInfo = wx.getStorageSync('userInfo');
     this.setData({
-      id: id,
+      id: options.id,
+      productId: options.productId,
       userInfo: userInfo,
     });
 
@@ -195,6 +196,8 @@ Page({
     if (0 != _this.data.id) { //加载商品信息
       e.detail.value.id = _this.data.detail.id; //产品详情id
       e.detail.value.productId = _this.data.detail.productId; // 团id
+    }else {
+      e.detail.value.productId = _this.data.productId;
     }
     var icon = "";
     if(_this.data.icons.length > 0) { icon = _this.data.icons[0]; }
@@ -226,7 +229,7 @@ Page({
       return;
     }else {
       if (_this.data.sellIndex != 0) {
-        sellType = _this.data.classifys[_this.data.classifyIndex].id;
+        sellType = _this.data.sellList[_this.data.sellIndex].id;
       }
       if (_this.data.classifyIndex != 0) {
         classify = _this.data.classifys[_this.data.classifyIndex].id;
@@ -243,6 +246,9 @@ Page({
       if (res.rs == 1) {
         wx.showToast({
           title: "操作成功!",
+        })
+        wx.navigateBack({
+          delta: 1
         })
       } else {
         wx.showToast({

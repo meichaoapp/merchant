@@ -7,7 +7,7 @@
     <!-- 搜索框 -->
     <view class="search_box bg_ff">
       <input class="input font14"  placeholder="搜索想找的商品"
-             bindinput="bindSearchText" value='{{searchText}}'/>
+             bindinput="bindSearchText" value='{{searchText}}' bindconfirm="queryList"/>
       <image bindtap='queryList' class="icon_search"
              src="https://wxpic.iliangpin.cn/meichao/mini-program/consumer/search.png"></image>
     </view>
@@ -47,9 +47,9 @@
             </view>
         </block>
     </view>
-    <view class="fixed_bottom flex flex_center flex_just" bindtap='toEditPage'>
+    <view class="fixed_bottom flex flex_center flex_just" bindtap='toEditPage' data-id='0'>
       <image class="icon_add" src="/static/images/icon_add.png"></image>
-      <view class="font15 Cfff" data-id='0' >添加商品</view>
+      <view class="font15 Cfff"  >添加商品</view>
     </view>
   </view>
  

@@ -10,6 +10,7 @@ Page({
    */
   data: {
     basePath: app.globalData._base_path, //基础路径
+    productId:0,
     userInfo: {},
     list: [],
     start: 1, // 页码
@@ -30,6 +31,7 @@ Page({
   onLoad: function (options) {
     let userInfo = wx.getStorageSync('userInfo');
     this.setData({
+      productId: options.productId,
       userInfo: userInfo,
     });
     this.queryList();
@@ -103,9 +105,10 @@ Page({
   
   //去编辑页
   toEditPage: function(e) {
+    let _this = this;
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/manageGoods/editGoods?id=' + id,
+      url: '/pages/manageGoods/editGoods?id=' + id + "&productId=" + _this.data.productId,
     })
   },
 

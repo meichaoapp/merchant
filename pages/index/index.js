@@ -242,7 +242,7 @@ Page({
         }, "POST").then(function (res) {
           if (res.rs == 1) {
             wx.navigateTo({
-              url: '/pages/manageGoods/goodsList',
+              url: '/pages/manageGoods/goodsList?productId=' + res.data.productId,
             })
           }else {
              wx.showToast({
