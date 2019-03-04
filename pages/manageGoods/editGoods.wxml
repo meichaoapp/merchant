@@ -7,7 +7,7 @@
             </view>
             <view class="input_box flex flex_center">
                 <text class="C666 font15 label">简介</text>
-                <input type="text" name="tagline"  value='{{detail.tagline}}' placeholder="星级典句宣传，意大利语！"/>
+                <input type="text" name="tagline"  value='{{detail.tagline}}' placeholder="一句宣传语"/>
             </view>
             <view class="input_box flex flex_center">
                 <text class="C666 font15 label">现价</text>
