@@ -25,7 +25,7 @@
             <view class="font12 cfff mt20">{{detail.comments}}</view>
         </view>
         <view class="btn_box flex flex_center flex_just">
-            <view wx:if="{{_this.data.detail.status == 0}}" class="actived" bindtap='leadOrder'>使用</view>
+            <view wx:if="{{detail.status == 0}}" class="actived" bindtap='leadOrder'>使用</view>
             <view wx:else class='disabled'>使用</view>
             <view class='disabled' bindtap='toIndex'>不使用</view>
         </view>
