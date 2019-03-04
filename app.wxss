@@ -607,11 +607,6 @@ view,text{
 .c_f3f{
   color:#FF3F3F
 }
-.ellipsis{
-  overflow:hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
 /*进度条*/
 .progress{
   width:328rpx;
