@@ -64,8 +64,12 @@ Page({
       },
       "POST").then(function (res) {
         if (res.rs === 1) {
+          var detail = res.data.discountCoupon;
+          if (detail.comments.length > 22) {
+            detail.comments = detail.comments.substring(0,22) + "...";
+          }
           that.setData({
-            detail: res.data.discountCoupon,
+            detail: detail,
           });
           WxParse.wxParse('goodsDetail', 'html', res.data.discountCoupon.content, that);
         }else {
