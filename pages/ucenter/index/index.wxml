@@ -83,6 +83,8 @@
       </block>
         
     </view>
+     <!--版本号-->
+     <view class='version'>{{appVersion}}</view>
     <!--自定义弹框组件对应的遮罩层-->
     <view class='mask' wx:if="{{showModal||showModal2}}" bindtap="closeModal" catchtouchmove="return">
     </view>

@@ -178,7 +178,6 @@ Page({
       };
       wecache.put(pointKey, userLocation, -1);
     });
-    _this.refresh(); // 加载行程信息
   },
 
   /**

@@ -12,6 +12,7 @@ Page({
         list: [],// 优惠券列表
         latitude: 0.00,
         longitude: 0.00,
+        appVersion:"0.0.1",
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -19,6 +20,7 @@ Page({
 
       this.setData({
         userInfo: userInfo,
+        appVersion: app.globalData._version
       });
         this.queryGifts();
         this.queryMyCenter();
