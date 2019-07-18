@@ -1,12 +1,9 @@
 {
   "pages": [
-
     "pages/index/index",
     "pages/myShop/myShop",
-
     "pages/manageGoods/goodsList",
     "pages/manageGoods/editGoods",
-
     "pages/ucenter/index/index",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/details/details",
@@ -27,7 +24,6 @@
     "pages/auth/mobileBind/mobileBind",
     "pages/auth/mobileBind/bindSuccess",
     "pages/auth/mobileBind/getCode"
-
   ],
   "permission": {
     "scope.userLocation": {
@@ -74,5 +70,6 @@
       }
     ]
   },
-  "debug": true
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
 }

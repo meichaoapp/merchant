@@ -92,6 +92,7 @@ Page({
         var str = res.result;
         var orderId = 0;
         var type = 0;
+        console.log("--------------------" + str);
         if (str.indexOf("type") != -1) {
           var arr = str.split("&");
           orderId = arr[0].split("=")[1];
@@ -99,6 +100,7 @@ Page({
         }else {
           orderId = str;
         }
+        console.log("--------------------" + type);
         if(type == 5) {
           wx.redirectTo({
             url: '/pages/goods/lendCoupon?leadType=1&id=' + orderId + '&type=' + type,

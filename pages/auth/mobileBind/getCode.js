@@ -113,8 +113,7 @@ Page({
         })
         return;
       }
-      var exp = new RegExp("^0?(13|15|18|14)[0-9]{9}$");
-      if (!exp.test(_this.data.phone)) {
+      if (_this.data.phone.charAt(0) != "1") {
         _this.setData({
           count: 0,
         });

@@ -11,6 +11,8 @@
 	"libVersion": "2.6.1",
 	"appid": "wxf47550204d739fda",
 	"projectname": "wx-mall-merchant",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
